@@ -3,20 +3,41 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  /* animation: App-logo-spin infinite 20s linear; */
+  height: 10vmin;
   pointer-events: none;
+  
+}
+
+.background-img {
+  height: 100%;
+  width: 100%;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #fdb600;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  align-items: space-between;
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.signup-in-btn {
+  height: 30px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: medium;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.signup-in-btn:hover {
+  background-color: #fdb600
+
 }
 
 .App-link {
