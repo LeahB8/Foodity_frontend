@@ -16,7 +16,7 @@ export function validate() {
 }
 
 export function createUser(username, password) {
-  return fetch(baseUrl + "/users", {
+  return fetch("http://localhost:3001/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

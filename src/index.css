@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.background-img {
+  background-image: url('./images/backgroundImage.jpg');
+  color: #fdb600;
+  min-height: 100vh;
+  background-size: cover;
+}
+
+.welcome-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  max-width: 50%;
+}
+
+.MuiPaper-root {
+  color: #fdb600 !important;
+}
+
+.MuiAppBar-colorPrimary {
+  background-color: #fdb600 !important;
+}
+
+.navbar-link {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: medium;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  justify-content: flex-end;
+  align-items: flex-end;
+  letter-spacing: 2.5px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
