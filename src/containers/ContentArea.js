@@ -7,13 +7,16 @@ import SignInForm from "../pages/SignInForm";
 import SignUpForm from "../pages/SignUpForm";
 import WelcomePage from "../pages/WelcomePage";
 import UserProfile from "../pages/UserProfile";
+import UserBookings from "../pages/UserBookings";
+
 
 export default class ContentArea extends React.Component {
 
   render() {
     const {
       signinAndSetToken,
-      usersName,
+      users_name,
+      username,
       user,
       userBookings,
       userWishlists,
@@ -46,8 +49,23 @@ export default class ContentArea extends React.Component {
                 {...props}
                 key={user.id}
                 user={user}
-                usersName={usersName}
-              />
+                users_name={users_name}
+                username={username}
+
+              /> )}
+            />
+              <Route
+              exact
+              path="/bookings"
+              component={props => (
+                <UserBookings
+                  {...props}
+                  key={user.id}
+                  user={user}
+                  users_name={users_name}
+                  username={username}
+                  userBookings={userBookings}
+                />
             )}
           />
         </Switch>

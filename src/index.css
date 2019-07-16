@@ -53,3 +53,8 @@ code {
   border: none;
   text-decoration: none;
 }
+
+.makeStyles-root-1 {
+  width: 200px !important;
+  margin: 10px;
+}

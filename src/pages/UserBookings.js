@@ -18,8 +18,10 @@ export default class UserProfile extends React.Component {
     return (
       <div>
         <h1>
-          <strong>Welcome back, {user.username}</strong>
+          <strong>{user.username}'s Bookings</strong>
         </h1>
+
+
       </div>
     );
   }

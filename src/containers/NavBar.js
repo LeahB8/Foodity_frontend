@@ -41,10 +41,17 @@ export default function NavBar(props) {
   const sessionHeader = () => {
       return props.loggedIn ? 
         ( <div>
-          <Link onClick={props.signout} className="Homepage-link" to="/">
-            Sign Out
-          </Link>
-          </div> )
+            <div className="navbar-link">
+                <Link onClick={props.signout} className="Homepage-link" to="/">
+                    Sign Out
+                </Link>
+            </div>
+            <div className="navbar-link">
+                <Link className="Homepage-link" to="/bookings">
+                    My Bookings
+                </Link>
+            </div> 
+          </div>)
        : (<div>
           <div className="navbar-link">
            <Link className="Homepage-link" to="/signin">
@@ -69,19 +76,14 @@ export default function NavBar(props) {
                     
                     <InputBase
                         className={classes.input}
-                        placeholder="Search food"
-                        // inputProps={{ 'aria-label': 'Search Google Maps' }}
+                        placeholder="Search Food"
                     />
                     <IconButton className={classes.iconButton} aria-label="Search">
                         <SearchIcon />
                     </IconButton>
-                    <Divider className={classes.divider} />
                 </Paper>
 
                 <Paper className={classes.root}>
-                    <IconButton className={classes.iconButton} aria-label="Menu">
-                        <MenuIcon />
-                    </IconButton>
                     <InputBase
                         className={classes.input}
                         placeholder="Search Google Maps"
