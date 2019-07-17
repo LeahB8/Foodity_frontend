@@ -12,14 +12,20 @@ class MapBox extends React.Component {
     }
   };
 
+  handleChange = () => {
+    this.setState({ ...this.state.viewport, latitude: this.props.coordinates.lat, longitude: this.props.coordinates.long })
+  }
+
   render() {
     return (
-        <div>
-            <ReactMapGL
-                {...this.state.viewport}
-                onViewportChange={viewport => this.setState({ viewport })}
-            />
-        </div>
+      <div>
+        <ReactMapGL
+          onViewportChange={this.handleChange}
+          mapboxApiAccessToken={
+            "pk.eyJ1IjoibGVhaGI4IiwiYSI6ImNqeTc3aWxlNjBvMTgzY2xlM2F6Z2tvY3kifQ.Ea4H7mlhHzSaS47_oNYKGA"
+          }
+        />
+      </div>
     );
   }
 }

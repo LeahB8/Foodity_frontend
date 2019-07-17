@@ -2,9 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { fetchUserInfo } from "../services/api";
 import "../App.css";
-import BookingCard from "../components/BookingCard";
+import RestaurantCard from '../components/RestaurantCard'
 
-export default class UserBookings extends React.Component {
+
+export default class UserWishlists extends React.Component {
   render() {
     const {
       users_name,
@@ -19,9 +20,10 @@ export default class UserBookings extends React.Component {
     return (
       <div>
         <h1>
-          <strong>{user.username}'s Bookings</strong>
+          <strong>{user.username}'s Wishlists</strong>
         </h1>
-        <BookingCard />
+        <RestaurantCard />
+
       </div>
     );
   }

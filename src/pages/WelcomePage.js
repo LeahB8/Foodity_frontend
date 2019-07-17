@@ -5,9 +5,11 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import HomeComponent from "../components/HomeComponent";
+import LocationSearchComponent from "../components/LocationSearchComponent";
 import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
+import RestaurantList from '../components/RestaurantList'
+
 
 const useStyles = makeStyles({
   card: {
@@ -26,11 +28,12 @@ const useStyles = makeStyles({
   }
 });
 
-export default function WelcomePage() {
+export default function WelcomePage(props) {
   const classes = useStyles();
 
   return (
-    <div className="welcome-card">
+      <div>
+    {/* <div className="welcome-card">
       <Card className={classes.card}>
         <CardContent>
           <Typography variant="h3" component="h3" color="#fdb600">
@@ -42,10 +45,21 @@ export default function WelcomePage() {
             Discover all of the hidden gems at home and abroad.
           </Typography>
         </CardContent>
-      </Card>
-      <HomeComponent />
-      <MapBox />
-      <SearchComponent />
+      </Card> */}
+      {/* <MapBox
+        changeCoordinatesState={props.changeCoordinatesState}
+        coordinates={props.coordinates}
+      /> */}
+      <SearchComponent
+        changeCoordinatesState={props.changeCoordinatesState}
+        coordinates={props.coordinates}
+        populateListWithData={props.populateListWithData}
+      />
+      <RestaurantList  restaurantData={props.restaurantData}/>
+      {/* <LocationSearchComponent
+        changeCoordinatesState={props.changeCoordinatesState}
+        coordinates={props.coordinates}
+      /> */}
     </div>
   );
 }

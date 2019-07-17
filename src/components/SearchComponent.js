@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { fetchRestaurantsByCity } from '../services/api'
+
  
 class SearchComponent extends Component {
   
  handleSubmit = (e) => {
      e.preventDefault()
-
+     fetchRestaurantsByCity(e.target.city.value)
+        .then(data => this.props.populateListWithData(data))
  }
-
 
   render() {
 
@@ -142,7 +144,7 @@ class SearchComponent extends Component {
                 <select name="city">
                 <option>Select City</option>
                     {cities.map(city => (
-                        <option value={city.id}>{city.name}</option>
+                        <option name="city" value={city.id}>{city.name}</option>
                     ))}
                 </select>
                 <button type="submit">Select</button>

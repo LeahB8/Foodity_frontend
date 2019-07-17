@@ -23,8 +23,26 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.5;
+  /* opacity: 0.5; */
   max-width: 50%;
+}
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-card {
+  margin-top: 20px;
+  background-color: white;
+  color: fdb600;
+  /* opacity: 0.5; */
+  width: 30vh;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .MuiPaper-root {
@@ -35,7 +53,19 @@ code {
   background-color: #fdb600 !important;
 }
 
-.navbar-link {
+.MuiButton-containedPrimary {
+  background-color: #1F2449 !important;
+
+}
+
+.MuiButton-label {
+  color: #fdb600 !important;
+  text-decoration: none !important;
+}
+
+
+
+/* .navbar-link {
   width: 100px;
   height: 40px;
   background-color: white;
@@ -52,7 +82,7 @@ code {
   outline: none;
   border: none;
   text-decoration: none;
-}
+} */
 
 .makeStyles-root-1 {
   width: 200px !important;

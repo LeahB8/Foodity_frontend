@@ -36,6 +36,7 @@ class App extends Component {
     }
   }
 
+
   //----------------------- signin and signout -------------------//
 
   signinAndSetToken = userObj => {
@@ -47,7 +48,7 @@ class App extends Component {
       userWishlists: [...userObj.user_wishlists],
       userFavourites: [...userObj.user_favourites],
       userReviews: [...userObj.user_reviews],
-      loggedIn: true
+      loggedIn: true,
     });
     this.props.history.push("/profile");
     localStorage.setItem("token", userObj.token);
@@ -57,7 +58,7 @@ class App extends Component {
     this.setState({ user: {}, username: "", loggedIn: false });
     localStorage.removeItem("token");
   };
-  
+
 
   //----------------------- render -------------------//
 
@@ -70,7 +71,7 @@ class App extends Component {
       userWishlists,
       userFavourites,
       userReviews,
-      loggedIn
+      loggedIn,
     } = this.state;
 
     return (
@@ -91,6 +92,7 @@ class App extends Component {
           userReviews={userReviews}
           loggedIn={loggedIn}
           signinAndSetToken={this.signinAndSetToken}
+          changeCoordinatesState={this.changeCoordinatesState}
         />
       </div>
     );

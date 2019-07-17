@@ -1,6 +1,12 @@
 import React from "react";
 import "../App.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  withRouter
+} from "react-router-dom";
 import { postUserInfoToServer } from "../services/api";
 
 import SignInForm from "../pages/SignInForm";
@@ -8,9 +14,32 @@ import SignUpForm from "../pages/SignUpForm";
 import WelcomePage from "../pages/WelcomePage";
 import UserProfile from "../pages/UserProfile";
 import UserBookings from "../pages/UserBookings";
+import UserWishlists from "../pages/UserWishlists";
+import UserFavourites from "../pages/UserFavourites";
 
 
-export default class ContentArea extends React.Component {
+class ContentArea extends React.Component {
+
+    state = {
+        restaurantData: [],
+        coordinates: {
+            long: '',
+            lat: ''
+          }
+    }
+
+
+    changeCoordinatesState = (event) => {
+        this.setState({ coordinates: {
+          long: event.coordinates.lng,
+          lat: event.coordinates.lat
+        }})
+      }
+
+      populateListWithData = (data) => {
+        this.setState({ restaurantData: data })
+      }
+
 
   render() {
     const {
@@ -24,10 +53,21 @@ export default class ContentArea extends React.Component {
       userReviews
     } = this.props;
 
+    const { coordinates, restaurantData } = this.state
+
     return (
       <div className="background-img">
         <Switch>
-          <Route exact path="/" component={WelcomePage} />
+          <Route
+            exact
+            path="/"
+            component={props => (
+            <WelcomePage {...props} coordinates={coordinates} 
+            changeCoordinatesState={this.changeCoordinatesState}
+            restaurantData={restaurantData}
+            populateListWithData={this.populateListWithData}
+            />)}
+          />
 
           <Route
             exact
@@ -51,25 +91,60 @@ export default class ContentArea extends React.Component {
                 user={user}
                 users_name={users_name}
                 username={username}
+                changeCoordinatesState={this.changeCoordinatesState}
+                coordinates={coordinates}
+                restaurantData={restaurantData}
+                populateListWithData={this.populateListWithData}
 
-              /> )}
-            />
-              <Route
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/bookings"
+            component={props => (
+              <UserBookings
+                {...props}
+                key={user.id}
+                user={user}
+                users_name={users_name}
+                username={username}
+                userBookings={userBookings}
+              />
+            )}
+          />
+          <Route
               exact
-              path="/bookings"
+              path="/wishlists"
               component={props => (
-                <UserBookings
+                <UserWishlists
                   {...props}
                   key={user.id}
                   user={user}
                   users_name={users_name}
                   username={username}
-                  userBookings={userBookings}
+                  userWishlists={userWishlists}
                 />
-            )}
-          />
+              )}
+              />
+              <Route
+              exact
+              path="/favourites"
+              component={props => (
+                <UserFavourites
+                  {...props}
+                  key={user.id}
+                  user={user}
+                  users_name={users_name}
+                  username={username}
+                  userFavourites={userFavourites}
+                />
+              )}
+              />
         </Switch>
       </div>
     );
   }
 }
+
+export default withRouter(ContentArea);

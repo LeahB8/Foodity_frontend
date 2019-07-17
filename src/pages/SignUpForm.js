@@ -27,9 +27,9 @@ export default class SignUpForm extends Component {
     return (
       <div className="signup-container">
       <div className="signup-card" >
+        <form onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
 
-        <form onSubmit={handleSubmit}>
             <TextField
                 label="Choose a Username"
                 margin="normal"

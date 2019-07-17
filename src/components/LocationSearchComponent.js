@@ -5,15 +5,16 @@ import { GoogleComponent } from 'react-google-location'
  
 const API_KEY = 'AIzaSyBCBHPFLi3Obw7a2iizCdlge2sfzNG_ryE'
  
-class HomeComponent extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      place: null,
-    };
-  }
+class LocationSearchComponent extends Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       place: null,
+//     };
+//   }
  
   render() {
+      const { changeCoordinatesState } = this.props
     return (
       <div >
          <GoogleComponent
@@ -23,7 +24,8 @@ class HomeComponent extends Component {
             coordinates={true}
             locationBoxStyle={'custom-style'}
             locationListStyle={'custom-style-list'}
-            onChange={(e) => { this.setState({ place: e }) }} 
+            onChange={(e) => changeCoordinatesState(e)}
+            // onChange={(e) => { this.setState({ place: e }) }} 
           />
       </div>
  
@@ -32,5 +34,5 @@ class HomeComponent extends Component {
 }
  
  
-export default HomeComponent;
+export default LocationSearchComponent;
  

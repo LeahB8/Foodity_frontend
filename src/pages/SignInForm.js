@@ -31,9 +31,11 @@ export default class SignInForm extends React.Component {
     const { handleChange, handleSubmit } = this;
 
     return (
-      <div>
-        <h3>Sign In</h3>
+    <div className="signup-container">
+      <div className="signup-card">
         <form onSubmit={handleSubmit}>
+        <h3>Sign In</h3>
+
           <TextField
             id="usernameInput"
             label="Username"
@@ -58,6 +60,7 @@ export default class SignInForm extends React.Component {
             SUBMIT
           </Button>
         </form>
+      </div>
       </div>
     );
   }
