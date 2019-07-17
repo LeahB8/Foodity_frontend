@@ -30,15 +30,21 @@ class ContentArea extends React.Component {
 
 
     changeCoordinatesState = (event) => {
-        this.setState({ coordinates: {
-          long: event.coordinates.lng,
-          lat: event.coordinates.lat
+        this.setState({ 
+            coordinates: {
+                long: event.coordinates.lng,
+                lat: event.coordinates.lat
         }})
       }
 
       populateListWithData = (data) => {
-        this.setState({ restaurantData: data })
+          debugger
+        this.setState({ restaurantData: data.restaurants })
       }
+
+    //   componentDidUpdate(){
+    //     this.populateListWithData()
+    //   }
 
 
   render() {

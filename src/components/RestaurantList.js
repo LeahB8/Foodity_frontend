@@ -11,15 +11,15 @@ class RestaurantList extends Component {
     return (
       <div >
        <h2>Restaurants</h2>
-      {restaurantData.map(restaurant => (
-          <div>
-                <h3>{restaurant.name}</h3>
-                <p>{restaurant.cuisines}</p>
-                <p>Average cost for two: {restaurant.currency}{restaurant.average_cost_for_two}</p>
-                <p>Address: {restaurant.location.address}</p>
-
-          </div>
-      ))}
+            {restaurantData.map(single => (
+            <div>
+                <h3>{single.restaurant.name}</h3>
+                <p>{single.restaurant.cuisines}</p>
+                <p>{single.restaurant.establishment}</p>
+                <p>Average cost for two: {single.restaurant.currency}{single.restaurant.average_cost_for_two}</p>
+                {/* <p>Address: {single.restaurant.location.address}</p> */}
+             </div>
+            ))}
       </div>
  
     )
@@ -27,12 +27,3 @@ class RestaurantList extends Component {
 }
  
 export default RestaurantList;
-
-
-
-
-
-
-
-
- 

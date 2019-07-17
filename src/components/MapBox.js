@@ -1,33 +1,49 @@
-import React from "react";
-import ReactMapGL from "react-map-gl";
+import React from 'react';
+import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-google-maps';
+import Geocode from 'react-geocode';
 
-class MapBox extends React.Component {
-  state = {
-    viewport: {
-      width: 400,
-      height: 400,
-      latitude: 37.7577,
-      longitude: -122.4376,
-      zoom: 8
-    }
-  };
+Geocode.setApiKey("AIzaSyBCBHPFLi3Obw7a2iizCdlge2sfzNG_ryE")
+Geocode.enableDebug();
 
-  handleChange = () => {
-    this.setState({ ...this.state.viewport, latitude: this.props.coordinates.lat, longitude: this.props.coordinates.long })
-  }
 
-  render() {
-    return (
-      <div>
-        <ReactMapGL
-          onViewportChange={this.handleChange}
-          mapboxApiAccessToken={
-            "pk.eyJ1IjoibGVhaGI4IiwiYSI6ImNqeTc3aWxlNjBvMTgzY2xlM2F6Z2tvY3kifQ.Ea4H7mlhHzSaS47_oNYKGA"
-          }
-        />
-      </div>
-    );
-  }
+
+export default class MapBox extends React.Component {
+
+componentDidUpdate() {
+	Geocode.fromLatLng(this.props.map.lat, this.props.map.long).then(
+		response => {
+		  const address = response.results[0].formatted_address;
+		  console.log(address);
+		},
+		error => {
+		  console.error(error);
+		}
+	  );
 }
 
-export default MapBox;
+
+
+	render() {
+
+		const GoogleMaps = withScriptjs(withGoogleMap(props => (
+			<GoogleMap
+				defaultCenter = {{ lat: 40.756795, lng: -73.954298 }}
+				defaultZoom = {13}
+			>
+				<Marker position={{ lat: 40.756795, lng: -73.954298 }} draggable={true} />
+			</GoogleMap>
+		)));
+
+		return(
+			<div className="map-box">
+				<GoogleMaps
+					isMarkerShown
+					googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfhDzPrZnE76OKqzMc6W0G7yG0ZJNiHS4&callback=initMap"
+					loadingElement={<div style={{ height: `100%` }} />}
+					containerElement={<div style={{ height: `400px`, width: `400px` }} />}
+					mapElement={<div style={{ height: `100%` }} />}
+				/>
+			</div>
+		)
+	}
+}

@@ -24,26 +24,34 @@ export default class UserProfile extends React.Component {
     } = this.props;
 
     return (
-      <div>
-        <h1>
-          <strong>Welcome back, {user.username}</strong>
+        <>
+         <h1>
+            <strong>Welcome back, {user.username}</strong>
         </h1>
-        {/* <MapBox
-        changeCoordinatesState={changeCoordinatesState}
-        coordinates={coordinates}
-      /> */}
-      <SearchComponent
-        changeCoordinatesState={changeCoordinatesState}
-        coordinates={coordinates}
-        populateListWithData={populateListWithData}
+      <div className="search-restaurants">
+          
+          <div>
+               
+                <MapBox
+                changeCoordinatesState={changeCoordinatesState}
+                coordinates={coordinates}
+            />
+                <LocationSearchComponent
+                changeCoordinatesState={changeCoordinatesState}
+                coordinates={coordinates}
+            />
+        </div>
+        <div>
+            <SearchComponent
+                changeCoordinatesState={changeCoordinatesState}
+                coordinates={coordinates}
+                populateListWithData={populateListWithData}
 
-      />
-     <RestaurantList restaurantData={restaurantData}/>
-      {/* <LocationSearchComponent
-        changeCoordinatesState={changeCoordinatesState}
-        coordinates={coordinates}
-      /> */}
+            />
+            <RestaurantList restaurantData={restaurantData}/>
+        </div>
       </div>
+      </>
     );
   }
 }

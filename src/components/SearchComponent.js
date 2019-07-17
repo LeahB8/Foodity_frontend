@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { fetchRestaurantsByCity } from '../services/api'
+import Button from "@material-ui/core/Button";
+
 
  
 class SearchComponent extends Component {
@@ -140,14 +142,14 @@ class SearchComponent extends Component {
     return (
       <div >
        <h2>Select Top Cities</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form className="city-select-form" onSubmit={this.handleSubmit}>
                 <select name="city">
                 <option>Select City</option>
                     {cities.map(city => (
                         <option name="city" value={city.id}>{city.name}</option>
                     ))}
                 </select>
-                <button type="submit">Select</button>
+                <Button type="submit">Select</Button>
             </form>
       </div>
  

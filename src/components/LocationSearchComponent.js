@@ -20,12 +20,8 @@ class LocationSearchComponent extends Component {
          <GoogleComponent
             apiKey={API_KEY}
             language={'en'}
-            country={'country:in|country:us'}
             coordinates={true}
-            locationBoxStyle={'custom-style'}
-            locationListStyle={'custom-style-list'}
-            onChange={(e) => changeCoordinatesState(e)}
-            // onChange={(e) => { this.setState({ place: e }) }} 
+            onChange={changeCoordinatesState}
           />
       </div>
  

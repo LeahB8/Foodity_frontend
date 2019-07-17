@@ -32,34 +32,41 @@ export default function WelcomePage(props) {
   const classes = useStyles();
 
   return (
-      <div>
-    {/* <div className="welcome-card">
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography variant="h3" component="h3" color="#fdb600">
-            Welcome to Foodity
-          </Typography>
-          <Typography variant="h5" component="h5" color="#fdb600">
-            Explore the world through food.
-            <br />
-            Discover all of the hidden gems at home and abroad.
-          </Typography>
-        </CardContent>
-      </Card> */}
-      {/* <MapBox
-        changeCoordinatesState={props.changeCoordinatesState}
-        coordinates={props.coordinates}
-      /> */}
-      <SearchComponent
-        changeCoordinatesState={props.changeCoordinatesState}
-        coordinates={props.coordinates}
-        populateListWithData={props.populateListWithData}
-      />
-      <RestaurantList  restaurantData={props.restaurantData}/>
-      {/* <LocationSearchComponent
-        changeCoordinatesState={props.changeCoordinatesState}
-        coordinates={props.coordinates}
-      /> */}
-    </div>
+      <>
+      {/* <div>
+        <Card className={classes.card}>
+            <CardContent>
+            <Typography variant="h3" component="h3" color="#fdb600">
+                Welcome to Foodity
+            </Typography>
+            <Typography variant="h5" component="h5" color="#fdb600">
+                Explore the world through food.
+                <br />
+                Discover all of the hidden gems at home and abroad.
+            </Typography>
+            </CardContent>
+        </Card>
+      </div> */}
+        <div className="search-restaurants">
+            <div>
+                <MapBox
+                    changeCoordinatesState={props.changeCoordinatesState}
+                    coordinates={props.coordinates}
+                />
+                    <LocationSearchComponent
+                    changeCoordinatesState={props.changeCoordinatesState}
+                    coordinates={props.coordinates}
+                />
+            </div>
+            <div>
+                <SearchComponent
+                    changeCoordinatesState={props.changeCoordinatesState}
+                    coordinates={props.coordinates}
+                    populateListWithData={props.populateListWithData}
+                />
+                <RestaurantList  restaurantData={props.restaurantData}/>
+            </div>
+        </div>
+    </>
   );
 }
