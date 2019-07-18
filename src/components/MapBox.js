@@ -2,7 +2,7 @@ import React from 'react';
 import {GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow} from 'react-google-maps';
 import Geocode from 'react-geocode';
 
-Geocode.setApiKey("AIzaSyBCBHPFLi3Obw7a2iizCdlge2sfzNG_ryE")
+Geocode.setApiKey("AIzaSyD4ZvtKE4ETQDErCTAsWrnbrLAzOXWiWgQ")
 Geocode.enableDebug();
 
 

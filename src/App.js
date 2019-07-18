@@ -59,6 +59,10 @@ class App extends Component {
     localStorage.removeItem("token");
   };
 
+    //----------------------- server methods -------------------//
+
+
+  addRestaurantToFavourites
 
   //----------------------- render -------------------//
 

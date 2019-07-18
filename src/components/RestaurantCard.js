@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function RestaurantCard() {
+export default function RestaurantCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -47,14 +47,19 @@ export default function RestaurantCard() {
     setExpanded(!expanded);
   }
 
+  const handleLike = (e) => {
+    //   addRestaurantToFavourites(e.target.value)
+
+  }
+
   return (
     <Card className={classes.card}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="Recipe" className={classes.avatar}>
-            Restaurant
-          </Avatar>
-        }
+        // avatar={
+        //   <Avatar aria-label="Recipe" className={classes.avatar}>
+        //     Restaurant
+        //   </Avatar>
+        // }
         action={
           <IconButton aria-label="Settings">
             <MoreVertIcon />
@@ -69,12 +74,12 @@ export default function RestaurantCard() {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          A lovely restaurant
+          {props.single.restaurant.name}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="Add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon value="props.single.restaurant.id" onClick={handleLike}/>
         </IconButton>
         <IconButton aria-label="Share">
           <ShareIcon />
@@ -92,29 +97,18 @@ export default function RestaurantCard() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
-          </Typography>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-            heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-            browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-            and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-            pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-          <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-            without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-            medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-            again without stirring, until mussels have opened and rice is just tender, 5 to 7
-            minutes more. (Discard any mussels that don’t open.)
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
+          <Typography paragraph>Reviews:</Typography>
+          {props.single.restaurant.all_reviews.reviews.map(review => 
+             <Typography>
+                 review.review.rating
+             </Typography>    
+            // <Typography paragraph>
+            //     review.review_text
+            // </Typography>
+            // <Typography>
+            //     review.review_time_friendly
+            // </Typography>  
+          )}
         </CardContent>
       </Collapse>
     </Card>

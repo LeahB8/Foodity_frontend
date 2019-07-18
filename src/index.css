@@ -15,8 +15,8 @@ code {
 .background-img {
   background-image: url('./images/backgroundImage.jpg');
   color: #fdb600;
-  min-height: 100vh;
-  min-width: 100vh;
+  height: 100vh;
+  width: 100vh;
   background-size: cover;
   margin-top: 0;
 }
@@ -88,7 +88,7 @@ code {
 } */
 
 .makeStyles-root-1 {
-  width: 200px !important;
+  width: 270px !important;
   margin: 10px;
 }
 
