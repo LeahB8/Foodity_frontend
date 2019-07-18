@@ -13,7 +13,8 @@ export default class SignInForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    signin(this.state.username, this.state.password).then(data => {
+    signin(this.state.username, this.state.password)
+    .then(data => {
       if (data.error) {
         alert(data.error);
       } else {

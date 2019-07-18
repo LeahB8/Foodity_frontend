@@ -1,19 +1,29 @@
-import React, { Component } from 'react';
-import { fetchRestaurantsByCity } from '../services/api'
-import RestaurantCard from './RestaurantCard'
+import React, { Component } from "react";
+import { fetchRestaurantsByCity } from "../services/api";
+import RestaurantCard from "./RestaurantCard";
 
- 
 class RestaurantList extends Component {
-  
-
   render() {
-    const { restaurantData } = this.props
+    const {
+      restaurantData,
+      addRestaurantToFavourites,
+      addRestaurantToWishlists,
+      addRestaurantToBookings,
+      user
+    } = this.props;
 
     return (
-      <div className="">
-       <h2>Restaurants</h2>
-            {restaurantData.map(single => (
-            <RestaurantCard single={single}/>
+      <div>
+        <h2>Restaurants</h2>
+        <div className="restaurant-list">
+          {restaurantData.map(single => (
+            <RestaurantCard
+              user={user}
+              single={single}
+              addRestaurantToFavourites={addRestaurantToFavourites}
+              addRestaurantToWishlists={addRestaurantToWishlists}
+              addRestaurantToBookings={addRestaurantToBookings}
+            />
             // <div>
             //     <h3>{single.restaurant.name}</h3>
             //     <p>{single.restaurant.cuisines}</p>
@@ -21,11 +31,11 @@ class RestaurantList extends Component {
             //     <p>Average cost for two: {single.restaurant.currency}{single.restaurant.average_cost_for_two}</p>
             //     <p>Address: {single.restaurant.location.address}</p>
             //  </div>
-            ))}
+          ))}
+        </div>
       </div>
- 
-    )
-  } 
+    );
+  }
 }
- 
+
 export default RestaurantList;

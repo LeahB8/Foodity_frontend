@@ -33,7 +33,8 @@ const useStyles = makeStyles({
     flex: 1
   },
   iconButton: {
-    padding: 10
+    padding: 10,
+    textDecoration: "none"
   },
   divider: {
     width: 1,

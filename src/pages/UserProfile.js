@@ -5,7 +5,7 @@ import "../App.css";
 import LocationSearchComponent from "../components/LocationSearchComponent";
 import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
-import RestaurantList from '../components/RestaurantList'
+import RestaurantList from "../components/RestaurantList";
 
 export default class UserProfile extends React.Component {
   render() {
@@ -20,16 +20,20 @@ export default class UserProfile extends React.Component {
       changeCoordinatesState,
       coordinates,
       restaurantData,
-      populateListWithData
+      populateListWithData,
+      addRestaurantToFavourites,
+      addRestaurantToWishlists,
+      addRestaurantToBookings,
+      loggedIn
     } = this.props;
 
     return (
-        <>
-         <h1>
-            <strong>Welcome back, {user.username}</strong>
+      <>
+        <h1>
+          <strong>Welcome back, {user.username}</strong>
         </h1>
-      <div className="search-restaurants">
-          
+        <div className="search-restaurants">
+          {/*           
           <div>
                
                 <MapBox
@@ -40,17 +44,22 @@ export default class UserProfile extends React.Component {
                 changeCoordinatesState={changeCoordinatesState}
                 coordinates={coordinates}
             />
-        </div>
-        <div>
+        </div> */}
+          <div>
             <SearchComponent
-                changeCoordinatesState={changeCoordinatesState}
-                coordinates={coordinates}
-                populateListWithData={populateListWithData}
-
+              changeCoordinatesState={changeCoordinatesState}
+              coordinates={coordinates}
+              populateListWithData={populateListWithData}
             />
-            <RestaurantList restaurantData={restaurantData}/>
+            <RestaurantList
+              user={user}
+              restaurantData={restaurantData}
+              addRestaurantToFavourites={addRestaurantToFavourites}
+              addRestaurantToWishlists={addRestaurantToWishlists}
+              addRestaurantToBookings={addRestaurantToBookings}
+            />
+          </div>
         </div>
-      </div>
       </>
     );
   }

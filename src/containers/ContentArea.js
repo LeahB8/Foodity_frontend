@@ -17,35 +17,32 @@ import UserBookings from "../pages/UserBookings";
 import UserWishlists from "../pages/UserWishlists";
 import UserFavourites from "../pages/UserFavourites";
 
-
 class ContentArea extends React.Component {
-
-    state = {
-        restaurantData: [],
-        coordinates: {
-            long: '',
-            lat: ''
-          }
+  state = {
+    restaurantData: [],
+    coordinates: {
+      long: "",
+      lat: ""
     }
+  };
 
-
-    changeCoordinatesState = (event) => {
-        this.setState({ 
-            coordinates: {
-                long: event.coordinates.lng,
-                lat: event.coordinates.lat
-        }})
+  changeCoordinatesState = event => {
+    this.setState({
+      coordinates: {
+        long: event.coordinates.lng,
+        lat: event.coordinates.lat
       }
+    });
+  };
 
-      populateListWithData = (data) => {
-          debugger
-        this.setState({ restaurantData: data.restaurants })
-      }
+  populateListWithData = data => {
+    // debugger
+    this.setState({ restaurantData: data.restaurants });
+  };
 
-    //   componentDidUpdate(){
-    //     this.populateListWithData()
-    //   }
-
+  //   componentDidUpdate(){
+  //     this.populateListWithData()
+  //   }
 
   render() {
     const {
@@ -56,23 +53,31 @@ class ContentArea extends React.Component {
       userBookings,
       userWishlists,
       userFavourites,
-      userReviews
+      userReviews,
+      addRestaurantToFavourites,
+      addRestaurantToWishlists,
+      addRestaurantToBookings,
+      loggedIn
     } = this.props;
 
-    const { coordinates, restaurantData } = this.state
+    const { coordinates, restaurantData } = this.state;
 
     return (
-      <div className="background-img">
+      <div>
         <Switch>
           <Route
             exact
             path="/"
             component={props => (
-            <WelcomePage {...props} coordinates={coordinates} 
-            changeCoordinatesState={this.changeCoordinatesState}
-            restaurantData={restaurantData}
-            populateListWithData={this.populateListWithData}
-            />)}
+              <WelcomePage
+                {...props}
+                loggedIn={loggedIn}
+                coordinates={coordinates}
+                changeCoordinatesState={this.changeCoordinatesState}
+                restaurantData={restaurantData}
+                populateListWithData={this.populateListWithData}
+              />
+            )}
           />
 
           <Route
@@ -93,6 +98,7 @@ class ContentArea extends React.Component {
             component={props => (
               <UserProfile
                 {...props}
+                loggedIn={loggedIn}
                 key={user.id}
                 user={user}
                 users_name={users_name}
@@ -101,7 +107,9 @@ class ContentArea extends React.Component {
                 coordinates={coordinates}
                 restaurantData={restaurantData}
                 populateListWithData={this.populateListWithData}
-
+                addRestaurantToFavourites={addRestaurantToFavourites}
+                addRestaurantToWishlists={addRestaurantToWishlists}
+                addRestaurantToBookings={addRestaurantToBookings}
               />
             )}
           />
@@ -120,33 +128,33 @@ class ContentArea extends React.Component {
             )}
           />
           <Route
-              exact
-              path="/wishlists"
-              component={props => (
-                <UserWishlists
-                  {...props}
-                  key={user.id}
-                  user={user}
-                  users_name={users_name}
-                  username={username}
-                  userWishlists={userWishlists}
-                />
-              )}
+            exact
+            path="/wishlists"
+            component={props => (
+              <UserWishlists
+                {...props}
+                key={user.id}
+                user={user}
+                users_name={users_name}
+                username={username}
+                userWishlists={userWishlists}
               />
-              <Route
-              exact
-              path="/favourites"
-              component={props => (
-                <UserFavourites
-                  {...props}
-                  key={user.id}
-                  user={user}
-                  users_name={users_name}
-                  username={username}
-                  userFavourites={userFavourites}
-                />
-              )}
+            )}
+          />
+          <Route
+            exact
+            path="/favourites"
+            component={props => (
+              <UserFavourites
+                {...props}
+                key={user.id}
+                user={user}
+                users_name={users_name}
+                username={username}
+                userFavourites={userFavourites}
               />
+            )}
+          />
         </Switch>
       </div>
     );

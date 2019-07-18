@@ -15,9 +15,9 @@ code {
 .background-img {
   background-image: url('./images/backgroundImage.jpg');
   color: #fdb600;
-  height: 100vh;
-  width: 100vh;
-  background-size: cover;
+  /* height: 100vh;
+  width: 100vh; */
+  background-size: 100% 100%;
   margin-top: 0;
 }
 
@@ -47,10 +47,6 @@ code {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.MuiPaper-root {
-  color: white !important;
-}
-
 .MuiAppBar-colorPrimary {
   background-color: #fdb600 !important;
 }
@@ -64,6 +60,11 @@ code {
   color: white !important;
   text-decoration: none !important;
   font-weight: bold;
+}
+
+.MuiButton-root {
+  background-color: #1F2449 !important;
+  color: white !important;
 }
 
 
@@ -125,4 +126,19 @@ code {
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+}
+
+.restaurant-list {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  align-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.restaurant-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
 }

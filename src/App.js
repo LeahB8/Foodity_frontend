@@ -59,10 +59,33 @@ class App extends Component {
     localStorage.removeItem("token");
   };
 
-    //----------------------- server methods -------------------//
+  //----------------------- server methods -------------------//
 
 
-  addRestaurantToFavourites
+  addRestaurantToFavourites = (favourite) => {
+    fetch('http://localhost:3001/favourites', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(favourite)
+    }).then(resp => resp.json())
+    .then(data => this.setState({ userFavourites: data}))
+  }
+
+  addRestaurantToWishlists = (wishlist) => {
+    fetch('http://localhost:3001/wishlists', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(wishlist)
+    }).then(resp => resp.json())
+  }
+
+  addRestaurantToBookings = (booking) => {
+    fetch('http://localhost:3001/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(booking)
+    }).then(resp => resp.json())
+  }
 
   //----------------------- render -------------------//
 
@@ -97,6 +120,9 @@ class App extends Component {
           loggedIn={loggedIn}
           signinAndSetToken={this.signinAndSetToken}
           changeCoordinatesState={this.changeCoordinatesState}
+          addRestaurantToFavourites={this.addRestaurantToFavourites}
+          addRestaurantToWishlists={this.addRestaurantToWishlists}
+          addRestaurantToBookings={this.addRestaurantToBookings}
         />
       </div>
     );
