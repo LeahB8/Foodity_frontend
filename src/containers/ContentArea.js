@@ -45,7 +45,7 @@ class ContentArea extends React.Component {
         user_id: this.props.user.id,
         restaurant_id: data.id,
       };
-      if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
+      // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
       this.props.addRestaurantToFavourites(favourite)
       .then(alert("Restaurant Favourited"));
   }

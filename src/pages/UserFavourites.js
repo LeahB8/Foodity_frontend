@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { fetchUserInfo } from "../services/api";
 import "../App.css";
-import RestaurantCard from '../components/RestaurantCard'
+import FavouriteCard from '../components/FavouriteCard'
 
 export default class UserFavourites extends React.Component {
   render() {
@@ -10,8 +10,6 @@ export default class UserFavourites extends React.Component {
       users_name,
       user,
       username,
-      userBookings,
-      userWishlists,
       userFavourites,
       userReviews
     } = this.props;
@@ -21,8 +19,14 @@ export default class UserFavourites extends React.Component {
         <h1>
           <strong>{user.username}'s Favourites</strong>
         </h1>
-        {/* <RestaurantCard /> */}
-
+        <div className="restaurant-list">
+        {userFavourites.map(favourite => (
+            <FavouriteCard
+              user={user}
+              favourite={favourite}
+            />
+          ))}
+      </div>
 
       </div>
     );
