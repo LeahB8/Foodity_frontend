@@ -24,7 +24,9 @@ export default class UserProfile extends React.Component {
       addRestaurantToFavourites,
       addRestaurantToWishlists,
       addRestaurantToBookings,
-      loggedIn
+      loggedIn,
+      saveRestaurantToServer,
+      savedRestaurants
     } = this.props;
 
     return (
@@ -52,11 +54,14 @@ export default class UserProfile extends React.Component {
               populateListWithData={populateListWithData}
             />
             <RestaurantList
+              loggedIn={loggedIn}
               user={user}
               restaurantData={restaurantData}
               addRestaurantToFavourites={addRestaurantToFavourites}
               addRestaurantToWishlists={addRestaurantToWishlists}
               addRestaurantToBookings={addRestaurantToBookings}
+              saveRestaurantToServer={saveRestaurantToServer}
+              savedRestaurants={savedRestaurants}
             />
           </div>
         </div>

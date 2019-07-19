@@ -9,7 +9,10 @@ class RestaurantList extends Component {
       addRestaurantToFavourites,
       addRestaurantToWishlists,
       addRestaurantToBookings,
-      user
+      user,
+      loggedIn,
+      saveRestaurantToServer,
+      savedRestaurants
     } = this.props;
 
     return (
@@ -23,14 +26,10 @@ class RestaurantList extends Component {
               addRestaurantToFavourites={addRestaurantToFavourites}
               addRestaurantToWishlists={addRestaurantToWishlists}
               addRestaurantToBookings={addRestaurantToBookings}
+              loggedIn={loggedIn}
+              saveRestaurantToServer={saveRestaurantToServer}
+              savedRestaurants={savedRestaurants}
             />
-            // <div>
-            //     <h3>{single.restaurant.name}</h3>
-            //     <p>{single.restaurant.cuisines}</p>
-            //     <p>{single.restaurant.establishment}</p>
-            //     <p>Average cost for two: {single.restaurant.currency}{single.restaurant.average_cost_for_two}</p>
-            //     <p>Address: {single.restaurant.location.address}</p>
-            //  </div>
           ))}
         </div>
       </div>

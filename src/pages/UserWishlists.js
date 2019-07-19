@@ -22,7 +22,7 @@ export default class UserWishlists extends React.Component {
         <h1>
           <strong>{user.username}'s Wishlists</strong>
         </h1>
-        <RestaurantCard />
+        {/* <RestaurantCard /> */}
 
       </div>
     );

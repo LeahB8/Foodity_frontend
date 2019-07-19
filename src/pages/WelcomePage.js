@@ -8,8 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import LocationSearchComponent from "../components/LocationSearchComponent";
 import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
-import RestaurantList from '../components/RestaurantList'
-
+import RestaurantList from "../components/RestaurantList";
 
 const useStyles = makeStyles({
   card: {
@@ -32,7 +31,7 @@ export default function WelcomePage(props) {
   const classes = useStyles();
 
   return (
-      <>
+    <>
       {/* <div>
         <Card className={classes.card}>
             <CardContent>
@@ -47,8 +46,8 @@ export default function WelcomePage(props) {
             </CardContent>
         </Card>
       </div> */}
-        <div className="search-restaurants">
-            {/* <div>
+      <div className="search-restaurants">
+        {/* <div>
                 <MapBox
                     changeCoordinatesState={props.changeCoordinatesState}
                     coordinates={props.coordinates}
@@ -58,15 +57,18 @@ export default function WelcomePage(props) {
                     coordinates={props.coordinates}
                 />
             </div> */}
-            <div>
-                <SearchComponent
-                    changeCoordinatesState={props.changeCoordinatesState}
-                    coordinates={props.coordinates}
-                    populateListWithData={props.populateListWithData}
-                />
-                <RestaurantList  restaurantData={props.restaurantData}/>
-            </div>
+        <div>
+          <SearchComponent
+            changeCoordinatesState={props.changeCoordinatesState}
+            coordinates={props.coordinates}
+            populateListWithData={props.populateListWithData}
+          />
+          <RestaurantList
+            restaurantData={props.restaurantData}
+            loggedIn={props.loggedIn}
+          />
         </div>
+      </div>
     </>
   );
 }

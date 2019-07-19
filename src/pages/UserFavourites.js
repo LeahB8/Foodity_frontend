@@ -21,7 +21,7 @@ export default class UserFavourites extends React.Component {
         <h1>
           <strong>{user.username}'s Favourites</strong>
         </h1>
-        <RestaurantCard />
+        {/* <RestaurantCard /> */}
 
 
       </div>

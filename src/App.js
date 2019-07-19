@@ -69,6 +69,7 @@ class App extends Component {
       body: JSON.stringify(favourite)
     }).then(resp => resp.json())
     .then(data => this.setState({ userFavourites: data}))
+    
   }
 
   addRestaurantToWishlists = (wishlist) => {

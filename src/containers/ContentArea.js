@@ -20,6 +20,7 @@ import UserFavourites from "../pages/UserFavourites";
 class ContentArea extends React.Component {
   state = {
     restaurantData: [],
+    savedRestaurants: [],
     coordinates: {
       long: "",
       lat: ""
@@ -36,9 +37,31 @@ class ContentArea extends React.Component {
   };
 
   populateListWithData = data => {
-    // debugger
     this.setState({ restaurantData: data.restaurants });
   };
+
+  addFave = (data) => {
+      let favourite = {
+        user_id: this.props.user.id,
+        restaurant_id: data.id,
+      };
+      if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
+      this.props.addRestaurantToFavourites(favourite)
+      .then(alert("Restaurant Favourited"));
+  }
+
+  saveRestaurantToServer = restaurant => {
+    fetch('http://localhost:3001/restaurants', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(restaurant)
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      this.setState({ savedRestaurants: [...this.state.savedRestaurants], data })
+      this.addFave(data)
+    })
+  }
 
   //   componentDidUpdate(){
   //     this.populateListWithData()
@@ -60,7 +83,7 @@ class ContentArea extends React.Component {
       loggedIn
     } = this.props;
 
-    const { coordinates, restaurantData } = this.state;
+    const { coordinates, restaurantData, savedRestaurants } = this.state;
 
     return (
       <div>
@@ -110,6 +133,8 @@ class ContentArea extends React.Component {
                 addRestaurantToFavourites={addRestaurantToFavourites}
                 addRestaurantToWishlists={addRestaurantToWishlists}
                 addRestaurantToBookings={addRestaurantToBookings}
+                saveRestaurantToServer={this.saveRestaurantToServer}
+                savedRestaurants={savedRestaurants}
               />
             )}
           />
@@ -124,6 +149,7 @@ class ContentArea extends React.Component {
                 users_name={users_name}
                 username={username}
                 userBookings={userBookings}
+
               />
             )}
           />

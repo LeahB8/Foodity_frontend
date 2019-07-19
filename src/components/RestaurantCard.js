@@ -50,14 +50,30 @@ export default function RestaurantCard(props) {
   function handleExpandClick() {
     setExpanded(!expanded);
   }
-  function handleLike(id) {
-    let favourite = {
-      user_id: props.user.id,
-      restaurant_id: id
-    };
-    props
-      .addRestaurantToFavourites(favourite)
-      // .then(alert("Restaurant Favourited"));
+
+  function handleLike(restaurant) {
+    if (props.loggedIn) {
+      let restaurantToSave = {
+        name: restaurant.name,
+        address: restaurant.location.address,
+        city: restaurant.location.city,
+        city_id: restaurant.location.city_id,
+        featured_image: restaurant.featured_image,
+        latitude: restaurant.location.latitude,
+        longitude: restaurant.location.longitude,
+        country_id: restaurant.location.country_id,
+        average_cost_for_two: restaurant.average_cost_for_two,
+        currency: restaurant.currency,
+        cuisines: restaurant.cuisines,
+        aggregate_rating: restaurant.user_rating.aggregate_rating,
+        all_reviews_count: restaurant.all_reviews_count,
+        restaurant_id: restaurant.R.res_id
+      };
+      // props.savedRestaurants.filter(restaurant_id !== )
+      props.saveRestaurantToServer(restaurantToSave)
+    } else {
+      alert("Please sign in.");
+    }
   }
 
   return (
@@ -86,7 +102,7 @@ export default function RestaurantCard(props) {
         <IconButton
           name="favourite"
           aria-label="Add to favorites"
-          onClick={() => handleLike(parseInt(props.single.restaurant.id))}
+          onClick={() => handleLike(props.single.restaurant)}
         >
           <FavoriteIcon />
         </IconButton>
