@@ -40,32 +40,43 @@ class ContentArea extends React.Component {
     this.setState({ restaurantData: data.restaurants });
   };
 
-  addFave = (data) => {
-      let favourite = {
-        user_id: this.props.user.id,
-        restaurant_id: data.id,
-      };
-      // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
-      this.props.addRestaurantToFavourites(favourite)
-      .then(alert("Restaurant Favourited"));
-  }
+  addFave = data => {
+    let favourite = {
+      user_id: this.props.user.id,
+      restaurant_id: data.id
+    };
+    // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
+    this.props
+      .addRestaurantToFavourites(favourite)
+      // .then(alert("Restaurant Favourited"));
+  };
+
+  addWishlist = data => {
+    let wishlist = {
+      user_id: this.props.user.id,
+      restaurant_id: data.id
+    };
+    // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
+    this.props
+      .addRestaurantToWishlists(wishlist)
+      // .then(alert("Restaurant Favourited"));
+  };
+
 
   saveRestaurantToServer = restaurant => {
-    fetch('http://localhost:3001/restaurants', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
+    fetch("http://localhost:3001/restaurants", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(restaurant)
     })
-    .then(resp => resp.json())
-    .then(data => {
-      this.setState({ savedRestaurants: [...this.state.savedRestaurants], data })
-      this.addFave(data)
-    })
-  }
-
-  //   componentDidUpdate(){
-  //     this.populateListWithData()
-  //   }
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({
+          savedRestaurants: [...this.state.savedRestaurants],
+          data
+        });
+      });
+  };
 
   render() {
     const {
@@ -80,7 +91,13 @@ class ContentArea extends React.Component {
       addRestaurantToFavourites,
       addRestaurantToWishlists,
       addRestaurantToBookings,
-      loggedIn
+      loggedIn,
+      deleteFavouriteFromServer,
+      deleteWishlistItemFromServer,
+      deleteBookingFromServer,
+      setUserFavourites,
+      setUserWishlists,
+      setUserBookings
     } = this.props;
 
     const { coordinates, restaurantData, savedRestaurants } = this.state;
@@ -135,6 +152,9 @@ class ContentArea extends React.Component {
                 addRestaurantToBookings={addRestaurantToBookings}
                 saveRestaurantToServer={this.saveRestaurantToServer}
                 savedRestaurants={savedRestaurants}
+                addFave={this.addFave}
+                addWishlist={this.addWishlist}
+
               />
             )}
           />
@@ -149,7 +169,8 @@ class ContentArea extends React.Component {
                 users_name={users_name}
                 username={username}
                 userBookings={userBookings}
-
+                deleteBookingFromServer={deleteBookingFromServer}
+                setUserBookings={setUserBookings}
               />
             )}
           />
@@ -164,6 +185,8 @@ class ContentArea extends React.Component {
                 users_name={users_name}
                 username={username}
                 userWishlists={userWishlists}
+                deleteWishlistItemFromServer={deleteWishlistItemFromServer}
+                setUserWishlists={setUserWishlists}
               />
             )}
           />
@@ -178,6 +201,8 @@ class ContentArea extends React.Component {
                 users_name={users_name}
                 username={username}
                 userFavourites={userFavourites}
+                deleteFavouriteFromServer={deleteFavouriteFromServer}
+                setUserFavourites={setUserFavourites}
               />
             )}
           />

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { fetchUserInfo } from "../services/api";
 import "../App.css";
-import RestaurantCard from '../components/RestaurantCard'
+import WishlistCard from '../components/WishlistCard'
 
 
 export default class UserWishlists extends React.Component {
@@ -14,7 +14,9 @@ export default class UserWishlists extends React.Component {
       userBookings,
       userWishlists,
       userFavourites,
-      userReviews
+      userReviews,
+      deleteWishlistFromServer,
+      setUserWishlists
     } = this.props;
 
     return (
@@ -22,8 +24,14 @@ export default class UserWishlists extends React.Component {
         <h1>
           <strong>{user.username}'s Wishlists</strong>
         </h1>
-        {/* <RestaurantCard /> */}
-
+        {userWishlists.map(wishlist => (
+            <WishlistCard
+              setUserWishlists={setUserWishlists}
+              deleteWishlistFromServer={deleteWishlistFromServer}
+              user={user}
+              wishlist={wishlist}
+            />
+          ))}
       </div>
     );
   }

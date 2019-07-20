@@ -35,33 +35,33 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function FavouriteCard(props) {
+export default function WishlistCard(props) {
   const classes = useStyles();
 
   const handleDelete = id => {
     props
-      .deleteFavouriteFromServer(id)
-      .then(() => props.setUserFavourites(props.user));
+      .deleteWishlistFromServer(id)
+      .then(() => props.setUserWishlists(props.user));
   };
   return (
     <Card className={classes.card}>
-      <CardHeader title={props.favourite.name} />
+      <CardHeader title={props.wishlist.name} />
       <CardMedia className={classes.media}>
         <img
           className="restaurant-image"
-          src={props.favourite.featured_image}
+          src={props.wishlist.featured_image}
           alt="restaurant"
         />
       </CardMedia>
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
-          {props.favourite.cuisines}
+          {props.wishlist.cuisines}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton
           aria-label="Delete"
-          onClick={() => handleDelete(props.favourite.id)}
+          onClick={() => handleDelete(props.wishlist.id)}
         >
           <Icon>delete</Icon>
         </IconButton>

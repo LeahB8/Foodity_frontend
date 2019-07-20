@@ -10,7 +10,12 @@ import "./App.css";
 import ReactDOM from "react-dom";
 import NavBar from "./containers/NavBar";
 import ContentArea from "./containers/ContentArea";
-import { validate } from "./services/api";
+import {
+  validate,
+  getUserFavourites,
+  getUserWishlists,
+  getUserBookings
+} from "./services/api";
 
 class App extends Component {
   state = {
@@ -36,7 +41,6 @@ class App extends Component {
     }
   }
 
-
   //----------------------- signin and signout -------------------//
 
   signinAndSetToken = userObj => {
@@ -48,7 +52,7 @@ class App extends Component {
       userWishlists: [...userObj.user_wishlists],
       userFavourites: [...userObj.user_favourites],
       userReviews: [...userObj.user_reviews],
-      loggedIn: true,
+      loggedIn: true
     });
     this.props.history.push("/profile");
     localStorage.setItem("token", userObj.token);
@@ -59,34 +63,84 @@ class App extends Component {
     localStorage.removeItem("token");
   };
 
-  //----------------------- server methods -------------------//
+  //-------------------------- server methods -----------------------//
 
+  //---------------- Favourites -------------------//
 
-  addRestaurantToFavourites = (favourite) => {
-    fetch('http://localhost:3001/favourites', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+  addRestaurantToFavourites = favourite => {
+    fetch("http://localhost:3001/favourites", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(favourite)
-    }).then(resp => resp.json())
-    .then(data => this.setState({ userFavourites: data}))
-    
-  }
+    })
+      .then(resp => resp.json())
+      .then(data => this.setState({ userFavourites: data }));
+  };
 
-  addRestaurantToWishlists = (wishlist) => {
-    fetch('http://localhost:3001/wishlists', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+  setUserFavourites = user => {
+    getUserFavourites(user)
+      .then(resp => resp.json())
+      .then(data => this.setState({ userFavourites: data }));
+  };
+
+  deleteFavouriteFromServer = id => {
+    return fetch(`http://localhost:3001/favourites/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+  };
+
+  //---------------- Wishlists -------------------//
+
+  addRestaurantToWishlists = wishlist => {
+    fetch("http://localhost:3001/wishlists", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(wishlist)
-    }).then(resp => resp.json())
-  }
+    }).then(resp => resp.json());
+  };
 
-  addRestaurantToBookings = (booking) => {
-    fetch('http://localhost:3001/bookings', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+  setUserWishlists = user => {
+    getUserWishlists(user)
+      .then(resp => resp.json())
+      .then(data => this.setState({ userWishlists: data }));
+  };
+
+  deleteWishlistItemFromServer = id => {
+    return fetch(`http://localhost:3001/wishlists/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+  };
+
+  //---------------- Bookings -------------------//
+
+  addRestaurantToBookings = booking => {
+    fetch("http://localhost:3001/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking)
-    }).then(resp => resp.json())
-  }
+    }).then(resp => resp.json());
+  };
+
+  setUserBookings = user => {
+    getUserBookings(user)
+      .then(resp => resp.json())
+      .then(data => this.setState({ userBookings: data }));
+  };
+
+  deleteBookingFromServer = id => {
+    return fetch(`http://localhost:3001/bookings/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+  };
 
   //----------------------- render -------------------//
 
@@ -99,7 +153,7 @@ class App extends Component {
       userWishlists,
       userFavourites,
       userReviews,
-      loggedIn,
+      loggedIn
     } = this.state;
 
     return (
@@ -124,6 +178,12 @@ class App extends Component {
           addRestaurantToFavourites={this.addRestaurantToFavourites}
           addRestaurantToWishlists={this.addRestaurantToWishlists}
           addRestaurantToBookings={this.addRestaurantToBookings}
+          deleteFavouriteFromServer={this.deleteFavouriteFromServer}
+          deleteWishlistItemFromServer={this.deleteWishlistItemFromServer}
+          deleteBookingFromServer={this.deleteBookingFromServer}
+          setUserFavourites={this.setUserFavourites}
+          setUserWishlists={this.setUserWishlists}
+          setUserBookings={this.setUserBookings}
         />
       </div>
     );

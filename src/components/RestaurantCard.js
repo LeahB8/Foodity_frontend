@@ -18,6 +18,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import StarRatings from "react-star-ratings";
 import Dashboard from "./Dashboard";
 import Icon from "@material-ui/core/Icon";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -71,6 +72,35 @@ export default function RestaurantCard(props) {
       };
       // props.savedRestaurants.filter(restaurant_id !== )
       props.saveRestaurantToServer(restaurantToSave)
+        .then(resp => resp.json())
+        .then(data => props.addFave(data));
+    } else {
+      alert("Please sign in.");
+    }
+  }
+
+  function handleLikeWishlist(restaurant) {
+    if (props.loggedIn) {
+      let restaurantToSave = {
+        name: restaurant.name,
+        address: restaurant.location.address,
+        city: restaurant.location.city,
+        city_id: restaurant.location.city_id,
+        featured_image: restaurant.featured_image,
+        latitude: restaurant.location.latitude,
+        longitude: restaurant.location.longitude,
+        country_id: restaurant.location.country_id,
+        average_cost_for_two: restaurant.average_cost_for_two,
+        currency: restaurant.currency,
+        cuisines: restaurant.cuisines,
+        aggregate_rating: restaurant.user_rating.aggregate_rating,
+        all_reviews_count: restaurant.all_reviews_count,
+        restaurant_id: restaurant.R.res_id
+      };
+      // props.savedRestaurants.filter(restaurant_id !== )
+      props.saveRestaurantToServer(restaurantToSave)
+        .then(resp => resp.json())
+        .then(data => props.addWishlist(data));
     } else {
       alert("Please sign in.");
     }
@@ -99,16 +129,25 @@ export default function RestaurantCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton
-          name="favourite"
-          aria-label="Add to favorites"
-          onClick={() => handleLike(props.single.restaurant)}
-        >
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="Wishlist">
-          <Icon>star</Icon>
-        </IconButton>
+        <Tooltip title="Favourite">
+          <IconButton
+            name="favourite"
+            aria-label="Add to favorites"
+            onClick={() => handleLike(props.single.restaurant)}
+          >
+            <FavoriteIcon />
+          </IconButton>
+        </Tooltip>
+
+        <Tooltip title="Wishlist">
+          <IconButton
+            aria-label="Add to wishlist"
+            onClick={() => handleLikeWishlist(props.single.restaurant)}
+          >
+            <Icon>star</Icon>
+          </IconButton>
+        </Tooltip>
+
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded

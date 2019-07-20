@@ -12,7 +12,10 @@ class RestaurantList extends Component {
       user,
       loggedIn,
       saveRestaurantToServer,
-      savedRestaurants
+      savedRestaurants,
+      addFave,
+      addWishlist
+
     } = this.props;
 
     return (
@@ -29,6 +32,9 @@ class RestaurantList extends Component {
               loggedIn={loggedIn}
               saveRestaurantToServer={saveRestaurantToServer}
               savedRestaurants={savedRestaurants}
+              addFave={addFave}
+              addWishlist={addWishlist}
+
             />
           ))}
         </div>

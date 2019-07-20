@@ -26,7 +26,9 @@ export default class UserProfile extends React.Component {
       addRestaurantToBookings,
       loggedIn,
       saveRestaurantToServer,
-      savedRestaurants
+      savedRestaurants,
+      addFave,
+      addWishlist
     } = this.props;
 
     return (
@@ -62,6 +64,9 @@ export default class UserProfile extends React.Component {
               addRestaurantToBookings={addRestaurantToBookings}
               saveRestaurantToServer={saveRestaurantToServer}
               savedRestaurants={savedRestaurants}
+              addFave={addFave}
+              addWishlist={addWishlist}
+
             />
           </div>
         </div>

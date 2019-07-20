@@ -34,6 +34,29 @@ export function fetchUserInfo(user) {
   return fetch(baseUrl + `/users/${user.id}`);
 }
 
+export function getUserFavourites(user) {
+  return fetch(`http://localhost:3001/users/${user.id}/favourites`, {
+    headers: {      
+    "Content-Type": "application/json",
+    Authorisation: localStorage.token }
+  });
+}
+
+export function getUserWishlists(user) {
+  return fetch(`http://localhost:3001/users/${user.id}/wishlists`, {
+    headers: {      
+    "Content-Type": "application/json",
+    Authorisation: localStorage.token }
+  });
+}
+
+export function getUserBookings(user) {
+  return fetch(`http://localhost:3001/users/${user.id}/bookings`, {
+    headers: {      
+    "Content-Type": "application/json",
+    Authorisation: localStorage.token }
+  });
+}
   //----------------------- zomato api -------------------//
 
 
@@ -56,5 +79,8 @@ export default {
   validate,
   createUser,
   fetchUserInfo,
-  fetchRestaurantsByCity
+  fetchRestaurantsByCity,
+  getUserFavourites,
+  getUserWishlists,
+  getUserBookings
 };

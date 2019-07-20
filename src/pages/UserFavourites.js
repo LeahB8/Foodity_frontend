@@ -11,7 +11,8 @@ export default class UserFavourites extends React.Component {
       user,
       username,
       userFavourites,
-      userReviews
+      deleteFavouriteFromServer,
+      setUserFavourites
     } = this.props;
 
     return (
@@ -22,6 +23,8 @@ export default class UserFavourites extends React.Component {
         <div className="restaurant-list">
         {userFavourites.map(favourite => (
             <FavouriteCard
+              setUserFavourites={setUserFavourites}
+              deleteFavouriteFromServer={deleteFavouriteFromServer}
               user={user}
               favourite={favourite}
             />
