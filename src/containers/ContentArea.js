@@ -37,6 +37,7 @@ class ContentArea extends React.Component {
   };
 
   populateListWithData = data => {
+    // debugger
     this.setState({ restaurantData: data.restaurants });
   };
 

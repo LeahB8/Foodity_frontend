@@ -67,6 +67,17 @@ code {
   color: white !important;
 }
 
+.MuiGridListTile-tile:active {
+  top: 2px;
+}
+
+.MuiGridListTileBar-title {
+  font-size: 1.4rem !important;
+  font-weight: bold !important; 
+  letter-spacing: 2px !important;
+}
+
+
 
 
 /* .navbar-link {

@@ -1,4 +1,4 @@
-  //----------------------- my rails api -------------------//
+//----------------------- my rails api -------------------//
 
 const baseUrl = "http://localhost:3001";
 const signinUrl = baseUrl + "/signin";
@@ -36,43 +36,66 @@ export function fetchUserInfo(user) {
 
 export function getUserFavourites(user) {
   return fetch(`http://localhost:3001/users/${user.id}/favourites`, {
-    headers: {      
-    "Content-Type": "application/json",
-    Authorisation: localStorage.token }
+    headers: {
+      "Content-Type": "application/json",
+      Authorisation: localStorage.token
+    }
   });
 }
 
 export function getUserWishlists(user) {
   return fetch(`http://localhost:3001/users/${user.id}/wishlists`, {
-    headers: {      
-    "Content-Type": "application/json",
-    Authorisation: localStorage.token }
+    headers: {
+      "Content-Type": "application/json",
+      Authorisation: localStorage.token
+    }
   });
 }
 
 export function getUserBookings(user) {
   return fetch(`http://localhost:3001/users/${user.id}/bookings`, {
-    headers: {      
-    "Content-Type": "application/json",
-    Authorisation: localStorage.token }
+    headers: {
+      "Content-Type": "application/json",
+      Authorisation: localStorage.token
+    }
   });
 }
-  //----------------------- zomato api -------------------//
+//----------------------- zomato api -------------------//
+
+export function fetchRestaurantsByCity(city_id) {
+  return fetch(
+    `https://developers.zomato.com/api/v2.1/search?entity_id=${city_id}&entity_type=city`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        // First API key
+        // 'user-key': '0a30032127faff953a6589eeb89db7d5'
+        // Second API key
+        "user-key": "b2175adda37400ec0c255f87343fd432"
+      }
+    }
+  ).then(resp => resp.json());
+}
+
+export function fetchRestaurantsByCityAndCollection(city_id, collection_id) {
+  return fetch(
+    `https://developers.zomato.com/api/v2.1/search?entity_id=${city_id}&entity_type=city&collection_id=${collection_id}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        // First API key
+        // 'user-key': '0a30032127faff953a6589eeb89db7d5'
+        // Second API key
+        "user-key": "b2175adda37400ec0c255f87343fd432"
+      }
+    }
+  ).then(resp => resp.json());
+}
 
 
-
-  export function fetchRestaurantsByCity(city_id) {
-      return fetch(`https://developers.zomato.com/api/v2.1/search?entity_id=${city_id}&entity_type=city`, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'user-key': '0a30032127faff953a6589eeb89db7d5'
-            }
-      }).then(resp => resp.json());
-  }
-
-  //----------------------- exporting -------------------//
-
+//----------------------- exporting -------------------//
 
 export default {
   signin,

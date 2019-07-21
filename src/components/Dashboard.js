@@ -51,6 +51,22 @@ class Dashboard extends Component {
                     {single.restaurant.phone_numbers}
                 </Typography>
                 <br></br>
+                {/* <Typography variant="h6">
+                    <strong>Average Rating</strong> <br />
+                </Typography>
+                <StarRatings
+                    rating={single.restaurant.user_rating.aggregate_rating}
+                    starDimension="40px"
+                    starSpacing="5px"
+                    />
+                <br></br>
+                <Typography variant="h6">
+                    Reviews: {single.restaurant.user_rating.votes}
+                </Typography>
+                <br></br>
+                <Typography variant="h6">
+                    Rating: {single.restaurant.user_rating.rating_text}
+                </Typography> */}
                 <Typography variant="h4">Reviews</Typography>
                 {single.restaurant.all_reviews.reviews.map(review => (
                 <>

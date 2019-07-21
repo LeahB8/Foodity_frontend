@@ -19,6 +19,7 @@ import StarRatings from "react-star-ratings";
 import Dashboard from "./Dashboard";
 import Icon from "@material-ui/core/Icon";
 import Tooltip from "@material-ui/core/Tooltip";
+import DateTime from './DateTime'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -72,7 +73,7 @@ export default function RestaurantCard(props) {
       };
       // props.savedRestaurants.filter(restaurant_id !== )
       props.saveRestaurantToServer(restaurantToSave)
-        .then(resp => resp.json())
+        // .then(resp => resp.json())
         .then(data => props.addFave(data));
     } else {
       alert("Please sign in.");
@@ -99,7 +100,7 @@ export default function RestaurantCard(props) {
       };
       // props.savedRestaurants.filter(restaurant_id !== )
       props.saveRestaurantToServer(restaurantToSave)
-        .then(resp => resp.json())
+        // .then(resp => resp.json())
         .then(data => props.addWishlist(data));
     } else {
       alert("Please sign in.");
@@ -110,12 +111,18 @@ export default function RestaurantCard(props) {
     <Card className={classes.card}>
       <CardHeader
         action={
-          <IconButton aria-label="Settings">
-            <MoreVertIcon />
-          </IconButton>
+          <Tooltip title="Book">
+            <IconButton 
+            aria-label="Settings"
+            // onClick={}
+            >
+              <MoreVertIcon />
+            </IconButton>
+          </Tooltip>
         }
         title={props.single.restaurant.name}
       />
+       
       <CardMedia className={classes.media}>
         <img
           className="restaurant-image"
