@@ -55,26 +55,14 @@ export default function RestaurantCard(props) {
 
   function handleLike(restaurant) {
     if (props.loggedIn) {
-      let restaurantToSave = {
-        name: restaurant.name,
-        address: restaurant.location.address,
-        city: restaurant.location.city,
-        city_id: restaurant.location.city_id,
-        featured_image: restaurant.featured_image,
-        latitude: restaurant.location.latitude,
-        longitude: restaurant.location.longitude,
-        country_id: restaurant.location.country_id,
-        average_cost_for_two: restaurant.average_cost_for_two,
-        currency: restaurant.currency,
-        cuisines: restaurant.cuisines,
-        aggregate_rating: restaurant.user_rating.aggregate_rating,
-        all_reviews_count: restaurant.all_reviews_count,
-        restaurant_id: restaurant.R.res_id
-      };
+      // let restaurantToSave = {
+      //   restaurant_api_id: restaurant.R.res_id,
+      //   user_id: props.user.id
+      // };
       // props.savedRestaurants.filter(restaurant_id !== )
-      props.saveRestaurantToServer(restaurantToSave)
+      // props.saveRestaurantToServer(restaurantToSave)
         // .then(resp => resp.json())
-        .then(data => props.addFave(data));
+        props.addFave(restaurant.R.res_id)
     } else {
       alert("Please sign in.");
     }
@@ -82,26 +70,14 @@ export default function RestaurantCard(props) {
 
   function handleLikeWishlist(restaurant) {
     if (props.loggedIn) {
-      let restaurantToSave = {
-        name: restaurant.name,
-        address: restaurant.location.address,
-        city: restaurant.location.city,
-        city_id: restaurant.location.city_id,
-        featured_image: restaurant.featured_image,
-        latitude: restaurant.location.latitude,
-        longitude: restaurant.location.longitude,
-        country_id: restaurant.location.country_id,
-        average_cost_for_two: restaurant.average_cost_for_two,
-        currency: restaurant.currency,
-        cuisines: restaurant.cuisines,
-        aggregate_rating: restaurant.user_rating.aggregate_rating,
-        all_reviews_count: restaurant.all_reviews_count,
-        restaurant_id: restaurant.R.res_id
-      };
+      // let restaurantToSave = {
+      //   restaurant_api_id: restaurant.R.res_id,
+      //   user_id: props.user.id
+      // };
       // props.savedRestaurants.filter(restaurant_id !== )
-      props.saveRestaurantToServer(restaurantToSave)
+      // props.saveRestaurantToServer(restaurantToSave)
         // .then(resp => resp.json())
-        .then(data => props.addWishlist(data));
+        props.addWishlist(restaurant.R.res_id)
     } else {
       alert("Please sign in.");
     }
@@ -122,6 +98,7 @@ export default function RestaurantCard(props) {
         }
         title={props.single.restaurant.name}
       />
+      <DateTime />
        
       <CardMedia className={classes.media}>
         <img

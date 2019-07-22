@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { fetchUserInfo } from "../services/api";
+import { fetchUserInfo, findIndividualRestaurantInfo } from "../services/api";
 import "../App.css";
 import FavouriteCard from '../components/FavouriteCard'
 

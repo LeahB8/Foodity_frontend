@@ -32,7 +32,7 @@ export default function WelcomePage(props) {
 
   return (
     <>
-      {/* <div>
+      <div>
         <Card className={classes.card}>
             <CardContent>
             <Typography variant="h3" component="h3" color="#fdb600">
@@ -42,10 +42,12 @@ export default function WelcomePage(props) {
                 Explore the world through food.
                 <br />
                 Discover all of the hidden gems at home and abroad.
+                <br />
+                A way for you to plan ahead your restuarant adventures.
             </Typography>
             </CardContent>
         </Card>
-      </div> */}
+      </div>
       <div className="search-restaurants">
         {/* <div>
                 <MapBox
@@ -62,6 +64,8 @@ export default function WelcomePage(props) {
             changeCoordinatesState={props.changeCoordinatesState}
             coordinates={props.coordinates}
             populateListWithData={props.populateListWithData}
+            populateListWithCollections={props.populateListWithCollections}
+
           />
           <RestaurantList
             restaurantData={props.restaurantData}

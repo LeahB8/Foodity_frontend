@@ -16,10 +16,12 @@ import UserProfile from "../pages/UserProfile";
 import UserBookings from "../pages/UserBookings";
 import UserWishlists from "../pages/UserWishlists";
 import UserFavourites from "../pages/UserFavourites";
+import CitySearchOptions from '../pages/CitySearchOptions'
 
 class ContentArea extends React.Component {
   state = {
     restaurantData: [],
+    collectionsData: [],
     savedRestaurants: [],
     coordinates: {
       long: "",
@@ -41,10 +43,14 @@ class ContentArea extends React.Component {
     this.setState({ restaurantData: data.restaurants });
   };
 
-  addFave = data => {
+  populateListWithCollections = data => {
+    this.setState({ collectionsData: data })
+  }
+
+  addFave = id => {
     let favourite = {
       user_id: this.props.user.id,
-      restaurant_id: data.id
+      restaurant_api_id: id
     };
     // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
     this.props
@@ -52,10 +58,10 @@ class ContentArea extends React.Component {
       // .then(alert("Restaurant Favourited"));
   };
 
-  addWishlist = data => {
+  addWishlist = id => {
     let wishlist = {
       user_id: this.props.user.id,
-      restaurant_id: data.id
+      restaurant_api_id: id
     };
     // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
     this.props
@@ -101,7 +107,7 @@ class ContentArea extends React.Component {
       setUserBookings
     } = this.props;
 
-    const { coordinates, restaurantData, savedRestaurants } = this.state;
+    const { coordinates, restaurantData, savedRestaurants, collectionsData } = this.state;
 
     return (
       <div>
@@ -117,6 +123,8 @@ class ContentArea extends React.Component {
                 changeCoordinatesState={this.changeCoordinatesState}
                 restaurantData={restaurantData}
                 populateListWithData={this.populateListWithData}
+                populateListWithCollections={this.populateListWithCollections}
+                collectionsData={collectionsData}
               />
             )}
           />
@@ -155,7 +163,8 @@ class ContentArea extends React.Component {
                 savedRestaurants={savedRestaurants}
                 addFave={this.addFave}
                 addWishlist={this.addWishlist}
-
+                populateListWithCollections={this.populateListWithCollections}
+                collectionsData={collectionsData}
               />
             )}
           />
@@ -196,6 +205,22 @@ class ContentArea extends React.Component {
             path="/favourites"
             component={props => (
               <UserFavourites
+                {...props}
+                key={user.id}
+                user={user}
+                users_name={users_name}
+                username={username}
+                userFavourites={userFavourites}
+                deleteFavouriteFromServer={deleteFavouriteFromServer}
+                setUserFavourites={setUserFavourites}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/search"
+            component={props => (
+              <CitySearchOptions
                 {...props}
                 key={user.id}
                 user={user}

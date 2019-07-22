@@ -15,7 +15,6 @@ class RestaurantList extends Component {
       savedRestaurants,
       addFave,
       addWishlist
-
     } = this.props;
 
     return (

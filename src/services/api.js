@@ -78,6 +78,36 @@ export function fetchRestaurantsByCity(city_id) {
   ).then(resp => resp.json());
 }
 
+export function findIndividualRestaurantInfo(restaurant_api_id) {
+  return fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${restaurant_api_id}`,
+  {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      // First API key
+      // 'user-key': '0a30032127faff953a6589eeb89db7d5'
+      // Second API key
+      "user-key": "b2175adda37400ec0c255f87343fd432"
+    }
+  }).then(resp => resp.json())
+}
+
+export function fetchCollectionsForCity(city_id) {
+  return fetch(
+    `https://developers.zomato.com/api/v2.1/collections?city_id=${city_id}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        // First API key
+        // 'user-key': '0a30032127faff953a6589eeb89db7d5'
+        // Second API key
+        "user-key": "b2175adda37400ec0c255f87343fd432"
+      }
+    }
+  ).then(resp => resp.json());
+}
+
 export function fetchRestaurantsByCityAndCollection(city_id, collection_id) {
   return fetch(
     `https://developers.zomato.com/api/v2.1/search?entity_id=${city_id}&entity_type=city&collection_id=${collection_id}`,
@@ -94,7 +124,6 @@ export function fetchRestaurantsByCityAndCollection(city_id, collection_id) {
   ).then(resp => resp.json());
 }
 
-
 //----------------------- exporting -------------------//
 
 export default {
@@ -105,5 +134,8 @@ export default {
   fetchRestaurantsByCity,
   getUserFavourites,
   getUserWishlists,
-  getUserBookings
+  getUserBookings,
+  fetchCollectionsForCity,
+  fetchRestaurantsByCityAndCollection,
+  findIndividualRestaurantInfo
 };

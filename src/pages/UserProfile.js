@@ -28,7 +28,9 @@ export default class UserProfile extends React.Component {
       saveRestaurantToServer,
       savedRestaurants,
       addFave,
-      addWishlist
+      addWishlist,
+      populateListWithCollections
+
     } = this.props;
 
     return (
@@ -36,6 +38,8 @@ export default class UserProfile extends React.Component {
         <h1>
           <strong>Welcome back, {user.username}</strong>
         </h1>
+        <p>Search through the list of cities to find restaurants you want to add to your wishlist or select those you want to favourite.</p> 
+        <p>You can also book any restaurant that inspires you.</p>
         <div className="search-restaurants">
           {/*           
           <div>
@@ -54,6 +58,8 @@ export default class UserProfile extends React.Component {
               changeCoordinatesState={changeCoordinatesState}
               coordinates={coordinates}
               populateListWithData={populateListWithData}
+              populateListWithCollections={populateListWithCollections}
+
             />
             <RestaurantList
               loggedIn={loggedIn}
@@ -66,6 +72,7 @@ export default class UserProfile extends React.Component {
               savedRestaurants={savedRestaurants}
               addFave={addFave}
               addWishlist={addWishlist}
+              populateListWithCollections={populateListWithCollections}
 
             />
           </div>
