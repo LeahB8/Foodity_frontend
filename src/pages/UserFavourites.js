@@ -1,8 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { fetchUserInfo, findIndividualRestaurantInfo } from "../services/api";
 import "../App.css";
-import FavouriteCard from '../components/FavouriteCard'
+import FavouriteCardWrapper from "../components/FavouriteCardWrapper";
 
 export default class UserFavourites extends React.Component {
   render() {
@@ -12,7 +10,9 @@ export default class UserFavourites extends React.Component {
       username,
       userFavourites,
       deleteFavouriteFromServer,
-      setUserFavourites
+      setUserFavourites,
+      savedRestaurants,
+      fetchRestaurantsFromServer
     } = this.props;
 
     return (
@@ -21,16 +21,17 @@ export default class UserFavourites extends React.Component {
           <strong>{user.username}'s Favourites</strong>
         </h1>
         <div className="restaurant-list">
-        {userFavourites.map(favourite => (
-            <FavouriteCard
-              setUserFavourites={setUserFavourites}
-              deleteFavouriteFromServer={deleteFavouriteFromServer}
-              user={user}
-              favourite={favourite}
-            />
-          ))}
-      </div>
-
+          {
+            userFavourites.map(favourite =>
+              <FavouriteCardWrapper
+                setUserFavourites={setUserFavourites}
+                deleteFavouriteFromServer={deleteFavouriteFromServer}
+                user={user}
+                favourite={favourite}
+              />
+            )
+          }
+        </div>
       </div>
     );
   }

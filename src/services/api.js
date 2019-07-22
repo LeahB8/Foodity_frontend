@@ -60,6 +60,9 @@ export function getUserBookings(user) {
     }
   });
 }
+
+
+
 //----------------------- zomato api -------------------//
 
 export function fetchRestaurantsByCity(city_id) {

@@ -45,23 +45,23 @@ export default function FavouriteCard(props) {
   };
   return (
     <Card className={classes.card}>
-      <CardHeader title={props.favourite.name} />
+      <CardHeader title={props.single.name} />
       <CardMedia className={classes.media}>
         <img
           className="restaurant-image"
-          src={props.favourite.featured_image}
+          src={props.single.featured_image}
           alt="restaurant"
         />
       </CardMedia>
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
-          {props.favourite.cuisines}
+          {props.single.cuisines}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton
           aria-label="Delete"
-          onClick={() => handleDelete(props.favourite.id)}
+          onClick={() => handleDelete(props.single.id)}
         >
           <Icon>delete</Icon>
         </IconButton>

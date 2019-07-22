@@ -16,7 +16,7 @@ import UserProfile from "../pages/UserProfile";
 import UserBookings from "../pages/UserBookings";
 import UserWishlists from "../pages/UserWishlists";
 import UserFavourites from "../pages/UserFavourites";
-import CitySearchOptions from '../pages/CitySearchOptions'
+import CitySearchOptions from "../pages/CitySearchOptions";
 
 class ContentArea extends React.Component {
   state = {
@@ -44,8 +44,8 @@ class ContentArea extends React.Component {
   };
 
   populateListWithCollections = data => {
-    this.setState({ collectionsData: data })
-  }
+    this.setState({ collectionsData: data });
+  };
 
   addFave = id => {
     let favourite = {
@@ -53,9 +53,8 @@ class ContentArea extends React.Component {
       restaurant_api_id: id
     };
     // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
-    this.props
-      .addRestaurantToFavourites(favourite)
-      // .then(alert("Restaurant Favourited"));
+    this.props.addRestaurantToFavourites(favourite);
+    // .then(alert("Restaurant Favourited"));
   };
 
   addWishlist = id => {
@@ -64,26 +63,41 @@ class ContentArea extends React.Component {
       restaurant_api_id: id
     };
     // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
-    this.props
-      .addRestaurantToWishlists(wishlist)
-      // .then(alert("Restaurant Favourited"));
+    this.props.addRestaurantToWishlists(wishlist);
+    // .then(alert("Restaurant Favourited"));
   };
 
+  // saveRestaurantToServer = restaurant => {
+  //   fetch("http://localhost:3001/restaurants", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(restaurant)
+  //   })
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //       this.setState({
+  //         savedRestaurants: [...this.state.savedRestaurants],
+  //         data
+  //       });
+  //     });
+  // };
 
-  saveRestaurantToServer = restaurant => {
+  fetchRestaurantsFromServer = () => {
     fetch("http://localhost:3001/restaurants", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(restaurant)
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
     })
       .then(resp => resp.json())
       .then(data => {
         this.setState({
-          savedRestaurants: [...this.state.savedRestaurants],
-          data
+          savedRestaurants: data
         });
       });
   };
+
+  componentDidMount() {
+    this.fetchRestaurantsFromServer();
+  }
 
   render() {
     const {
@@ -107,7 +121,12 @@ class ContentArea extends React.Component {
       setUserBookings
     } = this.props;
 
-    const { coordinates, restaurantData, savedRestaurants, collectionsData } = this.state;
+    const {
+      coordinates,
+      restaurantData,
+      savedRestaurants,
+      collectionsData
+    } = this.state;
 
     return (
       <div>
@@ -181,6 +200,8 @@ class ContentArea extends React.Component {
                 userBookings={userBookings}
                 deleteBookingFromServer={deleteBookingFromServer}
                 setUserBookings={setUserBookings}
+                fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
+                savedRestaurants={savedRestaurants}
               />
             )}
           />
@@ -197,6 +218,8 @@ class ContentArea extends React.Component {
                 userWishlists={userWishlists}
                 deleteWishlistItemFromServer={deleteWishlistItemFromServer}
                 setUserWishlists={setUserWishlists}
+                fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
+                savedRestaurants={savedRestaurants}
               />
             )}
           />
@@ -213,6 +236,8 @@ class ContentArea extends React.Component {
                 userFavourites={userFavourites}
                 deleteFavouriteFromServer={deleteFavouriteFromServer}
                 setUserFavourites={setUserFavourites}
+                fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
+                savedRestaurants={savedRestaurants}
               />
             )}
           />

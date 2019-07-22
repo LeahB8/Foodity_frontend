@@ -33,7 +33,6 @@ class RestaurantList extends Component {
               savedRestaurants={savedRestaurants}
               addFave={addFave}
               addWishlist={addWishlist}
-
             />
           ))}
         </div>
