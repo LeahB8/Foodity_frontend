@@ -5,7 +5,6 @@ import "../App.css";
 import LocationSearchComponent from "../components/LocationSearchComponent";
 import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
-import RestaurantList from "../components/RestaurantList";
 
 export default class UserProfile extends React.Component {
   render() {
@@ -30,7 +29,6 @@ export default class UserProfile extends React.Component {
       addFave,
       addWishlist,
       populateListWithCollections
-
     } = this.props;
 
     return (
@@ -38,7 +36,10 @@ export default class UserProfile extends React.Component {
         <h1>
           <strong>Welcome back, {user.username}</strong>
         </h1>
-        <p>Search through the list of cities to find restaurants you want to add to your wishlist or select those you want to favourite.</p> 
+        <p>
+          Search through the list of cities to find restaurants you want to add
+          to your wishlist or select those you want to favourite.
+        </p>
         <p>You can also book any restaurant that inspires you.</p>
         <div className="search-restaurants">
           {/*           
@@ -59,9 +60,6 @@ export default class UserProfile extends React.Component {
               coordinates={coordinates}
               populateListWithData={populateListWithData}
               populateListWithCollections={populateListWithCollections}
-
-            />
-            <RestaurantList
               loggedIn={loggedIn}
               user={user}
               restaurantData={restaurantData}
@@ -72,8 +70,6 @@ export default class UserProfile extends React.Component {
               savedRestaurants={savedRestaurants}
               addFave={addFave}
               addWishlist={addWishlist}
-              populateListWithCollections={populateListWithCollections}
-
             />
           </div>
         </div>

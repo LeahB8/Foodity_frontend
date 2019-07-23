@@ -17,6 +17,7 @@ import UserBookings from "../pages/UserBookings";
 import UserWishlists from "../pages/UserWishlists";
 import UserFavourites from "../pages/UserFavourites";
 import CitySearchOptions from "../pages/CitySearchOptions";
+import RestaurantsPage from "../pages/RestaurantsPage";
 
 class ContentArea extends React.Component {
   state = {
@@ -254,6 +255,33 @@ class ContentArea extends React.Component {
                 userFavourites={userFavourites}
                 deleteFavouriteFromServer={deleteFavouriteFromServer}
                 setUserFavourites={setUserFavourites}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/restaurants"
+            component={props => (
+              <RestaurantsPage
+                {...props}
+                loggedIn={loggedIn}
+                key={user.id}
+                user={user}
+                users_name={users_name}
+                username={username}
+                changeCoordinatesState={this.changeCoordinatesState}
+                coordinates={coordinates}
+                restaurantData={restaurantData}
+                populateListWithData={this.populateListWithData}
+                addRestaurantToFavourites={addRestaurantToFavourites}
+                addRestaurantToWishlists={addRestaurantToWishlists}
+                addRestaurantToBookings={addRestaurantToBookings}
+                saveRestaurantToServer={this.saveRestaurantToServer}
+                savedRestaurants={savedRestaurants}
+                addFave={this.addFave}
+                addWishlist={this.addWishlist}
+                populateListWithCollections={this.populateListWithCollections}
+                collectionsData={collectionsData}
               />
             )}
           />

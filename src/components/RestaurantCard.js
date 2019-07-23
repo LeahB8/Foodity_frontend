@@ -54,7 +54,7 @@ export default function RestaurantCard(props) {
     setExpanded(!expanded);
   }
 
-  function handleLike(restaurant) {
+  function handleLikeFavourite(restaurant) {
     if (props.loggedIn) {
       // let restaurantToSave = {
       //   restaurant_api_id: restaurant.R.res_id,
@@ -103,11 +103,11 @@ export default function RestaurantCard(props) {
 
       <CardMedia className={classes.media}>
         {/* <Link> */}
-          <img
-            className="restaurant-image"
-            src={props.single.restaurant.featured_image}
-            alt="restaurant"
-          />
+        <img
+          className="restaurant-image"
+          src={props.single.restaurant.featured_image}
+          alt="restaurant"
+        />
         {/* </Link> */}
       </CardMedia>
       <CardContent>
@@ -119,8 +119,8 @@ export default function RestaurantCard(props) {
         <Tooltip title="Favourite">
           <IconButton
             name="favourite"
-            aria-label="Add to favorites"
-            onClick={() => handleLike(props.single.restaurant)}
+            aria-label="Add to favourites"
+            onClick={() => handleLikeFavourite(props.single.restaurant)}
           >
             <FavoriteIcon />
           </IconButton>

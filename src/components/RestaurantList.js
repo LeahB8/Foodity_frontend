@@ -18,24 +18,21 @@ class RestaurantList extends Component {
     } = this.props;
 
     return (
-      <div>
-        <h2>Restaurants</h2>
-        <div className="restaurant-list">
-          {restaurantData.map(single => (
-            <RestaurantCard
-              user={user}
-              single={single}
-              addRestaurantToFavourites={addRestaurantToFavourites}
-              addRestaurantToWishlists={addRestaurantToWishlists}
-              addRestaurantToBookings={addRestaurantToBookings}
-              loggedIn={loggedIn}
-              saveRestaurantToServer={saveRestaurantToServer}
-              savedRestaurants={savedRestaurants}
-              addFave={addFave}
-              addWishlist={addWishlist}
-            />
-          ))}
-        </div>
+      <div className="restaurant-list">
+        {restaurantData.map(single => (
+          <RestaurantCard
+            user={user}
+            single={single}
+            addRestaurantToFavourites={addRestaurantToFavourites}
+            addRestaurantToWishlists={addRestaurantToWishlists}
+            addRestaurantToBookings={addRestaurantToBookings}
+            loggedIn={loggedIn}
+            saveRestaurantToServer={saveRestaurantToServer}
+            savedRestaurants={savedRestaurants}
+            addFave={addFave}
+            addWishlist={addWishlist}
+          />
+        ))}
       </div>
     );
   }

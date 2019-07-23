@@ -3,8 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-import { fetchRestaurantsByCity, fetchCollectionsForCity } from "../services/api";
-
+import {
+  fetchRestaurantsByCity,
+  fetchCollectionsForCity
+} from "../services/api";
+import { Link as RouterLink } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +34,8 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     color: "white"
-  }
+  },
+  link: {}
 }));
 
 const cities = [
@@ -119,7 +124,8 @@ const cities = [
     country: "Canada",
     country_id: 37,
     id: 89,
-    image_url: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+    image_url:
+      "https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
   },
   {
     name: "Vancouver",
@@ -206,19 +212,24 @@ export default function SearchComponent(props) {
     <div className={classes.root}>
       <GridList cellHeight={200} spacing={10} className={classes.gridList}>
         {cities.map(tile => (
-          //   <GridListTile key={tile.img} cols={tile.featured ? 2 : 1} rows={tile.featured ? 2 : 1}>
-          <GridListTile
-            key={tile.image_url}
-            onClick={() => handleClick(tile.id)}
+          <Link
+            className={classes.gridList}
+            component={RouterLink}
+            to="/restaurants"
           >
-            <img src={tile.image_url} alt={tile.name} />
-            <GridListTileBar
-              title={tile.name}
-              titlePosition="top"
-              actionPosition="left"
-              className={classes.titleBar}
-            />
-          </GridListTile>
+            <GridListTile
+              key={tile.image_url}
+              onClick={() => handleClick(tile.id)}
+            >
+              <img src={tile.image_url} alt={tile.name} />
+              <GridListTileBar
+                title={tile.name}
+                titlePosition="top"
+                actionPosition="left"
+                className={classes.titleBar}
+              />
+            </GridListTile>
+          </Link>
         ))}
       </GridList>
     </div>

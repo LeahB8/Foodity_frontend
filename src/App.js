@@ -54,7 +54,7 @@ class App extends Component {
       userReviews: [...userObj.user_reviews],
       loggedIn: true
     });
-    debugger;
+    // debugger;
     if (redirectToProfile) {
       this.props.history.push("/profile");
     }

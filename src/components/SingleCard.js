@@ -58,7 +58,7 @@ export default function FavouriteCard(props) {
     //   wishOrFave => wishOrFave.restaurant_id === my_saved_restaurant.id
     // );
     props
-      .deleteCallback(props.user.id)
+      .deleteCallback(props.user.id, id)
       .then(() => props.secondCallback(props.user));
   };
 

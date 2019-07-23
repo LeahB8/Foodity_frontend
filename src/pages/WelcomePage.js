@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import LocationSearchComponent from "../components/LocationSearchComponent";
 import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
-import RestaurantList from "../components/RestaurantList";
 
 const useStyles = makeStyles({
   card: {
@@ -34,18 +33,17 @@ export default function WelcomePage(props) {
     <>
       <div>
         <Card className={classes.card}>
-            <CardContent>
+          <CardContent>
             <Typography variant="h3" component="h3" color="#fdb600">
-                Welcome to Foodity
+              Welcome to Foodity
             </Typography>
             <Typography variant="h5" component="h5" color="#fdb600">
-                Explore the world through food.
-                <br />
-                Discover all of the hidden gems at home and abroad.
-                <br />
-                A way for you to plan ahead your restuarant adventures.
+              Explore the world through food.
+              <br />
+              Discover all of the hidden gems at home and abroad.
+              <br />A way for you to plan ahead your restuarant adventures.
             </Typography>
-            </CardContent>
+          </CardContent>
         </Card>
       </div>
       <div className="search-restaurants">
@@ -65,11 +63,6 @@ export default function WelcomePage(props) {
             coordinates={props.coordinates}
             populateListWithData={props.populateListWithData}
             populateListWithCollections={props.populateListWithCollections}
-
-          />
-          <RestaurantList
-            restaurantData={props.restaurantData}
-            loggedIn={props.loggedIn}
           />
         </div>
       </div>
