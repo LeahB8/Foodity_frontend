@@ -19,7 +19,8 @@ import StarRatings from "react-star-ratings";
 import Dashboard from "./Dashboard";
 import Icon from "@material-ui/core/Icon";
 import Tooltip from "@material-ui/core/Tooltip";
-import DateTime from './DateTime'
+import DateTime from "./DateTime";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -61,8 +62,8 @@ export default function RestaurantCard(props) {
       // };
       // props.savedRestaurants.filter(restaurant_id !== )
       // props.saveRestaurantToServer(restaurantToSave)
-        // .then(resp => resp.json())
-        props.addFave(restaurant.R.res_id)
+      // .then(resp => resp.json())
+      props.addFave(restaurant.R.res_id);
     } else {
       alert("Please sign in.");
     }
@@ -76,8 +77,8 @@ export default function RestaurantCard(props) {
       // };
       // props.savedRestaurants.filter(restaurant_id !== )
       // props.saveRestaurantToServer(restaurantToSave)
-        // .then(resp => resp.json())
-        props.addWishlist(restaurant.R.res_id)
+      // .then(resp => resp.json())
+      props.addWishlist(restaurant.R.res_id);
     } else {
       alert("Please sign in.");
     }
@@ -88,9 +89,9 @@ export default function RestaurantCard(props) {
       <CardHeader
         action={
           <Tooltip title="Book">
-            <IconButton 
-            aria-label="Settings"
-            // onClick={}
+            <IconButton
+              aria-label="Settings"
+              // onClick={}
             >
               <MoreVertIcon />
             </IconButton>
@@ -99,13 +100,15 @@ export default function RestaurantCard(props) {
         title={props.single.restaurant.name}
       />
       <DateTime />
-       
+
       <CardMedia className={classes.media}>
-        <img
-          className="restaurant-image"
-          src={props.single.restaurant.featured_image}
-          alt="restaurant"
-        />
+        {/* <Link> */}
+          <img
+            className="restaurant-image"
+            src={props.single.restaurant.featured_image}
+            alt="restaurant"
+          />
+        {/* </Link> */}
       </CardMedia>
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">

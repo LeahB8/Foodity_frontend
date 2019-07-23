@@ -43,7 +43,7 @@ class App extends Component {
 
   //----------------------- signin and signout -------------------//
 
-  signinAndSetToken = userObj => {
+  signinAndSetToken = (userObj, redirectToProfile = false) => {
     this.setState({
       user: { ...userObj.user },
       username: userObj.username,
@@ -54,7 +54,9 @@ class App extends Component {
       userReviews: [...userObj.user_reviews],
       loggedIn: true
     });
-    this.props.history.push("/profile");
+    if (redirectToProfile) {
+      this.props.history.push("/profile");
+    }
     localStorage.setItem("token", userObj.token);
   };
 
@@ -74,7 +76,9 @@ class App extends Component {
       body: JSON.stringify(favourite)
     })
       .then(resp => resp.json())
-      .then(data => this.setState({ userFavourites: data }));
+      .then(data =>
+        this.setState({ userFavourites: [...this.state.userFavourites, data] })
+      );
   };
 
   setUserFavourites = user => {
@@ -99,7 +103,11 @@ class App extends Component {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(wishlist)
-    }).then(resp => resp.json());
+    })
+      .then(resp => resp.json())
+      .then(data =>
+        this.setState({ userWishlists: [...this.state.userWishlists, data] })
+      );
   };
 
   setUserWishlists = user => {
@@ -162,7 +170,7 @@ class App extends Component {
           signout={this.signout}
           user={user}
           loggedIn={loggedIn}
-          signinAndSetToken={this.signinAndSetToken}
+          signinAndSetToken={user => this.signinAndSetToken(user, true)}
         />
         <ContentArea
           user={user}
@@ -173,7 +181,7 @@ class App extends Component {
           userFavourites={userFavourites}
           userReviews={userReviews}
           loggedIn={loggedIn}
-          signinAndSetToken={this.signinAndSetToken}
+          signinAndSetToken={user => this.signinAndSetToken(user, true)}
           changeCoordinatesState={this.changeCoordinatesState}
           addRestaurantToFavourites={this.addRestaurantToFavourites}
           addRestaurantToWishlists={this.addRestaurantToWishlists}

@@ -61,8 +61,6 @@ export function getUserBookings(user) {
   });
 }
 
-
-
 //----------------------- zomato api -------------------//
 
 export function fetchRestaurantsByCity(city_id) {
@@ -73,26 +71,28 @@ export function fetchRestaurantsByCity(city_id) {
       headers: {
         Accept: "application/json",
         // First API key
-        // 'user-key': '0a30032127faff953a6589eeb89db7d5'
+        "user-key": "0a30032127faff953a6589eeb89db7d5"
         // Second API key
-        "user-key": "b2175adda37400ec0c255f87343fd432"
+        // "user-key": "b2175adda37400ec0c255f87343fd432"
       }
     }
   ).then(resp => resp.json());
 }
 
 export function findIndividualRestaurantInfo(restaurant_api_id) {
-  return fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${restaurant_api_id}`,
-  {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      // First API key
-      // 'user-key': '0a30032127faff953a6589eeb89db7d5'
-      // Second API key
-      "user-key": "b2175adda37400ec0c255f87343fd432"
+  return fetch(
+    `https://developers.zomato.com/api/v2.1/restaurant?res_id=${restaurant_api_id}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        // First API key
+        "user-key": "0a30032127faff953a6589eeb89db7d5"
+        // Second API key
+        // "user-key": "b2175adda37400ec0c255f87343fd432"
+      }
     }
-  }).then(resp => resp.json())
+  ).then(resp => resp.json());
 }
 
 export function fetchCollectionsForCity(city_id) {
@@ -103,9 +103,9 @@ export function fetchCollectionsForCity(city_id) {
       headers: {
         Accept: "application/json",
         // First API key
-        // 'user-key': '0a30032127faff953a6589eeb89db7d5'
+        "user-key": "0a30032127faff953a6589eeb89db7d5"
         // Second API key
-        "user-key": "b2175adda37400ec0c255f87343fd432"
+        // "user-key": "b2175adda37400ec0c255f87343fd432"
       }
     }
   ).then(resp => resp.json());
@@ -119,9 +119,9 @@ export function fetchRestaurantsByCityAndCollection(city_id, collection_id) {
       headers: {
         Accept: "application/json",
         // First API key
-        // 'user-key': '0a30032127faff953a6589eeb89db7d5'
+        "user-key": "0a30032127faff953a6589eeb89db7d5"
         // Second API key
-        "user-key": "b2175adda37400ec0c255f87343fd432"
+        // "user-key": "b2175adda37400ec0c255f87343fd432"
       }
     }
   ).then(resp => resp.json());

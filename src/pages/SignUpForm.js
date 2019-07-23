@@ -15,9 +15,13 @@ export default class SignUpForm extends Component {
 
   handleSubmit = event => {
   event.preventDefault()
+  if (event.target.password.value.length >= 6) {
   createUser(event.target.username.value, event.target.password.value)
     .then(() => alert("User added"))
   this.props.history.push('/signin')
+  } else {
+    alert("Please choose a password with 6 or more characters.")
+  }
   }
 
   render () {

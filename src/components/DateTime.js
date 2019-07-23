@@ -13,6 +13,7 @@ export default class DateTime extends React.Component {
       startDate: new Date()
     };
     this.handleChange = this.handleChange.bind(this);
+    //
   }
 
   handleChange(date) {

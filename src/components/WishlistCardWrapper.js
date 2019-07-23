@@ -3,7 +3,7 @@ import { fetchUserInfo, findIndividualRestaurantInfo } from "../services/api";
 import "../App.css";
 import SingleCard from "./SingleCard";
 
-export default class SingleCardWrapper extends React.Component {
+export default class WishlistCardWrapper extends React.Component {
   state = {
     name: "",
     featured_image:
@@ -11,20 +11,26 @@ export default class SingleCardWrapper extends React.Component {
   };
 
   componentDidMount() {
-    findIndividualRestaurantInfo(this.props.favourite.restaurant_api_id).then(
+    findIndividualRestaurantInfo(this.props.wishlist.restaurant_api_id).then(
       data => this.setState(data)
     );
+    
   }
 
   render() {
-    const { user, deleteFavouriteFromServer, setUserFavourites, savedRestaurants } = this.props;
+    const {
+      user,
+      deleteWishlistFromServer,
+      setUserWishlists,
+      savedRestaurants
+    } = this.props;
 
     // const { restaurantInfo } = this.state;
     return (
       <div className="restaurant-list">
         <SingleCard
-          setUserFavourites={setUserFavourites}
-          deleteFavouriteFromServer={deleteFavouriteFromServer}
+          setUserWishlists={setUserWishlists}
+          deleteWishlistFromServer={deleteWishlistFromServer}
           user={user}
           single={this.state}
           savedRestaurants={savedRestaurants}

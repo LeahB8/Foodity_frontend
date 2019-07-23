@@ -28,6 +28,7 @@ export default class UserFavourites extends React.Component {
                 deleteFavouriteFromServer={deleteFavouriteFromServer}
                 user={user}
                 favourite={favourite}
+                savedRestaurants={savedRestaurants}
               />
             )
           }

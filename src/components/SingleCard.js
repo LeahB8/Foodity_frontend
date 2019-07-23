@@ -10,6 +10,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import Icon from "@material-ui/core/Icon";
+import DateTime from "./DateTime";
+import Tooltip from "@material-ui/core/Tooltip";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -35,33 +38,55 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function WishlistCard(props) {
+export default function FavouriteCard(props) {
   const classes = useStyles();
 
   const handleDelete = id => {
+    let my_saved_restaurant = props.savedRestaurants.find(
+      restaurant => restaurant.restaurant_api_id === id
+    );
+
     props
-      .deleteWishlistFromServer(id)
-      .then(() => props.setUserWishlists(props.user));
+      .deleteFavouriteFromServer(my_saved_restaurant.id)
+      .then(() => props.setUserFavourites(props.user));
   };
   return (
     <Card className={classes.card}>
-      <CardHeader title={props.wishlist.name} />
+      <CardHeader
+        action={
+          <Tooltip title="Book">
+            <IconButton
+              aria-label="Settings"
+              // onClick={}
+            >
+              <MoreVertIcon />
+            </IconButton>
+          </Tooltip>
+        }
+        title={props.single.name}
+      />
+      <DateTime />
+      {/* <CardHeader title={props.single.name} /> */}
       <CardMedia className={classes.media}>
         <img
           className="restaurant-image"
-          src={props.wishlist.featured_image}
+          src={props.single.featured_image}
           alt="restaurant"
         />
       </CardMedia>
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
-          {props.wishlist.cuisines}
+          {props.single.cuisines}
         </Typography>
+        <br />
+        {/* <Typography variant="subtitle1" color="textSecondary">
+          {props.single.location.city}
+        </Typography> */}
       </CardContent>
       <CardActions disableSpacing>
         <IconButton
           aria-label="Delete"
-          onClick={() => handleDelete(props.wishlist.id)}
+          onClick={() => handleDelete(parseInt(props.single.id))}
         >
           <Icon>delete</Icon>
         </IconButton>

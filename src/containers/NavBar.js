@@ -84,7 +84,7 @@ function NavBar(props) {
             </IconButton>
           </Paper>
 
-          <Paper className={classes.root}>
+          {/* <Paper className={classes.root}>
             <InputBase
               className={classes.input}
               placeholder="Search Google Maps"
@@ -101,7 +101,7 @@ function NavBar(props) {
             >
               <DirectionsIcon />
             </IconButton>
-          </Paper>
+          </Paper> */}
           <div className="navbar-link">{sessionHeader()}</div>
         </Toolbar>
       </AppBar>
