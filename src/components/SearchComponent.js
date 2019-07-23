@@ -35,7 +35,13 @@ const useStyles = makeStyles(theme => ({
   icon: {
     color: "white"
   },
-  link: {}
+  image: {
+    width: 800,
+    height: 200,
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    margin: 20
+  }
 }));
 
 const cities = [
@@ -218,10 +224,15 @@ export default function SearchComponent(props) {
             to="/restaurants"
           >
             <GridListTile
+              // cols={4}
               key={tile.image_url}
               onClick={() => handleClick(tile.id)}
             >
-              <img src={tile.image_url} alt={tile.name} />
+              <img
+                className={classes.image}
+                src={tile.image_url}
+                alt={tile.name}
+              />
               <GridListTileBar
                 title={tile.name}
                 titlePosition="top"
