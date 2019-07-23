@@ -2,8 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { fetchUserInfo } from "../services/api";
 import "../App.css";
-import WishlistCardWrapper from '../components/WishlistCardWrapper'
-
+import WishlistCardWrapper from "../components/WishlistCardWrapper";
 
 export default class UserWishlists extends React.Component {
   render() {
@@ -11,11 +10,8 @@ export default class UserWishlists extends React.Component {
       users_name,
       user,
       username,
-      userBookings,
       userWishlists,
-      userFavourites,
-      userReviews,
-      deleteWishlistFromServer,
+      deleteWishlistItemFromServer,
       setUserWishlists,
       savedRestaurants
     } = this.props;
@@ -25,15 +21,18 @@ export default class UserWishlists extends React.Component {
         <h1>
           <strong>{user.username}'s Wishlists</strong>
         </h1>
-        {userWishlists.map(wishlist => (
+        <div className="restaurant-list">
+          {userWishlists.map(wishlist => (
             <WishlistCardWrapper
               setUserWishlists={setUserWishlists}
-              deleteWishlistFromServer={deleteWishlistFromServer}
+              deleteWishlistItemFromServer={deleteWishlistItemFromServer}
               user={user}
               wishlist={wishlist}
               savedRestaurants={savedRestaurants}
+              userWishlists={userWishlists}
             />
           ))}
+        </div>
       </div>
     );
   }

@@ -13,7 +13,7 @@ code {
 }
 
 .background-img {
-  background-image: url('./images/backgroundImage.jpg');
+  background-image: url("./images/backgroundImage.jpg");
   color: #fdb600;
   /* height: 100vh;
   width: 100vh; */
@@ -52,8 +52,7 @@ code {
 }
 
 .MuiButton-containedPrimary {
-  background-color: #1F2449 !important;
-
+  background-color: #1f2449 !important;
 }
 
 .MuiButton-label {
@@ -63,22 +62,37 @@ code {
 }
 
 .MuiButton-root {
-  background-color: #1F2449 !important;
+  background-color: #1f2449 !important;
   color: white !important;
 }
 
 .MuiGridListTile-tile:active {
   top: 2px;
 }
+.MuiGridListTile-tile:hover {
+  opacity: 0.5;
+}
 
 .MuiGridListTileBar-title {
   font-size: 1.4rem !important;
-  font-weight: bold !important; 
+  font-weight: bold !important;
   letter-spacing: 2px !important;
 }
 
+a:-webkit-any-link {
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: bold;
+  background-color: #1f2449 !important;
+}
 
+.MuiMenuItem-gutters {
+  background-color: #1f2449 !important;
+}
 
+.MuiMenu-list {
+  background-color: #1f2449 !important;
+}
 
 /* .navbar-link {
   width: 100px;
@@ -104,12 +118,10 @@ code {
   margin: 10px;
 }
 
-
 .city-select-form select {
   height: 40px;
   width: 150px;
   font-size: 1em;
-
 }
 
 .location-box {
@@ -128,7 +140,6 @@ code {
   flex-direction: row;
   align-content: space-around;
   justify-content: space-around;
-  
 }
 
 .map-box {
@@ -136,7 +147,6 @@ code {
   margin-bottom: 20px;
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 .restaurant-list {

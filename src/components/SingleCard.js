@@ -13,6 +13,9 @@ import Icon from "@material-ui/core/Icon";
 import DateTime from "./DateTime";
 import Tooltip from "@material-ui/core/Tooltip";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Collapse from "@material-ui/core/Collapse";
+import Dashboard from "./Dashboard";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -40,16 +43,25 @@ const useStyles = makeStyles(theme => ({
 
 export default function FavouriteCard(props) {
   const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
+
+  function handleExpandClick() {
+    setExpanded(!expanded);
+  }
 
   const handleDelete = id => {
-    let my_saved_restaurant = props.savedRestaurants.find(
-      restaurant => restaurant.restaurant_api_id === id
-    );
-
+    // restaurant_zomato_id and the user_id
+    // let my_saved_restaurant = props.savedRestaurants.find(
+    //   restaurant => restaurant.restaurant_api_id === id
+    // );
+    // let wishlist_or_favourite = props.userInfo.find(
+    //   wishOrFave => wishOrFave.restaurant_id === my_saved_restaurant.id
+    // );
     props
-      .deleteFavouriteFromServer(my_saved_restaurant.id)
-      .then(() => props.setUserFavourites(props.user));
+      .deleteCallback(props.user.id)
+      .then(() => props.secondCallback(props.user));
   };
+
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -80,7 +92,7 @@ export default function FavouriteCard(props) {
         </Typography>
         <br />
         {/* <Typography variant="subtitle1" color="textSecondary">
-          {props.single.location.city}
+          {props.single.city}
         </Typography> */}
       </CardContent>
       <CardActions disableSpacing>
@@ -90,7 +102,22 @@ export default function FavouriteCard(props) {
         >
           <Icon>delete</Icon>
         </IconButton>
+
+        {/* <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="Show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton> */}
       </CardActions>
+      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <Dashboard single={props.single} />
+        <br />
+      </Collapse> */}
     </Card>
   );
 }

@@ -17,17 +17,26 @@ export default class SingleCardWrapper extends React.Component {
   }
 
   render() {
-    const { user, deleteFavouriteFromServer, setUserFavourites, savedRestaurants } = this.props;
+    const {
+      user,
+      deleteFavouriteFromServer,
+      setUserFavourites,
+      savedRestaurants,
+      userFavourites
+    } = this.props;
 
     // const { restaurantInfo } = this.state;
     return (
       <div className="restaurant-list">
         <SingleCard
-          setUserFavourites={setUserFavourites}
-          deleteFavouriteFromServer={deleteFavouriteFromServer}
+          // setUserFavourites={setUserFavourites}
+          secondCallback={setUserFavourites}
+          // deleteFavouriteFromServer={deleteFavouriteFromServer}
+          deleteCallback={deleteFavouriteFromServer}
           user={user}
           single={this.state}
           savedRestaurants={savedRestaurants}
+          userInfo={userFavourites}
         />
       </div>
     );

@@ -54,6 +54,7 @@ class App extends Component {
       userReviews: [...userObj.user_reviews],
       loggedIn: true
     });
+    debugger;
     if (redirectToProfile) {
       this.props.history.push("/profile");
     }
@@ -87,12 +88,22 @@ class App extends Component {
       .then(data => this.setState({ userFavourites: data }));
   };
 
-  deleteFavouriteFromServer = id => {
-    return fetch(`http://localhost:3001/favourites/${id}`, {
+  // deleteFavouriteFromServer = id => {
+  //   return fetch(`http://localhost:3001/favourites/${id}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     }
+  //   });
+  // };
+
+  deleteFavouriteFromServer = (user_id, restaurant_id) => {
+    return fetch(`http://localhost:3001/users/favourites/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify({ user_id: user_id, restaurant_id: restaurant_id })
     });
   };
 
