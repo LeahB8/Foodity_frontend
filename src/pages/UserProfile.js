@@ -1,21 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import { fetchUserInfo } from "../services/api";
+// import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+// import { fetchUserInfo } from "../services/api";
 import "../App.css";
-import LocationSearchComponent from "../components/LocationSearchComponent";
-import MapBox from "../components/MapBox";
+// import LocationSearchComponent from "../components/LocationSearchComponent";
+// import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
 
 export default class UserProfile extends React.Component {
   render() {
     const {
-      users_name,
       user,
-      username,
-      userBookings,
-      userWishlists,
-      userFavourites,
-      userReviews,
       changeCoordinatesState,
       coordinates,
       restaurantData,
@@ -40,6 +34,9 @@ export default class UserProfile extends React.Component {
           Search through the list of cities to find restaurants you want to add
           to your wishlist or select those you want to favourite.
         </p>
+        <p>
+          Explore your own city's hidden gems or plan for upcoming holidays.
+        </p>
         <p>You can also book any restaurant that inspires you.</p>
         <div className="search-restaurants">
           {/*           
@@ -56,6 +53,7 @@ export default class UserProfile extends React.Component {
         </div> */}
           <div>
             <SearchComponent
+              {...this.props}
               changeCoordinatesState={changeCoordinatesState}
               coordinates={coordinates}
               populateListWithData={populateListWithData}

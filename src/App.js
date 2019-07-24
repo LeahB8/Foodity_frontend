@@ -127,12 +127,13 @@ class App extends Component {
       .then(data => this.setState({ userWishlists: data }));
   };
 
-  deleteWishlistItemFromServer = id => {
-    return fetch(`http://localhost:3001/wishlists/${id}`, {
+  deleteWishlistItemFromServer = (user_id, restaurant_id) => {
+    return fetch(`http://localhost:3001/users/wishlists/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify({ user_id: user_id, restaurant_id: restaurant_id })
     });
   };
 
@@ -152,12 +153,13 @@ class App extends Component {
       .then(data => this.setState({ userBookings: data }));
   };
 
-  deleteBookingFromServer = id => {
-    return fetch(`http://localhost:3001/bookings/${id}`, {
+  deleteBookingFromServer = (user_id, restaurant_id) => {
+    return fetch(`http://localhost:3001/users/bookings/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify({ user_id: user_id, restaurant_id: restaurant_id })
     });
   };
 

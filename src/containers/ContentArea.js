@@ -39,9 +39,9 @@ class ContentArea extends React.Component {
     });
   };
 
-  populateListWithData = data => {
+  populateListWithData = async data => {
     // debugger
-    this.setState({ restaurantData: data.restaurants });
+    await this.setState({ restaurantData: data.restaurants });
   };
 
   populateListWithCollections = data => {

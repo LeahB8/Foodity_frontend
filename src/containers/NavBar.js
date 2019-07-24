@@ -2,11 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "../App.css";
 import myLogo from "../images/myLogo.png";
 import { makeStyles } from "@material-ui/core/styles";
@@ -18,8 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import DropDownMenu from "../components/DropDownMenu";
-import Button from '@material-ui/core/Button';
-
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   root: {
@@ -58,7 +53,7 @@ function NavBar(props) {
       </React.Fragment>
     ) : (
       <React.Fragment>
-      <Button variant="contained" color="primary" className={classes.button}>
+        <Button variant="contained" color="primary" className={classes.button}>
           <Link className="Homepage-link" to="/signin">
             Sign In
           </Link>
@@ -76,13 +71,18 @@ function NavBar(props) {
     <div>
       <AppBar className="nav-header" position="static">
         <Toolbar className="toolbar-header">
-          <img src={myLogo} className="App-logo" alt="logo" onClick={<Link to="/"></Link>}/>
-          <Paper className={classes.root}>
+          <img
+            src={myLogo}
+            className="App-logo"
+            alt="logo"
+            onClick={<Link to="/" />}
+          />
+          {/* <Paper className={classes.root}>
             <InputBase className={classes.input} placeholder="Search Food" />
             <IconButton className={classes.iconButton} aria-label="Search">
               <SearchIcon />
             </IconButton>
-          </Paper>
+          </Paper> */}
 
           {/* <Paper className={classes.root}>
             <InputBase

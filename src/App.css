@@ -6,9 +6,9 @@
   /* animation: App-logo-spin infinite 20s linear; */
   height: 10vmin;
   pointer-events: none;
-  justify-content: flex-start;
-  align-content: flex-start;
-  margin-left: ;
+  /* justify-content: flex-start;
+  align-content: flex-start; */
+  /* margin-left: 0; */
 }
 
 .background-img {
@@ -19,12 +19,19 @@
 .App-header {
   background-color: #fdb600;
   min-height: 10vh;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  /* align-items: space-between;
+  align-items: space-between;
   justify-content: space-between; */
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.toolbar-header {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  justify-content: space-between;
 }
 
 .signup-in-btn {
@@ -36,8 +43,8 @@
   font-size: medium;
   font-family: "Roboto", sans-serif;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  justify-content: flex-end;
-  align-items: flex-end;
+  /* justify-content: flex-end;
+  align-items: flex-end; */
   letter-spacing: 2.5px;
   transition: all 0.3s ease 0s;
   cursor: pointer;

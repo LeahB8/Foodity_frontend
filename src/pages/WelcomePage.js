@@ -59,6 +59,7 @@ export default function WelcomePage(props) {
             </div> */}
         <div>
           <SearchComponent
+            {...props}
             changeCoordinatesState={props.changeCoordinatesState}
             coordinates={props.coordinates}
             populateListWithData={props.populateListWithData}

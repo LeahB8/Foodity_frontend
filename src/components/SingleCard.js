@@ -50,15 +50,15 @@ export default function FavouriteCard(props) {
   }
 
   const handleDelete = id => {
-    // restaurant_zomato_id and the user_id
-    // let my_saved_restaurant = props.savedRestaurants.find(
-    //   restaurant => restaurant.restaurant_api_id === id
-    // );
+    // debugger;
+    let my_saved_restaurant = props.savedRestaurants.find(
+      restaurant => restaurant.restaurant_api_id === id
+    );
     // let wishlist_or_favourite = props.userInfo.find(
     //   wishOrFave => wishOrFave.restaurant_id === my_saved_restaurant.id
     // );
     props
-      .deleteCallback(props.user.id, id)
+      .deleteCallback(props.user.id, my_saved_restaurant.id)
       .then(() => props.secondCallback(props.user));
   };
 

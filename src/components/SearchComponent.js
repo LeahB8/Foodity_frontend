@@ -34,13 +34,6 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     color: "white"
-  },
-  image: {
-    width: 800,
-    height: 200,
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    margin: 20
   }
 }));
 
@@ -211,36 +204,31 @@ export default function SearchComponent(props) {
   const classes = useStyles();
 
   const handleClick = id => {
-    fetchRestaurantsByCity(id).then(data => props.populateListWithData(data));
+    // fetchRestaurantsByCity(id).then(data => {
+    //   props
+    //     .populateListWithData(data)
+    //     .then(() => props.history.push("/restaurants"));
+    // });
+    props.history.push("/search");
   };
 
   return (
     <div className={classes.root}>
       <GridList cellHeight={200} spacing={10} className={classes.gridList}>
         {cities.map(tile => (
-          <Link
-            className={classes.gridList}
-            component={RouterLink}
-            to="/restaurants"
+          <GridListTile
+            // cols={4}
+            key={tile.image_url}
+            onClick={() => handleClick(tile.id)}
           >
-            <GridListTile
-              // cols={4}
-              key={tile.image_url}
-              onClick={() => handleClick(tile.id)}
-            >
-              <img
-                className={classes.image}
-                src={tile.image_url}
-                alt={tile.name}
-              />
-              <GridListTileBar
-                title={tile.name}
-                titlePosition="top"
-                actionPosition="left"
-                className={classes.titleBar}
-              />
-            </GridListTile>
-          </Link>
+            <img src={tile.image_url} alt={tile.name} />
+            <GridListTileBar
+              title={tile.name}
+              titlePosition="top"
+              actionPosition="left"
+              className={classes.titleBar}
+            />
+          </GridListTile>
         ))}
       </GridList>
     </div>
