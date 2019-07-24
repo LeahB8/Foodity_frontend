@@ -16,13 +16,21 @@ export default class RestaurantsPage extends React.Component {
       restaurantData,
       loggedIn,
       addWishlist,
-      addFave
+      addFave,
+      collectionsData,
+      cuisinesData,
+      establishmentsData,
+      categoriesData
     } = this.props;
 
     return (
       <div>
         <h1>
-          <strong>{user.username}'s Searched Restaurants</strong>
+          <strong>
+            {loggedIn
+              ? `${user.username}'s Searched Restaurants`
+              : "Searched Restaurants"}
+          </strong>
         </h1>
         <div className="restaurant-list" />
         <RestaurantList

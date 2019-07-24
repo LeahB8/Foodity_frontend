@@ -27,17 +27,20 @@ export default class UserProfile extends React.Component {
 
     return (
       <>
-        <h1>
-          <strong>Welcome back, {user.username}</strong>
-        </h1>
-        <p>
-          Search through the list of cities to find restaurants you want to add
-          to your wishlist or select those you want to favourite.
-        </p>
-        <p>
-          Explore your own city's hidden gems or plan for upcoming holidays.
-        </p>
-        <p>You can also book any restaurant that inspires you.</p>
+        <div className="welcome-card">
+          <h1>
+            <strong>Welcome back, {user.username}</strong>
+          </h1>
+          <p>
+            Search through the list of cities to find restaurants you want to
+            add to your wishlist or select those you want to favourite.
+          </p>
+          <p>
+            Explore your own city's hidden gems or plan for upcoming holidays.
+          </p>
+          <p>You can also book any restaurant that inspires you.</p>
+        </div>
+
         <div className="search-restaurants">
           {/*           
           <div>

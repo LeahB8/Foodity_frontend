@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function FavouriteCard(props) {
+export default function SingleCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -50,7 +50,7 @@ export default function FavouriteCard(props) {
   }
 
   const handleDelete = id => {
-    // debugger;
+    debugger;
     let my_saved_restaurant = props.savedRestaurants.find(
       restaurant => restaurant.restaurant_api_id === id
     );
@@ -77,7 +77,7 @@ export default function FavouriteCard(props) {
         }
         title={props.single.name}
       />
-      <DateTime />
+      {/* <DateTime /> */}
       {/* <CardHeader title={props.single.name} /> */}
       <CardMedia className={classes.media}>
         <img
@@ -91,9 +91,9 @@ export default function FavouriteCard(props) {
           {props.single.cuisines}
         </Typography>
         <br />
-        {/* <Typography variant="subtitle1" color="textSecondary">
-          {props.single.city}
-        </Typography> */}
+        <Typography variant="h6" color="textSecondary">
+          <strong>{props.single.location.city}</strong>
+        </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton

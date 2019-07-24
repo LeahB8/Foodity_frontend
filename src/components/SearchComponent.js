@@ -76,7 +76,8 @@ const cities = [
     country_id: 215,
     id: 68,
     image_url:
-      "https://images.unsplash.com/photo-1543772204-2cc21eb14509?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+      "https://images.unsplash.com/photo-1520097718692-c77fd891035a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+    // "https://images.unsplash.com/photo-1543772204-2cc21eb14509?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
   },
   {
     name: "Rome",
@@ -209,7 +210,10 @@ export default function SearchComponent(props) {
     //     .populateListWithData(data)
     //     .then(() => props.history.push("/restaurants"));
     // });
-    props.history.push("/search");
+    props.history.push({
+      pathname: "/search",
+      props: id
+    });
   };
 
   return (

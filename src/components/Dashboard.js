@@ -59,8 +59,9 @@ class Dashboard extends Component {
             </Typography>
             <StarRatings
               rating={parseInt(single.restaurant.user_rating.aggregate_rating)}
-              starDimension="40px"
+              starDimension="30px"
               starSpacing="5px"
+              starRatedColor="gold"
             />
             <br />
             <Typography variant="h6">
@@ -79,8 +80,9 @@ class Dashboard extends Component {
               <>
                 <StarRatings
                   rating={review.review.rating}
-                  starDimension="40px"
+                  starDimension="30px"
                   starSpacing="5px"
+                  starRatedColor="gold"
                 />
                 <Typography align="left" object="p">
                   {review.review.review_text}

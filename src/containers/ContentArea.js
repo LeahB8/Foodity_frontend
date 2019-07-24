@@ -23,6 +23,9 @@ class ContentArea extends React.Component {
   state = {
     restaurantData: [],
     collectionsData: [],
+    cuisinesData: [],
+    establishmentsData: [],
+    categoriesData: [],
     savedRestaurants: [],
     coordinates: {
       long: "",
@@ -44,8 +47,20 @@ class ContentArea extends React.Component {
     await this.setState({ restaurantData: data.restaurants });
   };
 
-  populateListWithCollections = data => {
-    this.setState({ collectionsData: data });
+  populateListWithCollections = async data => {
+    await this.setState({ collectionsData: data });
+  };
+
+  populateListWithCuisines = async data => {
+    await this.setState({ cuisinesData: data });
+  };
+
+  populateListWithEstablishments = async data => {
+    await this.setState({ establishmentsData: data });
+  };
+
+  populateListWithCategories = async data => {
+    await this.setState({ categoriesData: data });
   };
 
   addFave = id => {
@@ -67,21 +82,6 @@ class ContentArea extends React.Component {
     this.props.addRestaurantToWishlists(wishlist);
     // .then(alert("Restaurant Favourited"));
   };
-
-  // saveRestaurantToServer = restaurant => {
-  //   fetch("http://localhost:3001/restaurants", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(restaurant)
-  //   })
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       this.setState({
-  //         savedRestaurants: [...this.state.savedRestaurants],
-  //         data
-  //       });
-  //     });
-  // };
 
   fetchRestaurantsFromServer = () => {
     fetch("http://localhost:3001/restaurants", {
@@ -126,7 +126,10 @@ class ContentArea extends React.Component {
       coordinates,
       restaurantData,
       savedRestaurants,
-      collectionsData
+      collectionsData,
+      cuisinesData,
+      establishmentsData,
+      categoriesData
     } = this.state;
 
     return (
@@ -255,6 +258,16 @@ class ContentArea extends React.Component {
                 userFavourites={userFavourites}
                 deleteFavouriteFromServer={deleteFavouriteFromServer}
                 setUserFavourites={setUserFavourites}
+                populateListWithCollections={this.populateListWithCollections}
+                populateListWithCuisines={this.populateListWithCuisines}
+                populateListWithEstablishments={
+                  this.populateListWithEstablishments
+                }
+                populateListWithCategories={this.populateListWithCategories}
+                collectionsData={collectionsData}
+                cuisinesData={cuisinesData}
+                establishmentsData={establishmentsData}
+                categoriesData={categoriesData}
               />
             )}
           />
@@ -282,6 +295,9 @@ class ContentArea extends React.Component {
                 addWishlist={this.addWishlist}
                 populateListWithCollections={this.populateListWithCollections}
                 collectionsData={collectionsData}
+                cuisinesData={cuisinesData}
+                establishmentsData={establishmentsData}
+                categoriesData={categoriesData}
               />
             )}
           />

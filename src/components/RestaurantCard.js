@@ -99,7 +99,7 @@ export default function RestaurantCard(props) {
         }
         title={props.single.restaurant.name}
       />
-      <DateTime />
+      {/* <DateTime /> */}
 
       <CardMedia className={classes.media}>
         {/* <Link> */}
