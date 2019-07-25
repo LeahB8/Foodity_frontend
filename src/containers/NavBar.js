@@ -1,18 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "../App.css";
 import myLogo from "../images/myLogo.png";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import InputBase from "@material-ui/core/InputBase";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
-import DirectionsIcon from "@material-ui/icons/Directions";
+// import Paper from "@material-ui/core/Paper";
+// import InputBase from "@material-ui/core/InputBase";
+// import Divider from "@material-ui/core/Divider";
+// import IconButton from "@material-ui/core/IconButton";
+// import MenuIcon from "@material-ui/icons/Menu";
+// import SearchIcon from "@material-ui/icons/Search";
+// import DirectionsIcon from "@material-ui/icons/Directions";
 import DropDownMenu from "../components/DropDownMenu";
 import Button from "@material-ui/core/Button";
 
@@ -52,19 +51,19 @@ function NavBar(props) {
         </Button>
       </React.Fragment>
     ) : (
-      <React.Fragment>
-        <Button variant="contained" color="primary" className={classes.button}>
-          <Link className="Homepage-link" to="/signin">
-            Sign In
+        <React.Fragment>
+          <Button variant="contained" color="primary" className={classes.button}>
+            <Link className="Homepage-link" to="/signin">
+              Sign In
           </Link>
-        </Button>
-        <Button variant="contained" color="primary" className={classes.button}>
-          <Link className="Homepage-link" to="/signup">
-            Sign Up
+          </Button>
+          <Button variant="contained" color="primary" className={classes.button}>
+            <Link className="Homepage-link" to="/signup">
+              Sign Up
           </Link>
-        </Button>
-      </React.Fragment>
-    );
+          </Button>
+        </React.Fragment>
+      );
   };
 
   return (

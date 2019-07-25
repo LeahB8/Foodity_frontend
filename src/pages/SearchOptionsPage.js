@@ -17,10 +17,10 @@ export default class SearchOptionsPage extends React.Component {
             loggedIn,
             addWishlist,
             addFave,
-            collectionsData,
-            cuisinesData,
-            establishmentsData,
-            categoriesData
+            searchOptionData,
+            selectedCityId,
+            populateListWithData
+
         } = this.props;
 
         return (
@@ -34,13 +34,13 @@ export default class SearchOptionsPage extends React.Component {
                 </h1>
                 <div className="restaurant-list" />
                 <SearchList
-                    collectionsData={collectionsData}
-                    cuisinesData={cuisinesData}
-                    establishmentsData={establishmentsData}
-                    categoriesData={categoriesData}
+                    searchOptionData={searchOptionData}
                     loggedIn={loggedIn}
                     addFave={addFave}
                     addWishlist={addWishlist}
+                    selectedCityId={selectedCityId}
+                    populateListWithData={populateListWithData}
+                    {...this.props}
                 />
             </div>
         );

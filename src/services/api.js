@@ -172,6 +172,57 @@ export function fetchRestaurantsByCityAndCollection(city_id, collection_id) {
   ).then(resp => resp.json());
 }
 
+export function fetchRestaurantsByCityAndCategory(city_id, category_id) {
+  return fetch(
+    `https://developers.zomato.com/api/v2.1/search?entity_id=${city_id}&entity_type=city&category=${category_id}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        // First API key
+        "user-key": "0a30032127faff953a6589eeb89db7d5"
+        // Second API key
+        // "user-key": "b2175adda37400ec0c255f87343fd432"
+      }
+    }
+  ).then(resp => resp.json());
+}
+
+export function fetchRestaurantsByCityAndCuisine(city_id, cuisine_id) {
+  return fetch(
+    `https://developers.zomato.com/api/v2.1/search?entity_id=${city_id}&entity_type=city&cuisines=${cuisine_id}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        // First API key
+        "user-key": "0a30032127faff953a6589eeb89db7d5"
+        // Second API key
+        // "user-key": "b2175adda37400ec0c255f87343fd432"
+      }
+    }
+  ).then(resp => resp.json());
+}
+
+export function fetchRestaurantsByCityAndEstablishment(city_id, establishment_id) {
+  return fetch(
+    `https://developers.zomato.com/api/v2.1/search?entity_id=${city_id}&entity_type=city&establishment_type=${establishment_id}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        // First API key
+        "user-key": "0a30032127faff953a6589eeb89db7d5"
+        // Second API key
+        // "user-key": "b2175adda37400ec0c255f87343fd432"
+      }
+    }
+  ).then(resp => resp.json());
+}
+
+
+
+
 //----------------------- exporting -------------------//
 
 export default {
@@ -187,6 +238,9 @@ export default {
   fetchCuisinesForCity,
   fetchEstablishmentsForCity,
   fetchCategories,
+  findIndividualRestaurantInfo,
   fetchRestaurantsByCityAndCollection,
-  findIndividualRestaurantInfo
+  fetchRestaurantsByCityAndCategory,
+  fetchRestaurantsByCityAndCuisine,
+  fetchRestaurantsByCityAndEstablishment
 };

@@ -24,50 +24,56 @@ import SearchOptionsPage from "../pages/SearchOptionsPage"
 class ContentArea extends React.Component {
   state = {
     restaurantData: [],
-    collectionsData: [],
-    cuisinesData: [],
-    establishmentsData: [],
-    categoriesData: [],
+    searchOptionData: [],
+    // collectionsData: [],
+    // cuisinesData: [],
+    // establishmentsData: [],
+    // categoriesData: [],
     savedRestaurants: [],
-    coordinates: {
-      long: "",
-      lat: ""
-    },
-    selectedCityId: ''
+    // coordinates: {
+    //   long: "",
+    //   lat: ""
+    // },
+    selectedCityId: '',
+    // selectedSearchCategory: ''
   };
 
-  changeCoordinatesState = event => {
-    this.setState({
-      coordinates: {
-        long: event.coordinates.lng,
-        lat: event.coordinates.lat
-      }
-    });
-  };
+  // changeCoordinatesState = event => {
+  //   this.setState({
+  //     coordinates: {
+  //       long: event.coordinates.lng,
+  //       lat: event.coordinates.lat
+  //     }
+  //   });
+  // };
 
   populateListWithData = async data => {
     await this.setState({ restaurantData: data.restaurants });
   };
 
-  populateListWithCollections = async data => {
-    await this.setState({ collectionsData: data });
+  populateListWithSearchOptionData = async data => {
+    await this.setState({ searchOptionData: data });
   };
 
-  populateListWithCuisines = async data => {
-    await this.setState({ cuisinesData: data });
-  };
+  // populateListWithCuisines = async data => {
+  //   await this.setState({ cuisinesData: data });
+  // };
 
-  populateListWithEstablishments = async data => {
-    await this.setState({ establishmentsData: data });
-  };
+  // populateListWithEstablishments = async data => {
+  //   await this.setState({ establishmentsData: data });
+  // };
 
-  populateListWithCategories = async data => {
-    await this.setState({ categoriesData: data });
-  };
+  // populateListWithCategories = async data => {
+  //   await this.setState({ categoriesData: data });
+  // };
 
   assignSelectedCityId = id => {
     this.setState({ selectedCityId: id })
   }
+
+  // assignSelectedSearchCategory = id => {
+  //   this.setState({ selectedSearchCategory: id })
+  // }
 
   addFave = id => {
     let favourite = {
@@ -101,6 +107,8 @@ class ContentArea extends React.Component {
         });
       });
   };
+
+
 
   componentDidMount() {
     this.fetchRestaurantsFromServer();
@@ -136,7 +144,9 @@ class ContentArea extends React.Component {
       cuisinesData,
       establishmentsData,
       categoriesData,
-      selectedCityId
+      selectedCityId,
+      selectedSearchCategory,
+      searchOptionData
     } = this.state;
 
     return (
@@ -269,18 +279,15 @@ class ContentArea extends React.Component {
                 userFavourites={userFavourites}
                 deleteFavouriteFromServer={deleteFavouriteFromServer}
                 setUserFavourites={setUserFavourites}
-                populateListWithCollections={this.populateListWithCollections}
-                populateListWithCuisines={this.populateListWithCuisines}
-                populateListWithEstablishments={
-                  this.populateListWithEstablishments
-                }
-                populateListWithCategories={this.populateListWithCategories}
+                populateListWithSearchOptionData={this.populateListWithSearchOptionData}
                 collectionsData={collectionsData}
                 cuisinesData={cuisinesData}
                 establishmentsData={establishmentsData}
                 categoriesData={categoriesData}
                 selectedCityId={selectedCityId}
                 assignSelectedCityId={this.assignSelectedCityId}
+                assignSelectedSearchCategory={this.assignSelectedSearchCategory}
+                selectedSearchCategory={selectedSearchCategory}
               />
             )}
           />
@@ -331,6 +338,7 @@ class ContentArea extends React.Component {
                 coordinates={coordinates}
                 restaurantData={restaurantData}
                 populateListWithData={this.populateListWithData}
+                populateListWithSearchOptionData={this.populateListWithSearchOptionData}
                 addRestaurantToFavourites={addRestaurantToFavourites}
                 addRestaurantToWishlists={addRestaurantToWishlists}
                 addRestaurantToBookings={addRestaurantToBookings}
@@ -344,7 +352,11 @@ class ContentArea extends React.Component {
                 establishmentsData={establishmentsData}
                 categoriesData={categoriesData}
                 selectedCityId={selectedCityId}
+                searchOptionData={searchOptionData}
                 assignSelectedCityId={this.assignSelectedCityId}
+                assignSelectedSearchCategory={this.assignSelectedSearchCategory}
+                selectedSearchCategory={selectedSearchCategory}
+
               />
             )}
           />

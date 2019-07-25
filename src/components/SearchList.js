@@ -2,39 +2,30 @@ import React, { Component } from "react";
 import { fetchRestaurantsByCity } from "../services/api";
 import SearchCard from "./SearchCard";
 
-class SearchList extends Component {
+export default class SearchList extends Component {
     render() {
+        // debugger
         const {
-            restaurantData,
-            addRestaurantToFavourites,
-            addRestaurantToWishlists,
-            addRestaurantToBookings,
             user,
             loggedIn,
             saveRestaurantToServer,
             savedRestaurants,
-            collectionsData,
-            cuisinesData,
-            establishmentsData,
-            categoriesData
+            searchOptionData,
+            selectedCityId,
+            populateListWithData
         } = this.props;
 
         return (
             <div className="restaurant-list">
-                {restaurantData.map(single => (
+                {searchOptionData.map(option => (
                     <SearchCard
                         user={user}
-                        single={single}
-                        addRestaurantToFavourites={addRestaurantToFavourites}
-                        addRestaurantToWishlists={addRestaurantToWishlists}
-                        addRestaurantToBookings={addRestaurantToBookings}
+                        option={option}
                         loggedIn={loggedIn}
-                        saveRestaurantToServer={saveRestaurantToServer}
-                        savedRestaurants={savedRestaurants}
-                        collectionsData={collectionsData}
-                        cuisinesData={cuisinesData}
-                        establishmentsData={establishmentsData}
-                        categoriesData={categoriesData}
+                        populateListWithData={populateListWithData}
+                        selectedCityId={selectedCityId}
+                        {...this.props}
+
                     />
                 ))}
             </div>
@@ -42,4 +33,3 @@ class SearchList extends Component {
     }
 }
 
-export default RestaurantList;

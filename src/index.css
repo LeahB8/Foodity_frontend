@@ -157,6 +157,22 @@ a:-webkit-any-link {
   transition: all .2s ease-in-out; */
 }
 
+.search-card  {
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+  min-width: 50%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.search-card:hover {
+  box-shadow: 10px 15px 7px #C7C7C7;
+
+}
+
 .card:hover {
   /* -webkit-transform: scale(0.5);
   -ms-transform: scale(0.5);

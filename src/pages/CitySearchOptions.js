@@ -13,7 +13,7 @@ export default class CitySearchOptions extends React.Component {
   handleCollectionsClick = id => {
     fetchCollectionsForCity(id).then(data => {
       this.props
-        .populateListWithCollections(data)
+        .populateListWithSearchOptionData(data.collections)
         .then(() => this.props.history.push(`/options/${id}`));
     });
   };
@@ -21,7 +21,7 @@ export default class CitySearchOptions extends React.Component {
   handleCusinesClick = id => {
     fetchCuisinesForCity(id).then(data => {
       this.props
-        .populateListWithCuisines(data)
+        .populateListWithSearchOptionData(data.cuisines)
         .then(() => this.props.history.push(`/options/${id}`));
     });
   };
@@ -29,7 +29,7 @@ export default class CitySearchOptions extends React.Component {
   handleEstablishmentsClick = id => {
     fetchEstablishmentsForCity(id).then(data => {
       this.props
-        .populateListWithEstablishments(data)
+        .populateListWithSearchOptionData(data.establishments)
         .then(() => this.props.history.push(`/options/${id}`));
     });
   };
@@ -37,7 +37,7 @@ export default class CitySearchOptions extends React.Component {
   handleCategoriesClick = id => {
     fetchCategories().then(data => {
       this.props
-        .populateListWithCategories(data)
+        .populateListWithSearchOptionData(data.categories)
         .then(() => this.props.history.push(`/options/${id}`));
     });
   };
