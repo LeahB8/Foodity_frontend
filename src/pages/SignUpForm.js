@@ -15,16 +15,16 @@ export default class SignUpForm extends Component {
     event.preventDefault();
     if (event.target.password.value.length >= 6) {
       createUser(event.target.username.value, event.target.password.value)
-        // .then(() => alert("User added"))
-        .then(data => signin(data))
-        .then(data => {
-          if (data.error) {
-            alert(data.error);
-          } else {
-            this.props.signinAndSetToken(data);
-            this.setState({ username: "", password: "" });
-          }
-        });
+        .then(() => alert("User added"))
+      // .then(data => signin(data))
+      // .then(data => {
+      //   if (data.error) {
+      //     alert(data.error);
+      //   } else {
+      //     this.props.signinAndSetToken(data);
+      //     this.setState({ username: "", password: "" });
+      //   }
+      // });
       this.props.history.push("/signin");
     } else {
       alert("Please choose a password with 6 or more characters.");

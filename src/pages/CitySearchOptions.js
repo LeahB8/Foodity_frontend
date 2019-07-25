@@ -14,7 +14,7 @@ export default class CitySearchOptions extends React.Component {
     fetchCollectionsForCity(id).then(data => {
       this.props
         .populateListWithCollections(data)
-        .then(() => this.props.history.push("/restaurants"));
+        .then(() => this.props.history.push(`/options/${id}`));
     });
   };
 
@@ -22,7 +22,7 @@ export default class CitySearchOptions extends React.Component {
     fetchCuisinesForCity(id).then(data => {
       this.props
         .populateListWithCuisines(data)
-        .then(() => this.props.history.push("/restaurants"));
+        .then(() => this.props.history.push(`/options/${id}`));
     });
   };
 
@@ -30,20 +30,20 @@ export default class CitySearchOptions extends React.Component {
     fetchEstablishmentsForCity(id).then(data => {
       this.props
         .populateListWithEstablishments(data)
-        .then(() => this.props.history.push("/restaurants"));
+        .then(() => this.props.history.push(`/options/${id}`));
     });
   };
 
-  handleCategoriesClick = () => {
+  handleCategoriesClick = id => {
     fetchCategories().then(data => {
       this.props
         .populateListWithCategories(data)
-        .then(() => this.props.history.push("/restaurants"));
+        .then(() => this.props.history.push(`/options/${id}`));
     });
   };
 
   render() {
-    const { id } = this.props;
+    const { selectedCityId } = this.props;
     const {
       handleCollectionsClick,
       handleCusinesClick,
@@ -55,21 +55,26 @@ export default class CitySearchOptions extends React.Component {
         <h1>
           <strong>Choose your search</strong>
         </h1>
-        <div className="card" onClick={() => handleCollectionsClick(id)}>
-          <h4>Collections</h4>
-          <img src="https://images.unsplash.com/photo-1549332409-c2580d165674?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-        </div>
+        <div className="search-cards" >
+          <div className="card" onClick={() => handleCollectionsClick(selectedCityId)}>
+            <h4>Collections</h4>
+            <img src="https://images.unsplash.com/photo-1549332409-c2580d165674?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="collections" />
+          </div>
 
-        <div className="card" onClick={() => handleCusinesClick(id)}>
-          <h4>Cuisines</h4>
-        </div>
+          <div className="card" onClick={() => handleCusinesClick(selectedCityId)}>
+            <h4>Cuisines</h4>
+            <img src="https://images.unsplash.com/photo-1542528180-0c79567c66de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1339&q=80" alt="cuisines" />
+          </div>
 
-        <div className="card" onClick={() => handleEstablishmentsClick(id)}>
-          <h4>Establishments</h4>
-        </div>
+          <div className="card" onClick={() => handleEstablishmentsClick(selectedCityId)}>
+            <h4>Establishments</h4>
+            <img src="https://images.unsplash.com/photo-1546983620-53cb1c496917?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="establishments" />
+          </div>
 
-        <div className="card" onClick={handleCategoriesClick}>
-          <h4>Categories</h4>
+          <div className="card" onClick={() => handleCategoriesClick(selectedCityId)}>
+            <h4>Categories</h4>
+            <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="categories" />
+          </div>
         </div>
       </>
     );

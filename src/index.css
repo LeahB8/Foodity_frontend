@@ -150,6 +150,33 @@ a:-webkit-any-link {
   /* transition: 0.3s; */
   width: 40%;
   border-radius: 4px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px;
+  /* -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out; */
+}
+
+.card:hover {
+  /* -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+      transform: scale(0.5); */
+  box-shadow: 10px 15px 7px #C7C7C7;
+}
+
+.card h4 {
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 1.5em;
+
+}
+.card img {
+  width: 30vh;
+  height: 30vh;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  padding-bottom: 10px;
 }
 
 .welcome-card {
@@ -163,3 +190,12 @@ a:-webkit-any-link {
   align-items: center;
   justify-content: center;
 }
+
+.search-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-around;
+}
+

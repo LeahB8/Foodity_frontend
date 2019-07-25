@@ -210,10 +210,8 @@ export default function SearchComponent(props) {
     //     .populateListWithData(data)
     //     .then(() => props.history.push("/restaurants"));
     // });
-    props.history.push({
-      pathname: "/search",
-      props: id
-    });
+    props.assignSelectedCityId(id)
+    props.history.push(`/search/${id}`);
   };
 
   return (
@@ -221,7 +219,6 @@ export default function SearchComponent(props) {
       <GridList cellHeight={200} spacing={10} className={classes.gridList}>
         {cities.map(tile => (
           <GridListTile
-            // cols={4}
             key={tile.image_url}
             onClick={() => handleClick(tile.id)}
           >

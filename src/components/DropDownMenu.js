@@ -74,7 +74,7 @@ function DropDownMenu() {
       >
         <StyledMenuItem>
           <ListItemText>
-            <Link component={RouterLink} to="/favourites">
+            <Link onClick={handleClose} component={RouterLink} to="/favourites">
               My Favourites
             </Link>
           </ListItemText>
@@ -82,7 +82,7 @@ function DropDownMenu() {
 
         <StyledMenuItem>
           <ListItemText>
-            <Link component={RouterLink} to="/wishlists">
+            <Link onClick={handleClose} component={RouterLink} to="/wishlists">
               My Wishlists
             </Link>
         </ListItemText>
@@ -90,7 +90,7 @@ function DropDownMenu() {
 
         <StyledMenuItem>
           <ListItemText>
-            <Link component={RouterLink} to="/bookings">
+            <Link onClick={handleClose} component={RouterLink} to="/bookings">
               My Bookings
             </Link>
           </ListItemText>
@@ -98,7 +98,7 @@ function DropDownMenu() {
 
         <StyledMenuItem>
             <ListItemText>
-                <Link component={RouterLink} to="/profile">
+                <Link onClick={handleClose} component={RouterLink} to="/profile">
                 My Profile
                 </Link>
             </ListItemText>

@@ -18,6 +18,8 @@ import UserWishlists from "../pages/UserWishlists";
 import UserFavourites from "../pages/UserFavourites";
 import CitySearchOptions from "../pages/CitySearchOptions";
 import RestaurantsPage from "../pages/RestaurantsPage";
+import SearchOptionsPage from "../pages/SearchOptionsPage"
+
 
 class ContentArea extends React.Component {
   state = {
@@ -30,7 +32,8 @@ class ContentArea extends React.Component {
     coordinates: {
       long: "",
       lat: ""
-    }
+    },
+    selectedCityId: ''
   };
 
   changeCoordinatesState = event => {
@@ -43,7 +46,6 @@ class ContentArea extends React.Component {
   };
 
   populateListWithData = async data => {
-    // debugger
     await this.setState({ restaurantData: data.restaurants });
   };
 
@@ -62,6 +64,10 @@ class ContentArea extends React.Component {
   populateListWithCategories = async data => {
     await this.setState({ categoriesData: data });
   };
+
+  assignSelectedCityId = id => {
+    this.setState({ selectedCityId: id })
+  }
 
   addFave = id => {
     let favourite = {
@@ -129,7 +135,8 @@ class ContentArea extends React.Component {
       collectionsData,
       cuisinesData,
       establishmentsData,
-      categoriesData
+      categoriesData,
+      selectedCityId
     } = this.state;
 
     return (
@@ -148,6 +155,8 @@ class ContentArea extends React.Component {
                 populateListWithData={this.populateListWithData}
                 populateListWithCollections={this.populateListWithCollections}
                 collectionsData={collectionsData}
+                selectedCityId={selectedCityId}
+                assignSelectedCityId={this.assignSelectedCityId}
               />
             )}
           />
@@ -188,6 +197,8 @@ class ContentArea extends React.Component {
                 addWishlist={this.addWishlist}
                 populateListWithCollections={this.populateListWithCollections}
                 collectionsData={collectionsData}
+                selectedCityId={selectedCityId}
+                assignSelectedCityId={this.assignSelectedCityId}
               />
             )}
           />
@@ -247,7 +258,7 @@ class ContentArea extends React.Component {
           />
           <Route
             exact
-            path="/search"
+            path="/search/:id"
             component={props => (
               <CitySearchOptions
                 {...props}
@@ -268,12 +279,14 @@ class ContentArea extends React.Component {
                 cuisinesData={cuisinesData}
                 establishmentsData={establishmentsData}
                 categoriesData={categoriesData}
+                selectedCityId={selectedCityId}
+                assignSelectedCityId={this.assignSelectedCityId}
               />
             )}
           />
           <Route
             exact
-            path="/restaurants"
+            path="/restaurants/:id"
             component={props => (
               <RestaurantsPage
                 {...props}
@@ -298,6 +311,40 @@ class ContentArea extends React.Component {
                 cuisinesData={cuisinesData}
                 establishmentsData={establishmentsData}
                 categoriesData={categoriesData}
+                selectedCityId={selectedCityId}
+                assignSelectedCityId={this.assignSelectedCityId}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/options/:id"
+            component={props => (
+              <SearchOptionsPage
+                {...props}
+                loggedIn={loggedIn}
+                key={user.id}
+                user={user}
+                users_name={users_name}
+                username={username}
+                changeCoordinatesState={this.changeCoordinatesState}
+                coordinates={coordinates}
+                restaurantData={restaurantData}
+                populateListWithData={this.populateListWithData}
+                addRestaurantToFavourites={addRestaurantToFavourites}
+                addRestaurantToWishlists={addRestaurantToWishlists}
+                addRestaurantToBookings={addRestaurantToBookings}
+                saveRestaurantToServer={this.saveRestaurantToServer}
+                savedRestaurants={savedRestaurants}
+                addFave={this.addFave}
+                addWishlist={this.addWishlist}
+                populateListWithCollections={this.populateListWithCollections}
+                collectionsData={collectionsData}
+                cuisinesData={cuisinesData}
+                establishmentsData={establishmentsData}
+                categoriesData={categoriesData}
+                selectedCityId={selectedCityId}
+                assignSelectedCityId={this.assignSelectedCityId}
               />
             )}
           />

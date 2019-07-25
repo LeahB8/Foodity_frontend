@@ -14,14 +14,14 @@ export default class SignInForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     signin(this.state.username, this.state.password)
-    .then(data => {
-      if (data.error) {
-        alert(data.error);
-      } else {
-        this.props.signinAndSetToken(data);
-        this.setState({ username: "", password: "" });
-      }
-    });
+      .then(data => {
+        if (data.error) {
+          alert(data.error);
+        } else {
+          this.props.signinAndSetToken(data);
+          this.setState({ username: "", password: "" });
+        }
+      });
   };
 
   handleChange = event =>
@@ -32,36 +32,36 @@ export default class SignInForm extends React.Component {
     const { handleChange, handleSubmit } = this;
 
     return (
-    <div className="signup-container">
-      <div className="signup-card">
-        <form onSubmit={handleSubmit}>
-        <h3>Sign In</h3>
+      <div className="signup-container">
+        <div className="signup-card">
+          <form onSubmit={handleSubmit}>
+            <h3>Sign In</h3>
 
-          <TextField
-            id="usernameInput"
-            label="Username"
-            value={username}
-            onChange={handleChange}
-            margin="normal"
-            name="username"
-          />
-          <br />
-          <TextField
-            id="passwordInput"
-            label="Password"
-            value={password}
-            onChange={handleChange}
-            margin="normal"
-            name="password"
-            type="password"
-          />
-          <br />
-          <br />
-          <Button type="submit" variant="contained" color="primary">
-            SUBMIT
+            <TextField
+              id="usernameInput"
+              label="Username"
+              value={username}
+              onChange={handleChange}
+              margin="normal"
+              name="username"
+            />
+            <br />
+            <TextField
+              id="passwordInput"
+              label="Password"
+              value={password}
+              onChange={handleChange}
+              margin="normal"
+              name="password"
+              type="password"
+            />
+            <br />
+            <br />
+            <Button type="submit" variant="contained" color="primary">
+              SUBMIT
           </Button>
-        </form>
-      </div>
+          </form>
+        </div>
       </div>
     );
   }

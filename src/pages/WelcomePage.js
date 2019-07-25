@@ -64,6 +64,8 @@ export default function WelcomePage(props) {
             coordinates={props.coordinates}
             populateListWithData={props.populateListWithData}
             populateListWithCollections={props.populateListWithCollections}
+            selectedCityId={props.selectedCityId}
+            assignSelectedCityId={props.assignSelectedCityId}
           />
         </div>
       </div>

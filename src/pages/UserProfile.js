@@ -22,7 +22,9 @@ export default class UserProfile extends React.Component {
       savedRestaurants,
       addFave,
       addWishlist,
-      populateListWithCollections
+      populateListWithCollections,
+      selectedCityId,
+      assignSelectedCityId
     } = this.props;
 
     return (
@@ -71,6 +73,8 @@ export default class UserProfile extends React.Component {
               savedRestaurants={savedRestaurants}
               addFave={addFave}
               addWishlist={addWishlist}
+              selectedCityId={selectedCityId}
+              assignSelectedCityId={assignSelectedCityId}
             />
           </div>
         </div>
