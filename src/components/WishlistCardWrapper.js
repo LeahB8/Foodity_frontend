@@ -11,8 +11,7 @@ export default class WishlistCardWrapper extends React.Component {
   };
 
   componentDidMount() {
-    findIndividualRestaurantInfo(this.props.wishlist.restaurant_api_id).then(
-      data => this.setState(data)
+    findIndividualRestaurantInfo(this.props.wishlist.restaurant_api_id).then(data => this.setState(data)
     );
   }
 
@@ -35,6 +34,7 @@ export default class WishlistCardWrapper extends React.Component {
           deleteCallback={deleteWishlistItemFromServer}
           user={user}
           single={this.state}
+          // city={this.state.location.city}
           savedRestaurants={savedRestaurants}
           userInfo={userWishlists}
         />

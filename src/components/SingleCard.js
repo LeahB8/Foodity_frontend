@@ -51,7 +51,6 @@ export default function SingleCard(props) {
   }
 
   const handleDelete = id => {
-    debugger;
     let my_saved_restaurant = props.savedRestaurants.find(
       restaurant => restaurant.restaurant_api_id === id
     );
@@ -63,6 +62,10 @@ export default function SingleCard(props) {
       .then(() => props.secondCallback(props.user));
   };
 
+  function imgLoadError(event) {
+    event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  }
+
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -70,7 +73,7 @@ export default function SingleCard(props) {
           <Tooltip title="Book">
             <IconButton
               aria-label="Settings"
-              // onClick={}
+            // onClick={}
             >
               <MoreVertIcon />
             </IconButton>
@@ -84,6 +87,7 @@ export default function SingleCard(props) {
         <img
           className="restaurant-image"
           src={props.single.featured_image}
+          onError={imgLoadError}
           alt="restaurant"
         />
       </CardMedia>

@@ -55,6 +55,22 @@ class Dashboard extends Component {
             </Typography>
             <br />
             <Typography variant="h6">
+              <strong>Timings</strong> <br />
+            </Typography>
+            <Typography align="left" object="p">
+              {single.restaurant.timings}
+            </Typography>
+            <br />
+            <Typography variant="h6">
+              <strong>Highlights</strong> <br />
+            </Typography>
+            {single.restaurant.highlights.map(highlight => <Typography align="left" object="p">
+              {highlight}
+            </Typography>
+            )}
+
+            <br />
+            <Typography variant="h6">
               <strong>Average Rating</strong> <br />
             </Typography>
             <StarRatings

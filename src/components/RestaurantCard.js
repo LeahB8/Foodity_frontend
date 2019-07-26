@@ -83,6 +83,9 @@ export default function RestaurantCard(props) {
       alert("Please sign in.");
     }
   }
+  function imgLoadError(event) {
+    event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+  }
 
   return (
     <Card className={classes.card}>
@@ -91,7 +94,7 @@ export default function RestaurantCard(props) {
           <Tooltip title="Book">
             <IconButton
               aria-label="Settings"
-              // onClick={}
+            // onClick={}
             >
               <MoreVertIcon />
             </IconButton>
@@ -106,6 +109,7 @@ export default function RestaurantCard(props) {
         <img
           className="restaurant-image"
           src={props.single.restaurant.featured_image}
+          onError={imgLoadError}
           alt="restaurant"
         />
         {/* </Link> */}
