@@ -107,6 +107,7 @@ export default function SingleCard(props) {
         >
           <Icon>delete</Icon>
         </IconButton>
+        <Dashboard single={props.single} />
 
         {/* <IconButton
           className={clsx(classes.expand, {

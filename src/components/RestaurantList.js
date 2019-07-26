@@ -33,7 +33,7 @@ class RestaurantList extends Component {
         {restaurantData.map(single => (
           <RestaurantCard
             user={user}
-            single={single}
+            single={single.restaurant}
             addRestaurantToFavourites={addRestaurantToFavourites}
             addRestaurantToWishlists={addRestaurantToWishlists}
             addRestaurantToBookings={addRestaurantToBookings}
