@@ -15,12 +15,10 @@ class Dashboard extends Component {
   handleClick = () => {
     this.setState({ show: !this.state.show });
   };
-
   render() {
     const { single } = this.props;
     return (
       <main>
-        <br />
 
         <Dialog
           open={this.state.show}
@@ -78,7 +76,7 @@ class Dashboard extends Component {
               <strong>Average Rating</strong> <br />
             </Typography>
             <StarRatings
-              rating={parseInt(single.user_rating.aggregate_rating)}
+              rating={parseFloat(single.user_rating.aggregate_rating)}
               starDimension="30px"
               starSpacing="5px"
               starRatedColor="gold"
@@ -123,6 +121,7 @@ class Dashboard extends Component {
         </Button> */}
         <Tooltip title="More Info">
           <IconButton
+          className="info-button"
             aria-label="more info"
             onClick={this.handleClick}
           // onClick={() => showModal(props.single)}

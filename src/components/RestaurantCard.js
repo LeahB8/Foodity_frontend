@@ -79,7 +79,6 @@ export default function RestaurantCard(props) {
   //   )
 
   // }
-
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -132,7 +131,7 @@ export default function RestaurantCard(props) {
           </IconButton>
         </Tooltip>
 
-        <Dashboard single={props.single.restaurant} />
+        <Dashboard single={props.single} />
 
         {/* <IconButton
           className={clsx(classes.expand, {
