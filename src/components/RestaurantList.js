@@ -25,7 +25,9 @@ class RestaurantList extends Component {
       saveRestaurantToServer,
       savedRestaurants,
       addFave,
-      addWishlist
+      addWishlist,
+      addBooking
+
     } = this.props;
 
     return (
@@ -42,6 +44,8 @@ class RestaurantList extends Component {
             savedRestaurants={savedRestaurants}
             addFave={addFave}
             addWishlist={addWishlist}
+            addBooking={addBooking}
+
           />
         ))}
       </div>

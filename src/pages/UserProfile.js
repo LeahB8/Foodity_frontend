@@ -5,6 +5,7 @@ import "../App.css";
 // import LocationSearchComponent from "../components/LocationSearchComponent";
 // import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
+import ProgressBar from '../components/ProgressBar'
 
 export default class UserProfile extends React.Component {
   render() {
@@ -43,6 +44,7 @@ export default class UserProfile extends React.Component {
           <p>You can also book any restaurant that inspires you.</p>
         </div>
 
+          <ProgressBar />
         <div className="search-restaurants">
           {/*           
           <div>

@@ -13,7 +13,9 @@ export default class UserWishlists extends React.Component {
       userWishlists,
       deleteWishlistItemFromServer,
       setUserWishlists,
-      savedRestaurants
+      savedRestaurants,
+      addBooking
+
     } = this.props;
     return (
       <div>
@@ -30,6 +32,8 @@ export default class UserWishlists extends React.Component {
               wishlist={wishlist}
               savedRestaurants={savedRestaurants}
               userWishlists={userWishlists}
+              addBooking={addBooking}
+
             />
           ))}
         </div>

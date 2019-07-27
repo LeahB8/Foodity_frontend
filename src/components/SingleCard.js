@@ -69,19 +69,11 @@ export default function SingleCard(props) {
     <Card className={classes.card}>
       <CardHeader
         action={
-          <Tooltip title="Book">
-            <IconButton
-              aria-label="Settings"
-            // onClick={}
-            >
-              <MoreVertIcon />
-            </IconButton>
-          </Tooltip>
+          <DateTime user={props.user} restaurant={props.single} addBooking={props.addBooking} loggedIn={props.loggedIn} />
+
         }
         title={props.single.name}
       />
-      {/* <DateTime /> */}
-      {/* <CardHeader title={props.single.name} /> */}
       <CardMedia className={classes.media}>
         <img
           className="restaurant-image"
@@ -107,22 +99,7 @@ export default function SingleCard(props) {
           <Icon>delete</Icon>
         </IconButton>
         <Dashboard single={props.single} />
-
-        {/* <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="Show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton> */}
       </CardActions>
-      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <Dashboard single={props.single} />
-        <br />
-      </Collapse> */}
     </Card>
   );
 }

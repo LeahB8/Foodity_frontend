@@ -20,7 +20,8 @@ export default class RestaurantsPage extends React.Component {
       collectionsData,
       cuisinesData,
       establishmentsData,
-      categoriesData
+      categoriesData,
+      addBooking
     } = this.props;
 
     return (
@@ -38,6 +39,8 @@ export default class RestaurantsPage extends React.Component {
           loggedIn={loggedIn}
           addFave={addFave}
           addWishlist={addWishlist}
+          addBooking={addBooking}
+
         />
       </div>
     );

@@ -30,22 +30,11 @@ class ContentArea extends React.Component {
     // establishmentsData: [],
     // categoriesData: [],
     savedRestaurants: [],
-    // coordinates: {
-    //   long: "",
-    //   lat: ""
-    // },
     selectedCityId: '',
     // selectedSearchCategory: ''
   };
 
-  // changeCoordinatesState = event => {
-  //   this.setState({
-  //     coordinates: {
-  //       long: event.coordinates.lng,
-  //       lat: event.coordinates.lat
-  //     }
-  //   });
-  // };
+ 
 
   populateListWithData = async data => {
     await this.setState({ restaurantData: data.restaurants });
@@ -55,25 +44,9 @@ class ContentArea extends React.Component {
     await this.setState({ searchOptionData: data });
   };
 
-  // populateListWithCuisines = async data => {
-  //   await this.setState({ cuisinesData: data });
-  // };
-
-  // populateListWithEstablishments = async data => {
-  //   await this.setState({ establishmentsData: data });
-  // };
-
-  // populateListWithCategories = async data => {
-  //   await this.setState({ categoriesData: data });
-  // };
-
   assignSelectedCityId = id => {
     this.setState({ selectedCityId: id })
   }
-
-  // assignSelectedSearchCategory = id => {
-  //   this.setState({ selectedSearchCategory: id })
-  // }
 
   addFave = id => {
     let favourite = {
@@ -95,6 +68,10 @@ class ContentArea extends React.Component {
     // .then(alert("Restaurant Favourited"));
   };
 
+  addBooking = booking => {
+    this.props.addRestaurantToBookings(booking)
+  }
+
   fetchRestaurantsFromServer = () => {
     fetch("http://localhost:3001/restaurants", {
       method: "GET",
@@ -107,8 +84,6 @@ class ContentArea extends React.Component {
         });
       });
   };
-
-
 
   componentDidMount() {
     this.fetchRestaurantsFromServer();
@@ -209,6 +184,8 @@ class ContentArea extends React.Component {
                 collectionsData={collectionsData}
                 selectedCityId={selectedCityId}
                 assignSelectedCityId={this.assignSelectedCityId}
+                addBooking={this.addBooking}
+
               />
             )}
           />
@@ -219,6 +196,8 @@ class ContentArea extends React.Component {
               <UserBookings
                 {...props}
                 key={user.id}
+                loggedIn={loggedIn}
+
                 user={user}
                 users_name={users_name}
                 username={username}
@@ -237,6 +216,8 @@ class ContentArea extends React.Component {
               <UserWishlists
                 {...props}
                 key={user.id}
+                loggedIn={loggedIn}
+
                 user={user}
                 users_name={users_name}
                 username={username}
@@ -245,6 +226,8 @@ class ContentArea extends React.Component {
                 setUserWishlists={setUserWishlists}
                 fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
                 savedRestaurants={savedRestaurants}
+                addBooking={this.addBooking}
+
               />
             )}
           />
@@ -256,6 +239,8 @@ class ContentArea extends React.Component {
                 {...props}
                 key={user.id}
                 user={user}
+                loggedIn={loggedIn}
+
                 users_name={users_name}
                 username={username}
                 userFavourites={userFavourites}
@@ -263,6 +248,8 @@ class ContentArea extends React.Component {
                 setUserFavourites={setUserFavourites}
                 fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
                 savedRestaurants={savedRestaurants}
+                addBooking={this.addBooking}
+
               />
             )}
           />
@@ -313,6 +300,7 @@ class ContentArea extends React.Component {
                 savedRestaurants={savedRestaurants}
                 addFave={this.addFave}
                 addWishlist={this.addWishlist}
+                addBooking={this.addBooking}
                 populateListWithCollections={this.populateListWithCollections}
                 collectionsData={collectionsData}
                 cuisinesData={cuisinesData}
@@ -320,6 +308,7 @@ class ContentArea extends React.Component {
                 categoriesData={categoriesData}
                 selectedCityId={selectedCityId}
                 assignSelectedCityId={this.assignSelectedCityId}
+
               />
             )}
           />

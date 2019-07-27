@@ -12,7 +12,10 @@ export default class UserFavourites extends React.Component {
       deleteFavouriteFromServer,
       setUserFavourites,
       savedRestaurants,
-      fetchRestaurantsFromServer
+      fetchRestaurantsFromServer,
+      addBooking,
+      loggedIn
+
     } = this.props;
 
     return (
@@ -29,6 +32,10 @@ export default class UserFavourites extends React.Component {
               favourite={favourite}
               savedRestaurants={savedRestaurants}
               userFavourites={userFavourites}
+              addBooking={addBooking}
+              loggedIn={loggedIn}
+
+
             />
           ))}
         </div>

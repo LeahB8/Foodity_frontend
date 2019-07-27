@@ -73,38 +73,24 @@ export default function RestaurantCard(props) {
     event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
 
-  // function showModal(single) {
-  //   return (
-  //     <Dashboard single={props.single} />
-  //   )
-
-  // }
   return (
     <Card className={classes.card}>
       <CardHeader
         action={
-          <Tooltip title="Book">
-            <IconButton
-              aria-label="Settings"
-            // onClick={}
-            >
-              <MoreVertIcon />
-            </IconButton>
-          </Tooltip>
+
+          <DateTime user={props.user} restaurant={props.single} addBooking={props.addBooking} loggedIn={props.loggedIn} />
+
         }
         title={props.single.name}
       />
-      {/* <DateTime /> */}
 
       <CardMedia className={classes.media}>
-        {/* <Link> */}
         <img
           className="restaurant-image"
           src={props.single.featured_image}
           onError={imgLoadError}
           alt="restaurant"
         />
-        {/* </Link> */}
       </CardMedia>
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
@@ -133,29 +119,8 @@ export default function RestaurantCard(props) {
 
         <Dashboard single={props.single} />
 
-        {/* <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="Show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton> */}
-        {/* <Tooltip title="More Info">
-          <IconButton
-            aria-label="more info"
-            onClick={() => showModal(props.single)}
-          >
-            <Icon>info</Icon>
-          </IconButton>
-        </Tooltip> */}
-
       </CardActions>
-      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <br />
-      </Collapse> */}
+ 
     </Card>
   );
 }
