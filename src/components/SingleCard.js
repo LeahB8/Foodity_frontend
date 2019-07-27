@@ -65,7 +65,6 @@ export default function SingleCard(props) {
   function imgLoadError(event) {
     event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
-
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -107,6 +106,7 @@ export default function SingleCard(props) {
         >
           <Icon>delete</Icon>
         </IconButton>
+        <Dashboard single={props.single} />
 
         {/* <IconButton
           className={clsx(classes.expand, {

@@ -56,13 +56,6 @@ export default function RestaurantCard(props) {
 
   function handleLikeFavourite(restaurant) {
     if (props.loggedIn) {
-      // let restaurantToSave = {
-      //   restaurant_api_id: restaurant.R.res_id,
-      //   user_id: props.user.id
-      // };
-      // props.savedRestaurants.filter(restaurant_id !== )
-      // props.saveRestaurantToServer(restaurantToSave)
-      // .then(resp => resp.json())
       props.addFave(restaurant.R.res_id);
     } else {
       alert("Please sign in.");
@@ -71,13 +64,6 @@ export default function RestaurantCard(props) {
 
   function handleLikeWishlist(restaurant) {
     if (props.loggedIn) {
-      // let restaurantToSave = {
-      //   restaurant_api_id: restaurant.R.res_id,
-      //   user_id: props.user.id
-      // };
-      // props.savedRestaurants.filter(restaurant_id !== )
-      // props.saveRestaurantToServer(restaurantToSave)
-      // .then(resp => resp.json())
       props.addWishlist(restaurant.R.res_id);
     } else {
       alert("Please sign in.");
@@ -87,6 +73,12 @@ export default function RestaurantCard(props) {
     event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
 
+  // function showModal(single) {
+  //   return (
+  //     <Dashboard single={props.single} />
+  //   )
+
+  // }
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -100,7 +92,7 @@ export default function RestaurantCard(props) {
             </IconButton>
           </Tooltip>
         }
-        title={props.single.restaurant.name}
+        title={props.single.name}
       />
       {/* <DateTime /> */}
 
@@ -108,7 +100,7 @@ export default function RestaurantCard(props) {
         {/* <Link> */}
         <img
           className="restaurant-image"
-          src={props.single.restaurant.featured_image}
+          src={props.single.featured_image}
           onError={imgLoadError}
           alt="restaurant"
         />
@@ -116,7 +108,7 @@ export default function RestaurantCard(props) {
       </CardMedia>
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
-          {props.single.restaurant.cuisines}
+          {props.single.cuisines}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -139,7 +131,9 @@ export default function RestaurantCard(props) {
           </IconButton>
         </Tooltip>
 
-        <IconButton
+        <Dashboard single={props.single} />
+
+        {/* <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded
           })}
@@ -148,12 +142,20 @@ export default function RestaurantCard(props) {
           aria-label="Show more"
         >
           <ExpandMoreIcon />
-        </IconButton>
+        </IconButton> */}
+        {/* <Tooltip title="More Info">
+          <IconButton
+            aria-label="more info"
+            onClick={() => showModal(props.single)}
+          >
+            <Icon>info</Icon>
+          </IconButton>
+        </Tooltip> */}
+
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <Dashboard single={props.single} />
+      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
         <br />
-      </Collapse>
+      </Collapse> */}
     </Card>
   );
 }

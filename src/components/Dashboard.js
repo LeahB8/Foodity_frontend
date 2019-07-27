@@ -5,18 +5,20 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import StarRatings from "react-star-ratings";
 import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
+import IconButton from "@material-ui/core/IconButton";
+import Icon from "@material-ui/core/Icon";
+
 
 class Dashboard extends Component {
   state = { show: false };
   handleClick = () => {
     this.setState({ show: !this.state.show });
   };
-
   render() {
     const { single } = this.props;
     return (
       <main>
-        <br />
 
         <Dialog
           open={this.state.show}
@@ -29,42 +31,42 @@ class Dashboard extends Component {
               <strong>Establishment</strong> <br />
             </Typography>
             <Typography align="left" object="p">
-              {single.restaurant.establishment}
+              {single.establishment}
             </Typography>
             <br />
             <Typography variant="h6">
               <strong>Average cost for two</strong> <br />
             </Typography>
             <Typography align="left" object="p">
-              {single.restaurant.currency}
-              {single.restaurant.average_cost_for_two}
+              {single.currency}
+              {single.average_cost_for_two}
             </Typography>
             <br />
             <Typography variant="h6">
               <strong>Address</strong> <br />
             </Typography>
             <Typography align="left" object="p">
-              {single.restaurant.location.address}
+              {single.location.address}
             </Typography>
             <br />
             <Typography variant="h6">
               <strong>Phone Number</strong> <br />
             </Typography>
             <Typography align="left" object="p">
-              {single.restaurant.phone_numbers}
+              {single.phone_numbers}
             </Typography>
             <br />
             <Typography variant="h6">
               <strong>Timings</strong> <br />
             </Typography>
             <Typography align="left" object="p">
-              {single.restaurant.timings}
+              {single.timings}
             </Typography>
             <br />
             <Typography variant="h6">
               <strong>Highlights</strong> <br />
             </Typography>
-            {single.restaurant.highlights.map(highlight => <Typography align="left" object="p">
+            {single.highlights.map(highlight => <Typography align="left" object="p">
               {highlight}
             </Typography>
             )}
@@ -74,25 +76,25 @@ class Dashboard extends Component {
               <strong>Average Rating</strong> <br />
             </Typography>
             <StarRatings
-              rating={parseInt(single.restaurant.user_rating.aggregate_rating)}
+              rating={parseFloat(single.user_rating.aggregate_rating)}
               starDimension="30px"
               starSpacing="5px"
               starRatedColor="gold"
             />
             <br />
             <Typography variant="h6">
-              {single.restaurant.user_rating.votes} reviews
+              {single.user_rating.votes} reviews
             </Typography>
             <br />
             <Typography variant="h6">
-              Rating: {single.restaurant.user_rating.rating_text}
+              Rating: {single.user_rating.rating_text}
             </Typography>
             <br />
             <br />
             <br />
 
             <Typography variant="h4">Reviews</Typography>
-            {single.restaurant.all_reviews.reviews.map(review => (
+            {single.all_reviews.reviews.map(review => (
               <>
                 <StarRatings
                   rating={review.review.rating}
@@ -114,9 +116,19 @@ class Dashboard extends Component {
             ))}
           </CardContent>
         </Dialog>
-        <Button type="button" onClick={this.handleClick}>
+        {/* <Button type="button" onClick={this.handleClick}>
           More Details
-        </Button>
+        </Button> */}
+        <Tooltip title="More Info">
+          <IconButton
+          className="info-button"
+            aria-label="more info"
+            onClick={this.handleClick}
+          // onClick={() => showModal(props.single)}
+          >
+            <Icon>info</Icon>
+          </IconButton>
+        </Tooltip>
       </main>
     );
   }
