@@ -24,7 +24,7 @@ export default class DateTime extends React.Component {
 
   handleChange(date) {
     this.setState({
-      startDate: date,
+      startDate: date
     });
   }
 
@@ -35,7 +35,7 @@ export default class DateTime extends React.Component {
   handleSubmitBooking = () => {
     let booking = {
       user_id: this.props.user.id,
-      restaurant_id: this.props.restaurant.id,
+      restaurant_api_id: parseInt(this.props.restaurant.id),
       date: this.state.startDate,
     }
     if (this.props.loggedIn) {

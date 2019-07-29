@@ -40,7 +40,7 @@ export default class RestaurantsPage extends React.Component {
           addFave={addFave}
           addWishlist={addWishlist}
           addBooking={addBooking}
-
+          user={user}
         />
       </div>
     );

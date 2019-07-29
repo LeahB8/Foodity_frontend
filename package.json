@@ -8,6 +8,7 @@
     "add": "^2.0.6",
     "material-ui": "^0.20.2",
     "material-ui-search-bar": "^0.4.2",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-datepicker": "^2.8.0",
     "react-dom": "^16.8.6",

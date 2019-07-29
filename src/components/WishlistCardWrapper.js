@@ -29,7 +29,9 @@ export default class WishlistCardWrapper extends React.Component {
       setUserWishlists,
       savedRestaurants,
       userWishlists,
-      addBooking
+      addBooking,
+      loggedIn
+
 
     } = this.props;
 
@@ -47,6 +49,7 @@ export default class WishlistCardWrapper extends React.Component {
           savedRestaurants={savedRestaurants}
           userInfo={userWishlists}
           addBooking={addBooking}
+          loggedIn={loggedIn}
 
         />
       </div>

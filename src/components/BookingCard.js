@@ -145,6 +145,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
 import Dashboard from "./Dashboard";
+import { fetchUserInfo } from '../services/api'
+import moment from "moment"
 
 
 const useStyles = makeStyles(theme => ({
@@ -180,20 +182,35 @@ export default function BookingCard(props) {
   }
 
   const handleDelete = id => {
+    debugger
     let my_saved_restaurant = props.savedRestaurants.find(
       restaurant => restaurant.restaurant_api_id === id
     );
-    // let wishlist_or_favourite = props.userInfo.find(
-    //   wishOrFave => wishOrFave.restaurant_id === my_saved_restaurant.id
-    // );
-    props
-      .deleteCallback(props.user.id, my_saved_restaurant.id)
+    props.deleteCallback(props.user.id, my_saved_restaurant.id)
       .then(() => props.secondCallback(props.user));
+    // return displayDateAndTime()
   };
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.bookingTimes !== props.bookingTimes) {
+  //     return displayDateAndTime()
+  //   }
+  // }
+
+  const displayDateAndTime = () => {
+    let booking_time = props.bookingTimes.find(
+      bookingTime => bookingTime.restaurant_id === props.booking.id);
+    let date = moment(booking_time.date).format("dddd Do MMM YYYY");
+    // let time = booking_time.time =< '12:00' ? (
+    //   return `booking_time.time` + `PM`) :
+    //   booking_time.time =< '13:00'
+    return `${date} @ ${booking_time.time}`
+  }
 
   function imgLoadError(event) {
     event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
+
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -202,7 +219,7 @@ export default function BookingCard(props) {
 
         // }
         title={props.single.name}
-        subheader={props.single.date}
+        subheader={displayDateAndTime()}
 
       />
       <CardMedia className={classes.media}>

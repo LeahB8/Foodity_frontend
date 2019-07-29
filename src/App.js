@@ -49,6 +49,7 @@ class App extends Component {
       username: userObj.username,
       users_name: userObj.users_name,
       userBookings: [...userObj.user_bookings],
+      bookingTimes: [...userObj.bookings],
       userWishlists: [...userObj.user_wishlists],
       userFavourites: [...userObj.user_favourites],
       userReviews: [...userObj.user_reviews],
@@ -173,7 +174,8 @@ class App extends Component {
       userWishlists,
       userFavourites,
       userReviews,
-      loggedIn
+      loggedIn,
+      bookingTimes
     } = this.state;
 
     return (
@@ -193,6 +195,7 @@ class App extends Component {
           userFavourites={userFavourites}
           userReviews={userReviews}
           loggedIn={loggedIn}
+          bookingTimes={bookingTimes}
           signinAndSetToken={user => this.signinAndSetToken(user, true)}
           changeCoordinatesState={this.changeCoordinatesState}
           addRestaurantToFavourites={this.addRestaurantToFavourites}

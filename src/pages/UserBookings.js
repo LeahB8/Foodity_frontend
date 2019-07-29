@@ -15,7 +15,9 @@ export default class UserBookings extends React.Component {
       setUserBookings,
       fetchRestaurantsFromServer,
       savedRestaurants,
-      loggedIn
+      loggedIn,
+      bookingTimes
+
     } = this.props;
 
     return (
@@ -23,21 +25,26 @@ export default class UserBookings extends React.Component {
         <h1>
           <strong>{user.username}'s Bookings</strong>
         </h1>
-        {userBookings.map(booking => (
-          <BookingCardWrapper
-            booking={booking}
-            time={booking.time}
-            date={booking.date}
-            userBookings={userBookings}
-            user={user}
-            deleteBookingFromServer={deleteBookingFromServer}
-            setUserBookings={setUserBookings}
-            fetchRestaurantsFromServer={fetchRestaurantsFromServer}
-            savedRestaurants={savedRestaurants}
-            loggedIn={loggedIn}
-
-          />
-        ))}
+        <div className="restaurant-list">
+          {userBookings.map(booking => (
+            <BookingCardWrapper
+              booking={booking}
+              bookingTimes={bookingTimes}
+              userBookings={userBookings}
+              user={user}
+              deleteBookingFromServer={deleteBookingFromServer}
+              setUserBookings={setUserBookings}
+              fetchRestaurantsFromServer={fetchRestaurantsFromServer}
+              savedRestaurants={savedRestaurants}
+              loggedIn={loggedIn}
+            />
+          ))}
+          {/* {bookingTimes.map(bookingTime => (
+            <BookingCardWrapper
+              bookingTime={bookingTime}
+            />
+          ))} */}
+        </div>
 
       </div>
     );

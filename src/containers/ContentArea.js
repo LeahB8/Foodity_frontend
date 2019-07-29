@@ -108,7 +108,9 @@ class ContentArea extends React.Component {
       deleteBookingFromServer,
       setUserFavourites,
       setUserWishlists,
-      setUserBookings
+      setUserBookings,
+      bookingTimes
+
     } = this.props;
 
     const {
@@ -185,6 +187,7 @@ class ContentArea extends React.Component {
                 selectedCityId={selectedCityId}
                 assignSelectedCityId={this.assignSelectedCityId}
                 addBooking={this.addBooking}
+                bookingTimes={bookingTimes}
 
               />
             )}
@@ -197,7 +200,7 @@ class ContentArea extends React.Component {
                 {...props}
                 key={user.id}
                 loggedIn={loggedIn}
-
+                bookingTimes={bookingTimes}
                 user={user}
                 users_name={users_name}
                 username={username}
