@@ -37,7 +37,6 @@ export default class DateTime extends React.Component {
       user_id: this.props.user.id,
       restaurant_id: this.props.restaurant.id,
       date: this.state.startDate,
-      time: this.state.startDate,
     }
     if (this.props.loggedIn) {
       this.props.addBooking(booking)

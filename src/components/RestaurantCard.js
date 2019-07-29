@@ -102,7 +102,7 @@ export default function RestaurantCard(props) {
           <IconButton
             name="favourite"
             aria-label="Add to favourites"
-            onClick={() => handleLikeFavourite(props.single.restaurant)}
+            onClick={() => handleLikeFavourite(props.single)}
           >
             <FavoriteIcon />
           </IconButton>
@@ -111,7 +111,7 @@ export default function RestaurantCard(props) {
         <Tooltip title="Wishlist">
           <IconButton
             aria-label="Add to wishlist"
-            onClick={() => handleLikeWishlist(props.single.restaurant)}
+            onClick={() => handleLikeWishlist(props.single)}
           >
             <Icon>star</Icon>
           </IconButton>

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { fetchUserInfo } from "../services/api";
 import "../App.css";
-import BookingCard from "../components/BookingCard";
+import BookingCardWrapper from "../components/BookingCardWrapper";
 
 export default class UserBookings extends React.Component {
   render() {
@@ -11,9 +11,11 @@ export default class UserBookings extends React.Component {
       user,
       username,
       userBookings,
-      userWishlists,
-      userFavourites,
-      userReviews
+      deleteBookingFromServer,
+      setUserBookings,
+      fetchRestaurantsFromServer,
+      savedRestaurants,
+      loggedIn
     } = this.props;
 
     return (
@@ -21,7 +23,22 @@ export default class UserBookings extends React.Component {
         <h1>
           <strong>{user.username}'s Bookings</strong>
         </h1>
-        <BookingCard />
+        {userBookings.map(booking => (
+          <BookingCardWrapper
+            booking={booking}
+            time={booking.time}
+            date={booking.date}
+            userBookings={userBookings}
+            user={user}
+            deleteBookingFromServer={deleteBookingFromServer}
+            setUserBookings={setUserBookings}
+            fetchRestaurantsFromServer={fetchRestaurantsFromServer}
+            savedRestaurants={savedRestaurants}
+            loggedIn={loggedIn}
+
+          />
+        ))}
+
       </div>
     );
   }
