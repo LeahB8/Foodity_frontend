@@ -73,6 +73,13 @@ function DropDownMenu() {
         onClose={handleClose}
       >
         <StyledMenuItem>
+            <ListItemText>
+                <Link onClick={handleClose} component={RouterLink} to="/profile">
+                Homepage
+                </Link>
+            </ListItemText>
+            </StyledMenuItem>
+        <StyledMenuItem>
           <ListItemText>
             <Link onClick={handleClose} component={RouterLink} to="/favourites">
               My Favourites
@@ -95,14 +102,6 @@ function DropDownMenu() {
             </Link>
           </ListItemText>
         </StyledMenuItem>
-
-        <StyledMenuItem>
-            <ListItemText>
-                <Link onClick={handleClose} component={RouterLink} to="/profile">
-                My Profile
-                </Link>
-            </ListItemText>
-            </StyledMenuItem>
         </StyledMenu>
     </React.Fragment>
   );

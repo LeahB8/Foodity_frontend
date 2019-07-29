@@ -53,9 +53,7 @@ class ContentArea extends React.Component {
       user_id: this.props.user.id,
       restaurant_api_id: id
     };
-    // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
     await this.props.addRestaurantToFavourites(favourite);
-    // .then(alert("Restaurant Favourited"));
   };
 
   addWishlist = async id => {
@@ -63,9 +61,7 @@ class ContentArea extends React.Component {
       user_id: this.props.user.id,
       restaurant_api_id: id
     };
-    // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
     await this.props.addRestaurantToWishlists(wishlist);
-    // .then(alert("Restaurant Favourited"));
   };
 
   addBooking = async booking => {

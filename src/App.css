@@ -4,12 +4,13 @@
 
 .App-logo {
   /* animation: App-logo-spin infinite 20s linear; */
-  height: 10vmin;
+  height: 16vmin;
   pointer-events: none;
 
   justify-content: flex-start;
   align-content: flex-start;
   margin-left: 0px;
+  cursor: pointer;
 }
 
 .background-img {
@@ -18,7 +19,9 @@
 }
 
 .App-header {
-  background-color: #fdb600;
+  /* background-color: #fdb600; */
+  background-color: #2E8B57;
+
   min-height: 10vh;
   /* display: flex;
   flex-direction: row;
@@ -26,6 +29,7 @@
   justify-content: space-between; */
   font-size: calc(10px + 2vmin);
   color: white;
+  position: fixed;
 }
 
 .toolbar-header {

@@ -64,14 +64,18 @@ function NavBar(props) {
 
   return (
     <div>
-      <AppBar className="nav-header" position="static">
+      <AppBar className="nav-header" position="sticky">
         <Toolbar className="toolbar-header">
-          <img
-            src={myLogo}
-            className="App-logo"
-            alt="logo"
-            onClick={<Link to="/" />}
-          />
+          
+          <Link to="/profile">
+            <img
+              src={myLogo}
+              className="App-logo"
+              alt="logo"
+              // onClick={() => props.history.push('/profile')}
+            />
+          </Link>
+          
           <div className="navbar-link">{sessionHeader()}</div>
         </Toolbar>
       </AppBar>

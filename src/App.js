@@ -182,6 +182,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar
+          props={this.props}
           signout={this.signout}
           user={user}
           loggedIn={loggedIn}

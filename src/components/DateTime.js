@@ -5,6 +5,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
+import swal from 'sweetalert';
 
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -41,9 +42,13 @@ export default class DateTime extends React.Component {
     }
     if (this.props.loggedIn) {
       this.props.addBooking(booking)
+        .then(swal({
+          title: "Booking has been made.",
+          icon: "success",
+        }))
       this.setState({ show: false })
     } else {
-      alert("Please sign in.")
+      swal("Please sign in");
     }
   }
   display = {
@@ -67,24 +72,24 @@ export default class DateTime extends React.Component {
             this.setState({ show: false });
           }}
         > */}
-          <DatePicker
-            // style={this.display}
-            open={this.state.show}
+        <DatePicker
+          // style={this.display}
+          open={this.state.show}
 
 
-            selected={this.state.startDate}
-            onChange={this.handleChange}
-            minDate={new Date()}
+          selected={this.state.startDate}
+          onChange={this.handleChange}
+          minDate={new Date()}
 
-            showTimeSelect
-            timeFormat="HH:mm"
-            timeIntervals={30}
-            dateFormat="MMMM d, yyyy h:mm aa"
-            timeCaption="Time"
-          // withPortal
+          showTimeSelect
+          timeFormat="HH:mm"
+          timeIntervals={30}
+          dateFormat="MMMM d, yyyy h:mm aa"
+          timeCaption="Time"
+        // withPortal
 
-          />
-          <Button onClick={this.handleSubmitBooking} >Book</Button>
+        />
+        <Button onClick={this.handleSubmitBooking} >Book</Button>
         {/* </Dialog> */}
       </>
     );
