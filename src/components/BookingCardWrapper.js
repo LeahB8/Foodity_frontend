@@ -42,7 +42,6 @@ export default class BookingCardWrapper extends React.Component {
                 <BookingCard
                     secondCallback={setUserBookings}
                     deleteCallback={deleteBookingFromServer}
-
                     user={user}
                     booking={booking}
                     single={this.state}

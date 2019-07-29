@@ -34,7 +34,7 @@ class ContentArea extends React.Component {
     // selectedSearchCategory: ''
   };
 
- 
+
 
   populateListWithData = async data => {
     await this.setState({ restaurantData: data.restaurants });
@@ -48,28 +48,28 @@ class ContentArea extends React.Component {
     this.setState({ selectedCityId: id })
   }
 
-  addFave = id => {
+  addFave = async id => {
     let favourite = {
       user_id: this.props.user.id,
       restaurant_api_id: id
     };
     // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
-    this.props.addRestaurantToFavourites(favourite);
+    await this.props.addRestaurantToFavourites(favourite);
     // .then(alert("Restaurant Favourited"));
   };
 
-  addWishlist = id => {
+  addWishlist = async id => {
     let wishlist = {
       user_id: this.props.user.id,
       restaurant_api_id: id
     };
     // if (this.props.userFavourites.filter(faverestaurant => faverestaurant.id !== favourite.restaurant_id  ))
-    this.props.addRestaurantToWishlists(wishlist);
+    await this.props.addRestaurantToWishlists(wishlist);
     // .then(alert("Restaurant Favourited"));
   };
 
-  addBooking = booking => {
-    this.props.addRestaurantToBookings(booking)
+  addBooking = async booking => {
+    await this.props.addRestaurantToBookings(booking)
   }
 
   fetchRestaurantsFromServer = () => {

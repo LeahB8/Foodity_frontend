@@ -23,6 +23,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "3.0.1",
     "react-star-ratings": "^2.3.0",
+    "sweetalert": "^2.1.2",
     "yarn": "^1.17.3"
   },
   "scripts": {

@@ -22,6 +22,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import DateTime from "./DateTime";
 import { Link } from "react-router-dom";
 import { fetchUserInfo, findIndividualRestaurantInfo } from "../services/api";
+import swal from 'sweetalert';
 
 
 const useStyles = makeStyles(theme => ({
@@ -59,20 +60,26 @@ export default function RestaurantCard(props) {
   function handleLikeFavourite(restaurant) {
     if (props.loggedIn) {
       props.addFave(restaurant.R.res_id)
-      // findIndividualRestaurantInfo(restaurant.R.res_id)
-
+        // findIndividualRestaurantInfo(restaurant.R.res_id)
+        .then(swal({
+          title: "Restaurant added to favourites.",
+          icon: "success",
+        }))
     } else {
-      alert("Please sign in.");
+      swal("Please sign in");
     }
   }
 
   function handleLikeWishlist(restaurant) {
     if (props.loggedIn) {
       props.addWishlist(restaurant.R.res_id)
-      // findIndividualRestaurantInfo(restaurant.R.res_id)
-
-    } else {
-      alert("Please sign in.");
+        // findIndividualRestaurantInfo(restaurant.R.res_id)
+        .then(swal({
+          title: "Restaurant added to wishlists.",
+          icon: "success",
+        }))    
+      } else {
+      swal("Please sign in");
     }
   }
 
@@ -86,7 +93,7 @@ export default function RestaurantCard(props) {
   ]
 
   function imgLoadError(event) {
-    event.target.src = images[Math.floor(Math.random()*images.length)]
+    event.target.src = images[Math.floor(Math.random() * images.length)]
 
     // event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
