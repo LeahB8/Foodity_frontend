@@ -5,13 +5,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "../App.css";
 import myLogo from "../images/myLogo.png";
 import { makeStyles } from "@material-ui/core/styles";
-// import Paper from "@material-ui/core/Paper";
-// import InputBase from "@material-ui/core/InputBase";
-// import Divider from "@material-ui/core/Divider";
-// import IconButton from "@material-ui/core/IconButton";
-// import MenuIcon from "@material-ui/icons/Menu";
-// import SearchIcon from "@material-ui/icons/Search";
-// import DirectionsIcon from "@material-ui/icons/Directions";
 import DropDownMenu from "../components/DropDownMenu";
 import Button from "@material-ui/core/Button";
 
@@ -34,6 +27,9 @@ const useStyles = makeStyles({
     width: 1,
     height: 28,
     margin: 4
+  },
+  button: {
+    margin: 10
   }
 });
 
@@ -76,31 +72,6 @@ function NavBar(props) {
             alt="logo"
             onClick={<Link to="/" />}
           />
-          {/* <Paper className={classes.root}>
-            <InputBase className={classes.input} placeholder="Search Food" />
-            <IconButton className={classes.iconButton} aria-label="Search">
-              <SearchIcon />
-            </IconButton>
-          </Paper> */}
-
-          {/* <Paper className={classes.root}>
-            <InputBase
-              className={classes.input}
-              placeholder="Search Google Maps"
-              inputProps={{ "aria-label": "Search Google Maps" }}
-            />
-            <IconButton className={classes.iconButton} aria-label="Search">
-              <SearchIcon />
-            </IconButton>
-            <Divider className={classes.divider} />
-            <IconButton
-              color="primary"
-              className={classes.iconButton}
-              aria-label="Directions"
-            >
-              <DirectionsIcon />
-            </IconButton>
-          </Paper> */}
           <div className="navbar-link">{sessionHeader()}</div>
         </Toolbar>
       </AppBar>

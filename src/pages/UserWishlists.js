@@ -28,7 +28,6 @@ export default class UserWishlists extends React.Component {
               setUserWishlists={setUserWishlists}
               deleteWishlistItemFromServer={deleteWishlistItemFromServer}
               user={user}
-              // city={wishlist.location.city}
               wishlist={wishlist}
               savedRestaurants={savedRestaurants}
               userWishlists={userWishlists}

@@ -4,6 +4,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
 
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -40,11 +41,14 @@ export default class DateTime extends React.Component {
     }
     if (this.props.loggedIn) {
       this.props.addBooking(booking)
+      this.setState({ show: false })
     } else {
       alert("Please sign in.")
     }
   }
-
+  display = {
+    display: "none"
+  }
 
   render() {
     return (
@@ -57,26 +61,31 @@ export default class DateTime extends React.Component {
             <MoreVertIcon />
           </IconButton>
         </Tooltip>
+        {/* <Dialog
+          open={this.state.show}
+          onClose={() => {
+            this.setState({ show: false });
+          }}
+        > */}
+          <DatePicker
+            // style={this.display}
+            open={this.state.show}
 
-        <DatePicker
-          // open={this.state.show}
-          // onClose={() => {
-          //   this.setState({ show: false });
-          // }}
-          selected={this.state.startDate}
-          onChange={this.handleChange}
-          minDate={new Date()}
 
-          showTimeSelect
-          timeFormat="HH:mm"
-          timeIntervals={30}
-          dateFormat="MMMM d, yyyy h:mm aa"
-          timeCaption="Time"
-          withPortal
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+            minDate={new Date()}
 
-        />
-        <Button onClick={this.handleSubmitBooking} >Book</Button>
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={30}
+            dateFormat="MMMM d, yyyy h:mm aa"
+            timeCaption="Time"
+          // withPortal
 
+          />
+          <Button onClick={this.handleSubmitBooking} >Book</Button>
+        {/* </Dialog> */}
       </>
     );
   }

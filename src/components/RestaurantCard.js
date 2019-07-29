@@ -21,6 +21,8 @@ import Icon from "@material-ui/core/Icon";
 import Tooltip from "@material-ui/core/Tooltip";
 import DateTime from "./DateTime";
 import { Link } from "react-router-dom";
+import { fetchUserInfo, findIndividualRestaurantInfo } from "../services/api";
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -56,7 +58,9 @@ export default function RestaurantCard(props) {
 
   function handleLikeFavourite(restaurant) {
     if (props.loggedIn) {
-      props.addFave(restaurant.R.res_id);
+      props.addFave(restaurant.R.res_id)
+      // findIndividualRestaurantInfo(restaurant.R.res_id)
+
     } else {
       alert("Please sign in.");
     }
@@ -64,13 +68,27 @@ export default function RestaurantCard(props) {
 
   function handleLikeWishlist(restaurant) {
     if (props.loggedIn) {
-      props.addWishlist(restaurant.R.res_id);
+      props.addWishlist(restaurant.R.res_id)
+      // findIndividualRestaurantInfo(restaurant.R.res_id)
+
     } else {
       alert("Please sign in.");
     }
   }
+
+  const images = [
+    "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+    "https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
+    "https://images.unsplash.com/photo-1551218372-a8789b81b253?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    "https://images.unsplash.com/photo-1506812779316-934cef283429?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    "https://images.unsplash.com/photo-1483274816418-3975509c8f78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+    "https://images.unsplash.com/photo-1483648969698-5e7dcaa3444f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"
+  ]
+
   function imgLoadError(event) {
-    event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+    event.target.src = images[Math.floor(Math.random()*images.length)]
+
+    // event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
 
   return (
@@ -120,7 +138,7 @@ export default function RestaurantCard(props) {
         <Dashboard single={props.single} />
 
       </CardActions>
- 
+
     </Card>
   );
 }

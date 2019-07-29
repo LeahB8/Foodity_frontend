@@ -1,19 +1,17 @@
 import React from "react";
 import "../App.css";
 import SearchList from "../components/SearchList";
+import ProgressBar from '../components/ProgressBar'
+
 
 export default class SearchOptionsPage extends React.Component {
+    state = {
+        percentage: 66
+    }
+
     render() {
         const {
-            users_name,
             user,
-            username,
-            userFavourites,
-            deleteFavouriteFromServer,
-            setUserFavourites,
-            savedRestaurants,
-            fetchRestaurantsFromServer,
-            restaurantData,
             loggedIn,
             addWishlist,
             addFave,
@@ -32,6 +30,8 @@ export default class SearchOptionsPage extends React.Component {
                             : "Search Options"}
                     </strong>
                 </h1>
+                <ProgressBar percentage={this.state.percentage} />
+
                 <div className="restaurant-list" />
                 <SearchList
                     searchOptionData={searchOptionData}

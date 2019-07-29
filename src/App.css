@@ -6,9 +6,10 @@
   /* animation: App-logo-spin infinite 20s linear; */
   height: 10vmin;
   pointer-events: none;
-  /* justify-content: flex-start;
-  align-content: flex-start; */
-  /* margin-left: 0; */
+
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin-left: 0px;
 }
 
 .background-img {

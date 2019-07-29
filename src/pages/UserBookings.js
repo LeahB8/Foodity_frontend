@@ -39,11 +39,6 @@ export default class UserBookings extends React.Component {
               loggedIn={loggedIn}
             />
           ))}
-          {/* {bookingTimes.map(bookingTime => (
-            <BookingCardWrapper
-              bookingTime={bookingTime}
-            />
-          ))} */}
         </div>
 
       </div>

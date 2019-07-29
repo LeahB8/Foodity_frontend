@@ -204,12 +204,14 @@ export default function BookingCard(props) {
     // let time = booking_time.time =< '12:00' ? (
     //   return `booking_time.time` + `PM`) :
     //   booking_time.time =< '13:00'
-    return `${date} @ ${booking_time.time}`
+    return `${date} @ ${booking_time.time.substring(0, 5)}`
   }
 
   function imgLoadError(event) {
     event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
+
+
 
   return (
     <Card className={classes.card}>

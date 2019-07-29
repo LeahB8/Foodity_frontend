@@ -23,6 +23,7 @@ class App extends Component {
     username: "",
     users_name: "",
     userBookings: [],
+    bookingTimes: [],
     userWishlists: [],
     userFavourites: [],
     userReviews: [],

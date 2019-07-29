@@ -1,15 +1,20 @@
 import React from "react";
 import "../App.css";
-import SearchComponent from "../components/SearchComponent";
-import RestaurantList from "../components/RestaurantList";
 import {
   fetchCollectionsForCity,
   fetchCuisinesForCity,
   fetchEstablishmentsForCity,
   fetchCategories
 } from "../services/api";
+import ProgressBar from '../components/ProgressBar'
+
 
 export default class CitySearchOptions extends React.Component {
+
+  state = {
+    percentage: 33
+  }
+
   handleCollectionsClick = id => {
     fetchCollectionsForCity(id).then(data => {
       this.props
@@ -55,6 +60,8 @@ export default class CitySearchOptions extends React.Component {
         <h1>
           <strong>Choose your search</strong>
         </h1>
+        <ProgressBar percentage={this.state.percentage} />
+
         <div className="search-cards" >
           <div className="card" onClick={() => handleCollectionsClick(selectedCityId)}>
             <h4>Collections</h4>

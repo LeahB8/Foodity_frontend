@@ -1,8 +1,14 @@
 import React from "react";
 import "../App.css";
 import RestaurantList from "../components/RestaurantList";
+import ProgressBar from '../components/ProgressBar'
+
 
 export default class RestaurantsPage extends React.Component {
+  state = {
+    percentage: 100
+  }
+
   render() {
     const {
       users_name,
@@ -33,6 +39,8 @@ export default class RestaurantsPage extends React.Component {
               : "Searched Restaurants"}
           </strong>
         </h1>
+        <ProgressBar percentage={this.state.percentage} />
+
         <div className="restaurant-list" />
         <RestaurantList
           restaurantData={restaurantData}

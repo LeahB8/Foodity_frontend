@@ -1,33 +1,28 @@
 import React from "react";
 
 export default class ProgressBar extends React.Component {
-    constructor(props) {
-        super(props)
+    //     state = {
+    //         percentage: 0
+    //     }
 
-        this.state = {
-            percentage: 0
-        }
-        this.nextStep = this.nextStep.bind(this)
-    }
 
-    nextStep() {
-        if (this.state.percentage === 100) return
-        this.setState({ percentage: this.state.percentage + 33 })
-    }
+
+    // nextStep() {
+    //     if (this.state.percentage === 100) return
+    //     this.setState({ percentage: this.state.percentage + 33 })
+    // }
 
     render() {
         return (
-            <div>
+            <div className="progress-bar-container">
 
-                <h2> Search Progress </h2>
+                <h4> Search Progress </h4>
                 <div className="progress-bar">
-                    <div className="filler" style={{ width: `${this.state.percentage}%` }} />
+                    <div className="filler" style={{ width: `${this.props.percentage}%` }} />
                 </div>
 
                 <div style={{ marginTop: '20px' }}>
-                    <button onClick={this.nextStep}>
-                        Next Step
-                    </button>
+
                 </div>
             </div>
         )

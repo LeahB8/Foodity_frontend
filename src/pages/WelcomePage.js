@@ -47,16 +47,6 @@ export default function WelcomePage(props) {
         </Card>
       </div>
       <div className="search-restaurants">
-        {/* <div>
-                <MapBox
-                    changeCoordinatesState={props.changeCoordinatesState}
-                    coordinates={props.coordinates}
-                />
-                    <LocationSearchComponent
-                    changeCoordinatesState={props.changeCoordinatesState}
-                    coordinates={props.coordinates}
-                />
-            </div> */}
         <div>
           <SearchComponent
             {...props}
