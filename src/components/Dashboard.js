@@ -62,9 +62,11 @@ class Dashboard extends Component {
               {single.timings}
             </Typography>
             <br />
-            {/* <Link to=`${single.menu_url}` >
-              Menu
-            </Link>
+            {/* <Typography align="left" object="p">
+              <a target="_blank" href="single.menu_url">
+                Menu
+              </a>
+            </Typography>
             <br /> */}
             <Typography variant="h6">
               <strong>Highlights</strong> <br />

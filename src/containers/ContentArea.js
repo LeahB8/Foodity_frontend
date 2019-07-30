@@ -18,8 +18,7 @@ import UserWishlists from "../pages/UserWishlists";
 import UserFavourites from "../pages/UserFavourites";
 import CitySearchOptions from "../pages/CitySearchOptions";
 import RestaurantsPage from "../pages/RestaurantsPage";
-import SearchOptionsPage from "../pages/SearchOptionsPage"
-
+import SearchOptionsPage from "../pages/SearchOptionsPage";
 
 class ContentArea extends React.Component {
   state = {
@@ -30,11 +29,10 @@ class ContentArea extends React.Component {
     // establishmentsData: [],
     // categoriesData: [],
     savedRestaurants: [],
-    selectedCityId: '',
+    selectedCityId: "",
+    selectedCityName: ""
     // selectedSearchCategory: ''
   };
-
-
 
   populateListWithData = async data => {
     await this.setState({ restaurantData: data.restaurants });
@@ -45,8 +43,13 @@ class ContentArea extends React.Component {
   };
 
   assignSelectedCityId = id => {
-    this.setState({ selectedCityId: id })
-  }
+    this.setState({ selectedCityId: id });
+  };
+
+  assignSelectedCityName = name => {
+    this.setState({ selectedCityName: name });
+
+  };
 
   addFave = async id => {
     let favourite = {
@@ -65,8 +68,8 @@ class ContentArea extends React.Component {
   };
 
   addBooking = async booking => {
-    await this.props.addRestaurantToBookings(booking)
-  }
+    await this.props.addRestaurantToBookings(booking);
+  };
 
   fetchRestaurantsFromServer = () => {
     fetch("http://localhost:3001/restaurants", {
@@ -106,7 +109,6 @@ class ContentArea extends React.Component {
       setUserWishlists,
       setUserBookings,
       bookingTimes
-
     } = this.props;
 
     const {
@@ -119,7 +121,8 @@ class ContentArea extends React.Component {
       categoriesData,
       selectedCityId,
       selectedSearchCategory,
-      searchOptionData
+      searchOptionData,
+      selectedCityName
     } = this.state;
 
     return (
@@ -140,6 +143,8 @@ class ContentArea extends React.Component {
                 collectionsData={collectionsData}
                 selectedCityId={selectedCityId}
                 assignSelectedCityId={this.assignSelectedCityId}
+                assignSelectedCityName={this.assignSelectedCityName}
+
               />
             )}
           />
@@ -154,7 +159,9 @@ class ContentArea extends React.Component {
           <Route
             exact
             path="/signup"
-            component={props => <SignUpForm signinAndSetToken={signinAndSetToken} {...props} />}
+            component={props => (
+              <SignUpForm signinAndSetToken={signinAndSetToken} {...props} />
+            )}
           />
           <Route
             exact
@@ -184,7 +191,7 @@ class ContentArea extends React.Component {
                 assignSelectedCityId={this.assignSelectedCityId}
                 addBooking={this.addBooking}
                 bookingTimes={bookingTimes}
-
+                assignSelectedCityName={this.assignSelectedCityName}
               />
             )}
           />
@@ -216,7 +223,6 @@ class ContentArea extends React.Component {
                 {...props}
                 key={user.id}
                 loggedIn={loggedIn}
-
                 user={user}
                 users_name={users_name}
                 username={username}
@@ -226,7 +232,6 @@ class ContentArea extends React.Component {
                 fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
                 savedRestaurants={savedRestaurants}
                 addBooking={this.addBooking}
-
               />
             )}
           />
@@ -239,7 +244,6 @@ class ContentArea extends React.Component {
                 key={user.id}
                 user={user}
                 loggedIn={loggedIn}
-
                 users_name={users_name}
                 username={username}
                 userFavourites={userFavourites}
@@ -248,7 +252,6 @@ class ContentArea extends React.Component {
                 fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
                 savedRestaurants={savedRestaurants}
                 addBooking={this.addBooking}
-
               />
             )}
           />
@@ -265,7 +268,9 @@ class ContentArea extends React.Component {
                 userFavourites={userFavourites}
                 deleteFavouriteFromServer={deleteFavouriteFromServer}
                 setUserFavourites={setUserFavourites}
-                populateListWithSearchOptionData={this.populateListWithSearchOptionData}
+                populateListWithSearchOptionData={
+                  this.populateListWithSearchOptionData
+                }
                 collectionsData={collectionsData}
                 cuisinesData={cuisinesData}
                 establishmentsData={establishmentsData}
@@ -274,6 +279,7 @@ class ContentArea extends React.Component {
                 assignSelectedCityId={this.assignSelectedCityId}
                 assignSelectedSearchCategory={this.assignSelectedSearchCategory}
                 selectedSearchCategory={selectedSearchCategory}
+                selectedCityName={selectedCityName}
               />
             )}
           />
@@ -307,7 +313,7 @@ class ContentArea extends React.Component {
                 categoriesData={categoriesData}
                 selectedCityId={selectedCityId}
                 assignSelectedCityId={this.assignSelectedCityId}
-
+                selectedCityName={selectedCityName}
               />
             )}
           />
@@ -326,7 +332,9 @@ class ContentArea extends React.Component {
                 coordinates={coordinates}
                 restaurantData={restaurantData}
                 populateListWithData={this.populateListWithData}
-                populateListWithSearchOptionData={this.populateListWithSearchOptionData}
+                populateListWithSearchOptionData={
+                  this.populateListWithSearchOptionData
+                }
                 addRestaurantToFavourites={addRestaurantToFavourites}
                 addRestaurantToWishlists={addRestaurantToWishlists}
                 addRestaurantToBookings={addRestaurantToBookings}
@@ -344,7 +352,7 @@ class ContentArea extends React.Component {
                 assignSelectedCityId={this.assignSelectedCityId}
                 assignSelectedSearchCategory={this.assignSelectedSearchCategory}
                 selectedSearchCategory={selectedSearchCategory}
-
+                selectedCityName={selectedCityName}
               />
             )}
           />

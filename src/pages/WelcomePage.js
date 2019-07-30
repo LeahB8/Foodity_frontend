@@ -70,6 +70,7 @@ export default function WelcomePage(props) {
             populateListWithCollections={props.populateListWithCollections}
             selectedCityId={props.selectedCityId}
             assignSelectedCityId={props.assignSelectedCityId}
+            assignSelectedCityName={props.assignSelectedCityName}
           />
         </div>
       </div>

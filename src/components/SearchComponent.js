@@ -203,24 +203,22 @@ const cities = [
 export default function SearchComponent(props) {
   const classes = useStyles();
 
-  const handleClick = id => {
+  const handleClick = tile => {
     // fetchRestaurantsByCity(id).then(data => {
     //   props
     //     .populateListWithData(data)
     //     .then(() => props.history.push("/restaurants"));
     // });
-    props.assignSelectedCityId(id);
-    props.history.push(`/search/${id}`);
+    props.assignSelectedCityId(tile.id);
+    props.assignSelectedCityName(tile.name);
+    props.history.push(`/search/${tile.id}`);
   };
 
   return (
     <div className={classes.root}>
       <GridList cellHeight={200} spacing={20} className={classes.gridList}>
         {cities.map(tile => (
-          <GridListTile
-            key={tile.image_url}
-            onClick={() => handleClick(tile.id)}
-          >
+          <GridListTile key={tile.image_url} onClick={() => handleClick(tile)}>
             <img src={tile.image_url} alt={tile.name} />
             <GridListTileBar
               title={tile.name}
