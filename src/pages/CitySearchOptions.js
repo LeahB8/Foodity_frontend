@@ -54,7 +54,7 @@ export default class CitySearchOptions extends React.Component {
       handleCategoriesClick
     } = this;
     return (
-      <React.Fragment className="content-area">
+      <div className="content-area">
         <h1>
           <strong>Choose your search</strong>
         </h1>
@@ -67,10 +67,12 @@ export default class CitySearchOptions extends React.Component {
             onClick={() => handleCollectionsClick(selectedCityId)}
           >
             <h4 className="collections-card">Collections</h4>
-            <img
-              src="https://images.unsplash.com/photo-1549332409-c2580d165674?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-              alt="collections"
-            />
+            <div className="image-div">
+              <img
+                src="https://images.unsplash.com/photo-1549332409-c2580d165674?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                alt="collections"
+              />
+            </div>
           </div>
 
           <div
@@ -78,10 +80,12 @@ export default class CitySearchOptions extends React.Component {
             onClick={() => handleCusinesClick(selectedCityId)}
           >
             <h4>Cuisines</h4>
-            <img
-              src="https://images.unsplash.com/photo-1542528180-0c79567c66de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1339&q=80"
-              alt="cuisines"
-            />
+            <div className="image-div">
+              <img
+                src="https://images.unsplash.com/photo-1542528180-0c79567c66de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1339&q=80"
+                alt="cuisines"
+              />
+            </div>
           </div>
 
           <div
@@ -89,10 +93,12 @@ export default class CitySearchOptions extends React.Component {
             onClick={() => handleEstablishmentsClick(selectedCityId)}
           >
             <h4>Establishments</h4>
-            <img
-              src="https://images.unsplash.com/photo-1546983620-53cb1c496917?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-              alt="establishments"
-            />
+            <div className="image-div">
+              <img
+                src="https://images.unsplash.com/photo-1546983620-53cb1c496917?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                alt="establishments"
+              />
+            </div>
           </div>
 
           <div
@@ -100,13 +106,15 @@ export default class CitySearchOptions extends React.Component {
             onClick={() => handleCategoriesClick(selectedCityId)}
           >
             <h4>Categories</h4>
-            <img
-              src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-              alt="categories"
-            />
+            <div className="image-div">
+              <img
+                src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                alt="categories"
+              />
+            </div>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

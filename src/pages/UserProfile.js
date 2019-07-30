@@ -28,7 +28,7 @@ export default class UserProfile extends React.Component {
     } = this.props;
 
     return (
-      <React.Fragment className="content-area">
+      <div className="content-area">
         <div className="welcome-card-container">
           <div className="welcome-card">
             <h1>
@@ -72,7 +72,7 @@ export default class UserProfile extends React.Component {
             />
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

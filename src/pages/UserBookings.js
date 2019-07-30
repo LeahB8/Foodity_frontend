@@ -24,23 +24,27 @@ export default class UserBookings extends React.Component {
         <h1>
           <strong>{user.username}'s Bookings</strong>
         </h1>
-        <div className="restaurant-list">
-          {userBookings.map(booking => (
-            <BookingCardWrapper
-              booking={booking}
-              bookingTimes={bookingTimes}
-              userBookings={userBookings}
-              user={user}
-              deleteBookingFromServer={deleteBookingFromServer}
-              setUserBookings={setUserBookings}
-              fetchRestaurantsFromServer={fetchRestaurantsFromServer}
-              savedRestaurants={savedRestaurants}
-              loggedIn={loggedIn}
-              addFave={addFave}
-              addWishlist={addWishlist}
-            />
-          ))}
-        </div>
+        {userBookings.length === 0 ? (
+          <p>No bookings have been made yet.</p>
+        ) : (
+          <div className="restaurant-list">
+            {userBookings.map(booking => (
+              <BookingCardWrapper
+                booking={booking}
+                bookingTimes={bookingTimes}
+                userBookings={userBookings}
+                user={user}
+                deleteBookingFromServer={deleteBookingFromServer}
+                setUserBookings={setUserBookings}
+                fetchRestaurantsFromServer={fetchRestaurantsFromServer}
+                savedRestaurants={savedRestaurants}
+                loggedIn={loggedIn}
+                addFave={addFave}
+                addWishlist={addWishlist}
+              />
+            ))}
+          </div>
+        )}
       </div>
     );
   }

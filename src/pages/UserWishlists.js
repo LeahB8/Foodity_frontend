@@ -20,20 +20,24 @@ export default class UserWishlists extends React.Component {
         <h1>
           <strong>{user.username}'s Wishlists</strong>
         </h1>
-        <div className="restaurant-list">
-          {userWishlists.map(wishlist => (
-            <WishlistCardWrapper
-              setUserWishlists={setUserWishlists}
-              deleteWishlistItemFromServer={deleteWishlistItemFromServer}
-              user={user}
-              wishlist={wishlist}
-              savedRestaurants={savedRestaurants}
-              userWishlists={userWishlists}
-              addBooking={addBooking}
-              loggedIn={loggedIn}
-            />
-          ))}
-        </div>
+        {userWishlists.length === 0 ? (
+          <p>No restaurants have been added to your wishlist yet.</p>
+        ) : (
+          <div className="restaurant-list">
+            {userWishlists.map(wishlist => (
+              <WishlistCardWrapper
+                setUserWishlists={setUserWishlists}
+                deleteWishlistItemFromServer={deleteWishlistItemFromServer}
+                user={user}
+                wishlist={wishlist}
+                savedRestaurants={savedRestaurants}
+                userWishlists={userWishlists}
+                addBooking={addBooking}
+                loggedIn={loggedIn}
+              />
+            ))}
+          </div>
+        )}
       </div>
     );
   }

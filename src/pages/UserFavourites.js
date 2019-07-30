@@ -19,20 +19,24 @@ export default class UserFavourites extends React.Component {
         <h1>
           <strong>{user.username}'s Favourites</strong>
         </h1>
-        <div className="restaurant-list">
-          {userFavourites.map(favourite => (
-            <FavouriteCardWrapper
-              setUserFavourites={setUserFavourites}
-              deleteFavouriteFromServer={deleteFavouriteFromServer}
-              user={user}
-              favourite={favourite}
-              savedRestaurants={savedRestaurants}
-              userFavourites={userFavourites}
-              addBooking={addBooking}
-              loggedIn={loggedIn}
-            />
-          ))}
-        </div>
+        {userFavourites.length === 0 ? (
+          <p>No restaurants have been favourited yet.</p>
+        ) : (
+          <div className="restaurant-list">
+            {userFavourites.map(favourite => (
+              <FavouriteCardWrapper
+                setUserFavourites={setUserFavourites}
+                deleteFavouriteFromServer={deleteFavouriteFromServer}
+                user={user}
+                favourite={favourite}
+                savedRestaurants={savedRestaurants}
+                userFavourites={userFavourites}
+                addBooking={addBooking}
+                loggedIn={loggedIn}
+              />
+            ))}
+          </div>
+        )}
       </div>
     );
   }

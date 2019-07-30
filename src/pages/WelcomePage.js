@@ -29,7 +29,7 @@ export default function WelcomePage(props) {
   const classes = useStyles();
 
   return (
-    <React.Fragment className="content-area">
+    <div className="content-area">
       <div className="welcome-card-container">
         <div className="welcome-card">
           <h1>
@@ -67,6 +67,6 @@ export default function WelcomePage(props) {
           />
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
