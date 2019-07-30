@@ -7,16 +7,16 @@ import BookingCardWrapper from "../components/BookingCardWrapper";
 export default class UserBookings extends React.Component {
   render() {
     const {
-      users_name,
       user,
-      username,
       userBookings,
       deleteBookingFromServer,
       setUserBookings,
       fetchRestaurantsFromServer,
       savedRestaurants,
       loggedIn,
-      bookingTimes
+      bookingTimes,
+      addFave,
+      addWishlist
     } = this.props;
 
     return (
@@ -36,6 +36,8 @@ export default class UserBookings extends React.Component {
               fetchRestaurantsFromServer={fetchRestaurantsFromServer}
               savedRestaurants={savedRestaurants}
               loggedIn={loggedIn}
+              addFave={addFave}
+              addWishlist={addWishlist}
             />
           ))}
         </div>

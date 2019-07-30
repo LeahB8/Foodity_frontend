@@ -5,14 +5,11 @@ import FavouriteCardWrapper from "../components/FavouriteCardWrapper";
 export default class UserFavourites extends React.Component {
   render() {
     const {
-      users_name,
       user,
-      username,
       userFavourites,
       deleteFavouriteFromServer,
       setUserFavourites,
       savedRestaurants,
-      fetchRestaurantsFromServer,
       addBooking,
       loggedIn
     } = this.props;

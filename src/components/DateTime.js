@@ -84,11 +84,11 @@ export default class DateTime extends React.Component {
   render() {
     return (
       <>
-        {/* <Tooltip title="Book">
+        <Tooltip title="Book">
           <IconButton aria-label="Settings" onClick={this.handleClick}>
             <MoreVertIcon />
           </IconButton>
-        </Tooltip> */}
+        </Tooltip>
 
         {/* <Dialog
           open={this.state.show}

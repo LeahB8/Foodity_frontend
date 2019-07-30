@@ -34,7 +34,9 @@ export default class BookingCardWrapper extends React.Component {
             setUserBookings,
             fetchRestaurantsFromServer,
             bookingTimes,
-            booking
+            booking,
+            addFave,
+            addWishlist
         } = this.props;
 
         return (
@@ -51,6 +53,8 @@ export default class BookingCardWrapper extends React.Component {
                     userInfo={userWishlists}
                     addBooking={addBooking}
                     bookingTimes={bookingTimes}
+                    addFave={addFave}
+                    addWishlist={addWishlist}
                 />
             </div>
         );

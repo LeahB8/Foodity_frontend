@@ -11,8 +11,6 @@ export default class UserProfile extends React.Component {
   render() {
     const {
       user,
-      changeCoordinatesState,
-      coordinates,
       restaurantData,
       populateListWithData,
       addRestaurantToFavourites,
@@ -48,13 +46,11 @@ export default class UserProfile extends React.Component {
         </div>
 
         <ProgressBar percentage={this.state.percentage} />
-      
+
         <div className="search-restaurants">
           <div>
             <SearchComponent
               {...this.props}
-              changeCoordinatesState={changeCoordinatesState}
-              coordinates={coordinates}
               populateListWithData={populateListWithData}
               populateListWithCollections={populateListWithCollections}
               loggedIn={loggedIn}

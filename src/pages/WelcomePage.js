@@ -5,8 +5,6 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import LocationSearchComponent from "../components/LocationSearchComponent";
-import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
 import ProgressBar from "../components/ProgressBar";
 

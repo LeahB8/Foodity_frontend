@@ -58,6 +58,8 @@ code {
 }
 
 .MuiAppBar-colorPrimary {
+  color: #4da635 !important;
+
   background-color: white !important;
   position: fixed !important;
 }
@@ -67,14 +69,14 @@ code {
 }
 
 .MuiButton-label {
-  color: white !important;
+  color: #4da635 !important;
   text-decoration: none !important;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .MuiButton-root {
-  background-color: #4da635 !important;
-  color: white !important;
+  background-color: white !important;
+  color: #4da635 !important;
 }
 
 .toolbar-header img {
@@ -95,18 +97,19 @@ code {
 }
 
 a:-webkit-any-link {
-  color: white !important;
+  color: #4da635 !important;
   text-decoration: none !important;
   font-weight: bold;
   /* background-color: #4DA635 !important; */
 }
 
 .MuiMenuItem-gutters {
-  background-color: #4da635 !important;
+  background-color: white !important;
 }
 
 .MuiMenu-list {
-  background-color: #4da635 !important;
+  background-color: white !important;
+  color: #4da635 !important;
 }
 
 .makeStyles-root-1 {
@@ -174,6 +177,7 @@ a:-webkit-any-link {
 
 .search-card {
   display: flex;
+  flex-direction: column;
   padding: 10px;
   /* border-radius: 4px; */
   cursor: pointer;

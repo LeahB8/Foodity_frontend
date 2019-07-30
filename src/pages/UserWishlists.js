@@ -7,9 +7,7 @@ import WishlistCardWrapper from "../components/WishlistCardWrapper";
 export default class UserWishlists extends React.Component {
   render() {
     const {
-      users_name,
       user,
-      username,
       userWishlists,
       deleteWishlistItemFromServer,
       setUserWishlists,

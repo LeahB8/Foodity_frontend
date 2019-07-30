@@ -16,10 +16,10 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
 import Dashboard from "./Dashboard";
-import { fetchUserInfo } from '../services/api'
-import moment from "moment"
-import swal from 'sweetalert';
-
+import { fetchUserInfo } from "../services/api";
+import moment from "moment";
+import swal from "sweetalert";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -61,20 +61,17 @@ export default function BookingCard(props) {
       title: "Are you sure you want to cancel your booking?",
       icon: "warning",
       buttons: true,
-      dangerMode: true,
-    })
-      .then((willDelete) => {
-        if (willDelete) {
-          props.deleteCallback(props.user.id, my_saved_restaurant.id)
-          swal("Your booking has been cancelled.", {
-            icon: "success",
-          })
-            .then(() => props.secondCallback(props.user));
-
-        } else {
-          swal("Your booking is still valid.");
-        }
-      });
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        props.deleteCallback(props.user.id, my_saved_restaurant.id);
+        swal("Your booking has been cancelled.", {
+          icon: "success"
+        }).then(() => props.secondCallback(props.user));
+      } else {
+        swal("Your booking is still valid.");
+      }
+    });
 
     // return displayDateAndTime()
   };
@@ -87,12 +84,39 @@ export default function BookingCard(props) {
 
   const displayDateAndTime = () => {
     let booking_time = props.bookingTimes.find(
-      bookingTime => bookingTime.restaurant_id === props.booking.id);
+      bookingTime => bookingTime.restaurant_id === props.booking.id
+    );
     let date = moment(booking_time.date).format("dddd Do MMM YYYY");
     // let time = booking_time.time =< '12:00' ? (
     //   return `booking_time.time` + `PM`) :
     //   booking_time.time =< '13:00'
-    return `${date} @ ${booking_time.time.substring(0, 5)}`
+    return `${date} @ ${booking_time.time.substring(0, 5)}`;
+  };
+
+  function handleLikeFavourite(restaurant) {
+    props
+      .addFave(restaurant.R.res_id)
+      // findIndividualRestaurantInfo(restaurant.R.res_id)
+      .then(
+        swal({
+          title: "Restaurant added to favourites.",
+          icon: "success",
+          timer: 1500
+        })
+      );
+  }
+
+  function handleLikeWishlist(restaurant) {
+    props
+      .addWishlist(restaurant.R.res_id)
+      // findIndividualRestaurantInfo(restaurant.R.res_id)
+      .then(
+        swal({
+          title: "Restaurant added to wishlists.",
+          icon: "success",
+          timer: 1500
+        })
+      );
   }
 
   const images = [
@@ -102,14 +126,11 @@ export default function BookingCard(props) {
     "https://images.unsplash.com/photo-1506812779316-934cef283429?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
     "https://images.unsplash.com/photo-1483274816418-3975509c8f78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
     "https://images.unsplash.com/photo-1483648969698-5e7dcaa3444f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"
-  ]
+  ];
 
   function imgLoadError(event) {
-    event.target.src = images[Math.floor(Math.random() * images.length)]
-
-    // event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+    event.target.src = images[Math.floor(Math.random() * images.length)];
   }
-
 
   return (
     <Card className={classes.card}>
@@ -120,7 +141,6 @@ export default function BookingCard(props) {
         // }
         title={props.single.name}
         subheader={displayDateAndTime()}
-
       />
       <CardMedia className={classes.media}>
         <img
@@ -146,6 +166,26 @@ export default function BookingCard(props) {
         >
           <Icon>delete</Icon>
         </IconButton>
+
+        <Tooltip title="Favourite">
+          <IconButton
+            name="favourite"
+            aria-label="Add to favourites"
+            onClick={() => handleLikeFavourite(props.single)}
+          >
+            <FavoriteIcon />
+          </IconButton>
+        </Tooltip>
+
+        <Tooltip title="Wishlist">
+          <IconButton
+            aria-label="Add to wishlist"
+            onClick={() => handleLikeWishlist(props.single)}
+          >
+            <Icon>star</Icon>
+          </IconButton>
+        </Tooltip>
+
         <Dashboard single={props.single} />
       </CardActions>
     </Card>

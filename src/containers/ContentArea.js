@@ -24,14 +24,9 @@ class ContentArea extends React.Component {
   state = {
     restaurantData: [],
     searchOptionData: [],
-    // collectionsData: [],
-    // cuisinesData: [],
-    // establishmentsData: [],
-    // categoriesData: [],
     savedRestaurants: [],
     selectedCityId: "",
     selectedCityName: ""
-    // selectedSearchCategory: ''
   };
 
   populateListWithData = async data => {
@@ -48,7 +43,6 @@ class ContentArea extends React.Component {
 
   assignSelectedCityName = name => {
     this.setState({ selectedCityName: name });
-
   };
 
   addFave = async id => {
@@ -144,7 +138,6 @@ class ContentArea extends React.Component {
                 selectedCityId={selectedCityId}
                 assignSelectedCityId={this.assignSelectedCityId}
                 assignSelectedCityName={this.assignSelectedCityName}
-
               />
             )}
           />
@@ -212,6 +205,8 @@ class ContentArea extends React.Component {
                 setUserBookings={setUserBookings}
                 fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
                 savedRestaurants={savedRestaurants}
+                addFave={this.addFave}
+                addWishlist={this.addWishlist}
               />
             )}
           />

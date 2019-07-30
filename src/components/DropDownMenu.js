@@ -10,7 +10,9 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import SendIcon from "@material-ui/icons/Send";
 import Link from "@material-ui/core/Link";
 import { Link as RouterLink } from "react-router-dom";
-import UserBookings from '../pages/UserBookings'
+import UserBookings from "../pages/UserBookings";
+import IconButton from "@material-ui/core/IconButton";
+import Icon from "@material-ui/core/Icon";
 
 const StyledMenu = withStyles({
   paper: {
@@ -56,7 +58,7 @@ function DropDownMenu() {
 
   return (
     <React.Fragment>
-      <Button
+      {/* <Button
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
@@ -64,7 +66,18 @@ function DropDownMenu() {
         onClick={handleClick}
       >
         Menu
-      </Button>
+      </Button> */}
+
+      <IconButton
+        aria-controls="customized-menu"
+        aria-haspopup="true"
+        variant="contained"
+        // color="primary"
+        onClick={handleClick}
+      >
+        <Icon>menu</Icon>
+      </IconButton>
+
       <StyledMenu
         id="customized-menu"
         anchorEl={anchorEl}
@@ -73,12 +86,12 @@ function DropDownMenu() {
         onClose={handleClose}
       >
         <StyledMenuItem>
-            <ListItemText>
-                <Link onClick={handleClose} component={RouterLink} to="/profile">
-                Homepage
-                </Link>
-            </ListItemText>
-            </StyledMenuItem>
+          <ListItemText>
+            <Link onClick={handleClose} component={RouterLink} to="/profile">
+              Homepage
+            </Link>
+          </ListItemText>
+        </StyledMenuItem>
         <StyledMenuItem>
           <ListItemText>
             <Link onClick={handleClose} component={RouterLink} to="/favourites">
@@ -92,7 +105,7 @@ function DropDownMenu() {
             <Link onClick={handleClose} component={RouterLink} to="/wishlists">
               My Wishlists
             </Link>
-        </ListItemText>
+          </ListItemText>
         </StyledMenuItem>
 
         <StyledMenuItem>
@@ -102,7 +115,7 @@ function DropDownMenu() {
             </Link>
           </ListItemText>
         </StyledMenuItem>
-        </StyledMenu>
+      </StyledMenu>
     </React.Fragment>
   );
 }
