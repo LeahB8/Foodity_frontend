@@ -7,7 +7,6 @@ import {
   withRouter
 } from "react-router-dom";
 import "./App.css";
-import ReactDOM from "react-dom";
 import NavBar from "./containers/NavBar";
 import ContentArea from "./containers/ContentArea";
 import {
@@ -99,15 +98,6 @@ class App extends Component {
       .then(data => this.setState({ userFavourites: data }));
   };
 
-  // deleteFavouriteFromServer = id => {
-  //   return fetch(`http://localhost:3001/favourites/${id}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   });
-  // };
-
   deleteFavouriteFromServer = (user_id, restaurant_id) => {
     return fetch(`http://localhost:3001/users/favourites/delete`, {
       method: "DELETE",
@@ -161,7 +151,9 @@ class App extends Component {
   setUserBookings = user => {
     getUserBookings(user)
       .then(resp => resp.json())
-      .then(data => this.setState({ userBookings: data }));
+      .then(data => {
+        this.setState({ bookingTimes: data });
+      });
   };
 
   deleteBookingFromServer = (user_id, restaurant_id) => {

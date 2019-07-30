@@ -9,6 +9,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { CardMedia } from "@material-ui/core";
 
 class Dashboard extends Component {
   state = { show: false };
@@ -17,6 +18,7 @@ class Dashboard extends Component {
   };
   render() {
     const { single } = this.props;
+    // debugger;
     return (
       <main>
         <Dialog
@@ -62,12 +64,28 @@ class Dashboard extends Component {
               {single.timings}
             </Typography>
             <br />
+
             {/* <Typography align="left" object="p">
-              <a target="_blank" href="single.menu_url">
+              <Link target="_blank" href={single.menu_url}>
                 Menu
-              </a>
+              </Link>
             </Typography>
+
             <br /> */}
+            <Typography variant="h6">
+              <strong>Photos</strong> <br />
+            </Typography>
+            {single.photos.map(single => (
+              // <CardMedia image={single.photo.url} height="50px" width="50px" />
+              <img
+                className="restaurant-images"
+                src={single.photo.url}
+                alt="food"
+              />
+            ))}
+            <br />
+            <br />
+
             <Typography variant="h6">
               <strong>Highlights</strong> <br />
             </Typography>

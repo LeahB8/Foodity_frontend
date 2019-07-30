@@ -10,22 +10,11 @@ export default class RestaurantsPage extends React.Component {
 
   render() {
     const {
-      users_name,
       user,
-      username,
-      userFavourites,
-      deleteFavouriteFromServer,
-      setUserFavourites,
-      savedRestaurants,
-      fetchRestaurantsFromServer,
       restaurantData,
       loggedIn,
       addWishlist,
       addFave,
-      collectionsData,
-      cuisinesData,
-      establishmentsData,
-      categoriesData,
       addBooking,
       selectedCityName
     } = this.props;
@@ -39,7 +28,7 @@ export default class RestaurantsPage extends React.Component {
               : "Searched Restaurants"}
           </strong>
         </h1>
-        <h3>for {selectedCityName}</h3>
+        <h2>for {selectedCityName}</h2>
 
         <ProgressBar percentage={this.state.percentage} />
 

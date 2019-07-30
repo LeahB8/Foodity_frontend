@@ -91,7 +91,6 @@ class ContentArea extends React.Component {
       userBookings,
       userWishlists,
       userFavourites,
-      userReviews,
       addRestaurantToFavourites,
       addRestaurantToWishlists,
       addRestaurantToBookings,

@@ -72,6 +72,8 @@ function DropDownMenu() {
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
+        className="menu-dropdown"
+        // size="medium"
         // color="primary"
         onClick={handleClick}
       >

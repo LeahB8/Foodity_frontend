@@ -58,7 +58,7 @@ export default class CitySearchOptions extends React.Component {
         <h1>
           <strong>Choose your search</strong>
         </h1>
-        <h3>for {selectedCityName}</h3>
+        <h2>for {selectedCityName}</h2>
         <ProgressBar percentage={this.state.percentage} />
 
         <div className="search-cards">

@@ -35,8 +35,19 @@ export default function WelcomePage(props) {
           <h1>
             <strong>Welcome to Foodity</strong>
           </h1>
-          <p>Explore the world through food.</p>
-          <p>Discover all of the hidden gems at home and abroad.</p>
+          <h3>
+            Where we are
+            <br />
+            passionate about food
+          </h3>
+          <br />
+          <div className="welcome-paragraph">
+            <p>
+              Explore the world through food
+              <br />
+              Discover all of the hidden gems at home and abroad
+            </p>
+          </div>
         </div>
       </div>
 

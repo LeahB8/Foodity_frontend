@@ -34,14 +34,17 @@ export default class UserProfile extends React.Component {
             <h1>
               <strong>Welcome back, {user.username}</strong>
             </h1>
-            <p>
+            {/* <div className="welcome-paragraph-div"> */}
+            <p className="welcome-paragraph">
               Search through the list of cities to find restaurants you want to
+              <br />
               add to your wishlist or select those you want to favourite.
-            </p>
-            <p>
+              <br />
               Explore your own city's hidden gems or plan for upcoming holidays.
+              <br />
+              You can also book any restaurant that inspires you.
             </p>
-            <p>You can also book any restaurant that inspires you.</p>
+            {/* </div> */}
           </div>
         </div>
 

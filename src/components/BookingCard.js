@@ -66,10 +66,13 @@ export default function BookingCard(props) {
       if (willDelete) {
         props.deleteCallback(props.user.id, my_saved_restaurant.id);
         swal("Your booking has been cancelled.", {
-          icon: "success"
+          icon: "success",
+          timer: 1500
         }).then(() => props.secondCallback(props.user));
       } else {
-        swal("Your booking is still valid.");
+        swal("Your booking is still valid.", {
+          timer: 1500
+        });
       }
     });
 

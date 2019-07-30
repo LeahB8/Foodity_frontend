@@ -27,7 +27,7 @@ export default class SearchOptionsPage extends React.Component {
             {loggedIn ? `${user.username}'s Search Options` : "Search Options"}
           </strong>
         </h1>
-        <h3>for {selectedCityName}</h3>
+        <h2>for {selectedCityName}</h2>
 
         <ProgressBar percentage={this.state.percentage} />
 
