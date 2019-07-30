@@ -21,8 +21,8 @@ const useStyles = makeStyles(theme => ({
   gridList: {
     // width: 800,
     // height: 850,
-    padding: 20,
-    margin: 20,
+    padding: 30,
+    margin: 40,
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)",
     cursor: "pointer"
@@ -77,7 +77,6 @@ const cities = [
     id: 68,
     image_url:
       "https://images.unsplash.com/photo-1520097718692-c77fd891035a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-    // "https://images.unsplash.com/photo-1543772204-2cc21eb14509?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
   },
   {
     name: "Rome",
@@ -210,13 +209,13 @@ export default function SearchComponent(props) {
     //     .populateListWithData(data)
     //     .then(() => props.history.push("/restaurants"));
     // });
-    props.assignSelectedCityId(id)
+    props.assignSelectedCityId(id);
     props.history.push(`/search/${id}`);
   };
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={200} spacing={10} className={classes.gridList}>
+      <GridList cellHeight={200} spacing={20} className={classes.gridList}>
         {cities.map(tile => (
           <GridListTile
             key={tile.image_url}

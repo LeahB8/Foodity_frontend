@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import LocationSearchComponent from "../components/LocationSearchComponent";
 import MapBox from "../components/MapBox";
 import SearchComponent from "../components/SearchComponent";
+import ProgressBar from "../components/ProgressBar";
 
 const useStyles = makeStyles({
   card: {
@@ -31,7 +32,7 @@ export default function WelcomePage(props) {
 
   return (
     <>
-      <div>
+      {/* <div>
         <Card className={classes.card}>
           <CardContent>
             <Typography variant="h3" component="h3" color="#fdb600">
@@ -45,7 +46,20 @@ export default function WelcomePage(props) {
             </Typography>
           </CardContent>
         </Card>
+      </div> */}
+
+      <div className="welcome-card-container">
+        <div className="welcome-card">
+          <h1>
+            <strong>Welcome to Foodity</strong>
+          </h1>
+          <p>Explore the world through food.</p>
+          <p>Discover all of the hidden gems at home and abroad.</p>
+        </div>
       </div>
+
+      <ProgressBar percentage="0" />
+
       <div className="search-restaurants">
         <div>
           <SearchComponent

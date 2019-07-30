@@ -119,7 +119,10 @@ export default function RestaurantCard(props) {
       </CardMedia>
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
-          {props.single.cuisines}
+          <strong>{props.single.cuisines}</strong>
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          {props.single.location.locality}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

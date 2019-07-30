@@ -63,7 +63,17 @@ class App extends Component {
   };
 
   signout = () => {
-    this.setState({ user: {}, username: "", loggedIn: false });
+    this.setState({
+      user: {},
+      username: "",
+      users_name: "",
+      userBookings: [],
+      bookingTimes: [],
+      userWishlists: [],
+      userFavourites: [],
+      userReviews: [],
+      loggedIn: false
+    });
     localStorage.removeItem("token");
   };
 

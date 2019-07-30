@@ -1,8 +1,7 @@
 import React from "react";
-
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
+import swal from 'sweetalert';
 import { signin } from "../services/api";
 
 export default class SignInForm extends React.Component {
@@ -16,7 +15,7 @@ export default class SignInForm extends React.Component {
     signin(this.state.username, this.state.password)
       .then(data => {
         if (data.error) {
-          alert(data.error);
+          swal(data.error);
         } else {
           this.props.signinAndSetToken(data);
           this.setState({ username: "", password: "" });

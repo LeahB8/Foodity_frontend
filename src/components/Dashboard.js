@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Dashboard extends Component {
   state = { show: false };
@@ -19,7 +19,6 @@ class Dashboard extends Component {
     const { single } = this.props;
     return (
       <main>
-
         <Dialog
           open={this.state.show}
           onClose={() => {
@@ -63,13 +62,18 @@ class Dashboard extends Component {
               {single.timings}
             </Typography>
             <br />
+            {/* <Link to=`${single.menu_url}` >
+              Menu
+            </Link>
+            <br /> */}
             <Typography variant="h6">
               <strong>Highlights</strong> <br />
             </Typography>
-            {single.highlights.map(highlight => <Typography align="left" object="p">
-              {highlight}
-            </Typography>
-            )}
+            {single.highlights.map(highlight => (
+              <Typography align="left" object="p">
+                {highlight}
+              </Typography>
+            ))}
 
             <br />
             <Typography variant="h6">
@@ -121,10 +125,10 @@ class Dashboard extends Component {
         </Button> */}
         <Tooltip title="More Info">
           <IconButton
-          className="info-button"
+            className="info-button"
             aria-label="more info"
             onClick={this.handleClick}
-          // onClick={() => showModal(props.single)}
+            // onClick={() => showModal(props.single)}
           >
             <Icon>info</Icon>
           </IconButton>

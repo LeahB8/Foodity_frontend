@@ -123,7 +123,7 @@ class ContentArea extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="content-area">
         <Switch>
           <Route
             exact
@@ -154,7 +154,7 @@ class ContentArea extends React.Component {
           <Route
             exact
             path="/signup"
-            component={props => <SignUpForm {...props} />}
+            component={props => <SignUpForm signinAndSetToken={signinAndSetToken} {...props} />}
           />
           <Route
             exact
