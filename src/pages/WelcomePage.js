@@ -31,23 +31,7 @@ export default function WelcomePage(props) {
   const classes = useStyles();
 
   return (
-    <>
-      {/* <div>
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography variant="h3" component="h3" color="#fdb600">
-              Welcome to Foodity
-            </Typography>
-            <Typography variant="h5" component="h5" color="#fdb600">
-              Explore the world through food.
-              <br />
-              Discover all of the hidden gems at home and abroad.
-              <br />A way for you to plan ahead your restuarant adventures.
-            </Typography>
-          </CardContent>
-        </Card>
-      </div> */}
-
+    <React.Fragment className="content-area">
       <div className="welcome-card-container">
         <div className="welcome-card">
           <h1>
@@ -74,6 +58,6 @@ export default function WelcomePage(props) {
           />
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 }

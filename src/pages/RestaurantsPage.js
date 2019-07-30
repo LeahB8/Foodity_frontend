@@ -31,7 +31,7 @@ export default class RestaurantsPage extends React.Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="content-area">
         <h1>
           <strong>
             {loggedIn

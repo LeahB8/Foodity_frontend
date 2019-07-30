@@ -54,7 +54,7 @@ export default class CitySearchOptions extends React.Component {
       handleCategoriesClick
     } = this;
     return (
-      <>
+      <React.Fragment className="content-area">
         <h1>
           <strong>Choose your search</strong>
         </h1>
@@ -106,7 +106,7 @@ export default class CitySearchOptions extends React.Component {
             />
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }

@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import Tooltip from "@material-ui/core/Tooltip";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
+import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import swal from "sweetalert";
@@ -33,6 +34,12 @@ export default class DateTime extends React.Component {
     this.setState({ show: !this.state.show });
   };
 
+  bookingFormat = dateTime => {
+    let date = dateTime.slice(0, 15);
+    let time = dateTime.slice(16, 21);
+    return `${date} @ ${time}`;
+  };
+
   handleSubmitBooking = () => {
     let booking = {
       user_id: this.props.user.id,
@@ -42,7 +49,7 @@ export default class DateTime extends React.Component {
     if (this.props.loggedIn) {
       swal({
         title: "Are you happy with your booking?",
-        text: `${this.state.startDate}`,
+        text: `${this.bookingFormat(this.state.startDate.toString())}`,
         buttons: { no: "No", yes: true }
       }).then(value => {
         switch (value) {
@@ -50,7 +57,8 @@ export default class DateTime extends React.Component {
             this.props.addBooking(booking).then(
               swal({
                 title: "Booking has been made.",
-                icon: "success"
+                icon: "success",
+                timer: 1500
               })
             );
             this.setState({ show: false });
@@ -76,17 +84,22 @@ export default class DateTime extends React.Component {
   render() {
     return (
       <>
-        <Tooltip title="Book">
+        {/* <Tooltip title="Book">
           <IconButton aria-label="Settings" onClick={this.handleClick}>
             <MoreVertIcon />
           </IconButton>
-        </Tooltip>
+        </Tooltip> */}
+
         {/* <Dialog
           open={this.state.show}
           onClose={() => {
             this.setState({ show: false });
           }}
         > */}
+
+        <IconButton aria-label="Book" onClick={this.handleSubmitBooking}>
+          <Icon>today</Icon>
+        </IconButton>
         <DatePicker
           // style={this.display}
           open={this.state.show}
@@ -100,7 +113,8 @@ export default class DateTime extends React.Component {
           timeCaption="Time"
           // withPortal
         />
-        <Button onClick={this.handleSubmitBooking}>Book</Button>
+
+        {/* <Button onClick={this.handleSubmitBooking}>Book</Button> */}
         {/* </Dialog> */}
       </>
     );

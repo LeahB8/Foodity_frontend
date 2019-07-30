@@ -64,6 +64,7 @@ export default function RestaurantCard(props) {
         .then(swal({
           title: "Restaurant added to favourites.",
           icon: "success",
+          timer: 1500
         }))
     } else {
       swal("Please sign in");
@@ -77,6 +78,8 @@ export default function RestaurantCard(props) {
         .then(swal({
           title: "Restaurant added to wishlists.",
           icon: "success",
+          timer: 1500
+
         }))    
       } else {
       swal("Please sign in");

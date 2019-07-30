@@ -15,11 +15,10 @@ export default class UserFavourites extends React.Component {
       fetchRestaurantsFromServer,
       addBooking,
       loggedIn
-
     } = this.props;
 
     return (
-      <div>
+      <div className="content-area">
         <h1>
           <strong>{user.username}'s Favourites</strong>
         </h1>
@@ -34,8 +33,6 @@ export default class UserFavourites extends React.Component {
               userFavourites={userFavourites}
               addBooking={addBooking}
               loggedIn={loggedIn}
-
-
             />
           ))}
         </div>

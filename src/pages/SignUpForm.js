@@ -51,6 +51,7 @@ export default class SignUpForm extends Component {
     const { handleChange, handleSubmit } = this;
 
     return (
+      <div className="content-area">
       <div className="signup-container">
         <div className="signup-card">
           <form onSubmit={handleSubmit}>
@@ -80,6 +81,7 @@ export default class SignUpForm extends Component {
             </Button>
           </form>
         </div>
+      </div>
       </div>
     );
   }

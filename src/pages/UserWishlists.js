@@ -18,7 +18,7 @@ export default class UserWishlists extends React.Component {
       loggedIn
     } = this.props;
     return (
-      <div>
+      <div className="content-area">
         <h1>
           <strong>{user.username}'s Wishlists</strong>
         </h1>

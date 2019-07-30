@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  position: relative;
+  /* position: relative; */
 }
 
 .App-logo {
@@ -21,7 +21,7 @@
 
 .App-header {
   /* background-color: #fdb600; */
-  background-color: #2E8B57;
+  background-color: #2e8b57;
 
   min-height: 10vh;
   /* display: flex;

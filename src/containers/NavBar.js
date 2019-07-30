@@ -47,35 +47,29 @@ function NavBar(props) {
         </Button>
       </React.Fragment>
     ) : (
-        <React.Fragment>
-          <Button variant="contained" color="primary" className={classes.button}>
-            <Link className="Homepage-link" to="/signin">
-              Sign In
+      <React.Fragment>
+        <Button variant="contained" color="primary" className={classes.button}>
+          <Link className="Homepage-link" to="/signin">
+            Sign In
           </Link>
-          </Button>
-          <Button variant="contained" color="primary" className={classes.button}>
-            <Link className="Homepage-link" to="/signup">
-              Sign Up
+        </Button>
+        <Button variant="contained" color="primary" className={classes.button}>
+          <Link className="Homepage-link" to="/signup">
+            Sign Up
           </Link>
-          </Button>
-        </React.Fragment>
-      );
+        </Button>
+      </React.Fragment>
+    );
   };
 
   return (
     <div>
-      <AppBar className="nav-header" position="sticky">
+      <AppBar className="nav-header">
         <Toolbar className="toolbar-header">
-          
           <Link to="/profile">
-            <img
-              src={myLogo}
-              className="App-logo"
-              alt="logo"
-              // onClick={() => props.history.push('/profile')}
-            />
+            <img src={myLogo} className="App-logo" alt="logo" />
           </Link>
-          
+
           <div className="navbar-link">{sessionHeader()}</div>
         </Toolbar>
       </AppBar>

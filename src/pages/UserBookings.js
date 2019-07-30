@@ -17,11 +17,10 @@ export default class UserBookings extends React.Component {
       savedRestaurants,
       loggedIn,
       bookingTimes
-
     } = this.props;
 
     return (
-      <div>
+      <div className="content-area">
         <h1>
           <strong>{user.username}'s Bookings</strong>
         </h1>
@@ -40,7 +39,6 @@ export default class UserBookings extends React.Component {
             />
           ))}
         </div>
-
       </div>
     );
   }

@@ -21,7 +21,7 @@ export default class SearchOptionsPage extends React.Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="content-area">
         <h1>
           <strong>
             {loggedIn ? `${user.username}'s Search Options` : "Search Options"}

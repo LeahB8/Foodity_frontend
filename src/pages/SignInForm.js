@@ -31,6 +31,7 @@ export default class SignInForm extends React.Component {
     const { handleChange, handleSubmit } = this;
 
     return (
+      <div className="content-area">
       <div className="signup-container">
         <div className="signup-card">
           <form onSubmit={handleSubmit}>
@@ -61,6 +62,7 @@ export default class SignInForm extends React.Component {
           </Button>
           </form>
         </div>
+      </div>
       </div>
     );
   }
