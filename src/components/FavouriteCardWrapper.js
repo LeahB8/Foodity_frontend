@@ -30,7 +30,8 @@ export default class SingleCardWrapper extends React.Component {
       savedRestaurants,
       userFavourites,
       addBooking,
-      loggedIn
+      loggedIn,
+      setUserBookings
     } = this.props;
 
     return (
@@ -44,6 +45,7 @@ export default class SingleCardWrapper extends React.Component {
           userInfo={userFavourites}
           addBooking={addBooking}
           loggedIn={loggedIn}
+          setUserBookings={setUserBookings}
         />
       </div>
     );

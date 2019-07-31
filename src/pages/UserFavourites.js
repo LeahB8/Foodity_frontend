@@ -11,7 +11,8 @@ export default class UserFavourites extends React.Component {
       setUserFavourites,
       savedRestaurants,
       addBooking,
-      loggedIn
+      loggedIn,
+      setUserBookings
     } = this.props;
 
     return (
@@ -33,6 +34,7 @@ export default class UserFavourites extends React.Component {
                 userFavourites={userFavourites}
                 addBooking={addBooking}
                 loggedIn={loggedIn}
+                setUserBookings={setUserBookings}
               />
             ))}
           </div>

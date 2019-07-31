@@ -60,7 +60,8 @@ export default class DateTime extends React.Component {
                 icon: "success",
                 timer: 1500
               })
-            );
+            )
+            .then(() => this.props.setUserBookings(this.props.user))
             this.setState({ show: false });
             break;
 

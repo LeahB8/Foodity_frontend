@@ -16,7 +16,10 @@ export default class RestaurantsPage extends React.Component {
       addWishlist,
       addFave,
       addBooking,
-      selectedCityName
+      selectedCityName,
+      setUserBookings,
+      setUserFavourites,
+      setUserWishlists
     } = this.props;
 
     return (
@@ -40,6 +43,9 @@ export default class RestaurantsPage extends React.Component {
           addWishlist={addWishlist}
           addBooking={addBooking}
           user={user}
+          setUserBookings={setUserBookings}
+          setUserFavourites={setUserFavourites}
+          setUserWishlists={setUserWishlists}
         />
       </div>
     );

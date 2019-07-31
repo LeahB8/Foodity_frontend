@@ -16,8 +16,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
 import Dashboard from "./Dashboard";
-import swal from 'sweetalert';
-
+import swal from "sweetalert";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -59,23 +58,18 @@ export default function SingleCard(props) {
       title: "Are you sure you want to remove this restaurant?",
       icon: "warning",
       buttons: true,
-      dangerMode: true,
-    })
-      .then((willDelete) => {
-        if (willDelete) {
-          props.deleteCallback(props.user.id, my_saved_restaurant.id)
-          swal("The restaurant has been removed.", {
-            icon: "success",
-          })
-            .then(() => props.secondCallback(props.user));
-
-        } else {
-          swal("The restaurant has not been removed.");
-        }
-      })
-  }
-
-
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        props.deleteCallback(props.user.id, my_saved_restaurant.id);
+        swal("The restaurant has been removed.", {
+          icon: "success"
+        }).then(() => props.secondCallback(props.user));
+      } else {
+        swal("The restaurant has not been removed.");
+      }
+    });
+  };
 
   const images = [
     "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
@@ -84,10 +78,10 @@ export default function SingleCard(props) {
     "https://images.unsplash.com/photo-1506812779316-934cef283429?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
     "https://images.unsplash.com/photo-1483274816418-3975509c8f78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
     "https://images.unsplash.com/photo-1483648969698-5e7dcaa3444f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"
-  ]
+  ];
 
   function imgLoadError(event) {
-    event.target.src = images[Math.floor(Math.random() * images.length)]
+    event.target.src = images[Math.floor(Math.random() * images.length)];
 
     // event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
@@ -95,8 +89,14 @@ export default function SingleCard(props) {
     <Card className={classes.card}>
       <CardHeader
         action={
-          <DateTime user={props.user} restaurant={props.single} addBooking={props.addBooking} loggedIn={props.loggedIn} />
+          <DateTime
+            user={props.user}
+            restaurant={props.single}
+            addBooking={props.addBooking}
+            loggedIn={props.loggedIn}
+            setUserBookings={props.setUserBookings}
 
+          />
         }
         title={props.single.name}
       />
@@ -124,7 +124,10 @@ export default function SingleCard(props) {
         >
           <Icon>delete</Icon>
         </IconButton>
-        <Dashboard single={props.single} />
+        <Dashboard
+          single={props.single}
+          user={props.user}
+        />
       </CardActions>
     </Card>
   );

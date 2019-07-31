@@ -22,8 +22,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import DateTime from "./DateTime";
 import { Link } from "react-router-dom";
 import { fetchUserInfo, findIndividualRestaurantInfo } from "../services/api";
-import swal from 'sweetalert';
-
+import swal from "sweetalert";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -59,13 +58,17 @@ export default function RestaurantCard(props) {
 
   function handleLikeFavourite(restaurant) {
     if (props.loggedIn) {
-      props.addFave(restaurant.R.res_id)
+      props
+        .addFave(restaurant.R.res_id)
         // findIndividualRestaurantInfo(restaurant.R.res_id)
-        .then(swal({
-          title: "Restaurant added to favourites.",
-          icon: "success",
-          timer: 1500
-        }))
+        .then(
+          swal({
+            title: "Restaurant added to favourites.",
+            icon: "success",
+            timer: 1500
+          })
+        )
+        .then(props.setUserFavourites(props.user));
     } else {
       swal("Please sign in");
     }
@@ -73,15 +76,18 @@ export default function RestaurantCard(props) {
 
   function handleLikeWishlist(restaurant) {
     if (props.loggedIn) {
-      props.addWishlist(restaurant.R.res_id)
+      props
+        .addWishlist(restaurant.R.res_id)
         // findIndividualRestaurantInfo(restaurant.R.res_id)
-        .then(swal({
-          title: "Restaurant added to wishlists.",
-          icon: "success",
-          timer: 1500
-
-        }))    
-      } else {
+        .then(
+          swal({
+            title: "Restaurant added to wishlists.",
+            icon: "success",
+            timer: 1500
+          })
+        )
+        .then(props.setUserWishlists(props.user));
+    } else {
       swal("Please sign in");
     }
   }
@@ -93,10 +99,10 @@ export default function RestaurantCard(props) {
     "https://images.unsplash.com/photo-1506812779316-934cef283429?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
     "https://images.unsplash.com/photo-1483274816418-3975509c8f78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
     "https://images.unsplash.com/photo-1483648969698-5e7dcaa3444f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"
-  ]
+  ];
 
   function imgLoadError(event) {
-    event.target.src = images[Math.floor(Math.random() * images.length)]
+    event.target.src = images[Math.floor(Math.random() * images.length)];
 
     // event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
@@ -105,9 +111,14 @@ export default function RestaurantCard(props) {
     <Card className={classes.card}>
       <CardHeader
         action={
+          <DateTime
+            user={props.user}
+            restaurant={props.single}
+            addBooking={props.addBooking}
+            loggedIn={props.loggedIn}
+            setUserBookings={props.setUserBookings}
 
-          <DateTime user={props.user} restaurant={props.single} addBooking={props.addBooking} loggedIn={props.loggedIn} />
-
+          />
         }
         title={props.single.name}
       />
@@ -148,10 +159,8 @@ export default function RestaurantCard(props) {
           </IconButton>
         </Tooltip>
 
-        <Dashboard single={props.single} />
-
+        <Dashboard single={props.single} user={props.user} />
       </CardActions>
-
     </Card>
   );
 }

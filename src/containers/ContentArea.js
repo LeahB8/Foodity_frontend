@@ -226,6 +226,8 @@ class ContentArea extends React.Component {
                 fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
                 savedRestaurants={savedRestaurants}
                 addBooking={this.addBooking}
+                setUserBookings={setUserBookings}
+
               />
             )}
           />
@@ -246,6 +248,8 @@ class ContentArea extends React.Component {
                 fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
                 savedRestaurants={savedRestaurants}
                 addBooking={this.addBooking}
+                setUserBookings={setUserBookings}
+
               />
             )}
           />
@@ -308,6 +312,10 @@ class ContentArea extends React.Component {
                 selectedCityId={selectedCityId}
                 assignSelectedCityId={this.assignSelectedCityId}
                 selectedCityName={selectedCityName}
+                setUserBookings={setUserBookings}
+                setUserFavourites={setUserFavourites}
+                setUserWishlists={setUserWishlists}
+
               />
             )}
           />

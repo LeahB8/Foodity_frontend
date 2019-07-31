@@ -146,7 +146,15 @@ class App extends Component {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking)
-    }).then(resp => resp.json());
+    });
+    // .then(resp => resp.json())
+    // .then(data => {
+    //   debugger;
+    //   this.setState({
+    //     userBookings: [...this.state.userBookings, data],
+    //     bookingTimes: [this.state.bookingTimes, data]
+    //   });
+    // });
   };
 
   setUserBookings = async user => {

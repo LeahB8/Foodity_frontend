@@ -282,11 +282,15 @@ a:-webkit-any-link {
   /* background-image: url('https://images.unsplash.com/photo-1463123081488-789f998ac9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'); */
   /* object-fit: cover; */
 }
-/* 
+
 .search-card:hover {
-  box-shadow: 10px 15px 7px #c7c7c7;
-  background-color: #4da635;
-} */
+  /* box-shadow: 10px 15px 7px #c7c7c7; */
+  color: black;
+}
+
+.search-card:active {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
 
 .card:hover {
   /* -webkit-transform: scale(0.5);

@@ -64,7 +64,6 @@ class Dashboard extends Component {
               {single.timings}
             </Typography>
             <br />
-
             {/* <Typography align="left" object="p">
               <Link target="_blank" href={single.menu_url}>
                 Menu
@@ -72,20 +71,22 @@ class Dashboard extends Component {
             </Typography>
 
             <br /> */}
-            {/* <Typography variant="h6">
-              <strong>Photos</strong> <br />
-            </Typography>
-            {single.photos.map(single => (
-              // <CardMedia image={single.photo.url} height="50px" width="50px" />
-              <img
-                className="restaurant-images"
-                src={single.photo.url}
-                alt="food"
-              />
-            ))}
-            <br />
-            <br /> */}
-
+            {single.photos ? (
+              <React.Fragment>
+                <Typography variant="h6">
+                  <strong>Photos</strong> <br />
+                </Typography>
+                {single.photos.map(single => (
+                  <img
+                    className="restaurant-images"
+                    src={single.photo.url}
+                    alt="food"
+                  />
+                ))}
+                <br />
+                <br />
+              </React.Fragment>
+            ) : null}
             <Typography variant="h6">
               <strong>Highlights</strong> <br />
             </Typography>
@@ -94,7 +95,6 @@ class Dashboard extends Component {
                 {highlight}
               </Typography>
             ))}
-
             <br />
             <Typography variant="h6">
               <strong>Average Rating</strong> <br />
@@ -116,7 +116,6 @@ class Dashboard extends Component {
             <br />
             <br />
             <br />
-
             <Typography variant="h4">Reviews</Typography>
             {single.all_reviews.reviews.map(review => (
               <>
