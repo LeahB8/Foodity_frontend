@@ -4,7 +4,7 @@ import SearchCard from "./SearchCard";
 
 export default class SearchList extends Component {
   render() {
-    // debugger
+    // // debugger
     const {
       user,
       loggedIn,

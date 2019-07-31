@@ -18,7 +18,7 @@ class Dashboard extends Component {
   };
   render() {
     const { single } = this.props;
-    // debugger;
+    // // debugger;
     return (
       <main>
         <Dialog
@@ -72,7 +72,7 @@ class Dashboard extends Component {
             </Typography>
 
             <br /> */}
-            <Typography variant="h6">
+            {/* <Typography variant="h6">
               <strong>Photos</strong> <br />
             </Typography>
             {single.photos.map(single => (
@@ -84,7 +84,7 @@ class Dashboard extends Component {
               />
             ))}
             <br />
-            <br />
+            <br /> */}
 
             <Typography variant="h6">
               <strong>Highlights</strong> <br />

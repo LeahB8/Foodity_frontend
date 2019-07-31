@@ -190,7 +190,7 @@ class ContentArea extends React.Component {
           <Route
             exact
             path="/bookings"
-            component={props => (
+            render={props => (
               <UserBookings
                 {...props}
                 key={user.id}

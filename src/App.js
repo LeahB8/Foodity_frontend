@@ -13,7 +13,8 @@ import {
   validate,
   getUserFavourites,
   getUserWishlists,
-  getUserBookings
+  getUserBookings,
+  fetchUserInfo
 } from "./services/api";
 
 class App extends Component {
@@ -148,12 +149,18 @@ class App extends Component {
     }).then(resp => resp.json());
   };
 
-  setUserBookings = user => {
-    getUserBookings(user)
-      .then(resp => resp.json())
-      .then(data => {
-        this.setState({ bookingTimes: data });
-      });
+  setUserBookings = async user => {
+    let dateTimes = null;
+    let booked_restaurants = null;
+
+    dateTimes = await getUserBookings(user);
+    booked_restaurants = await validate(user);
+    // debugger;
+    this.setState({
+      ...this.state,
+      bookingTimes: dateTimes,
+      userBookings: booked_restaurants.user_bookings
+    });
   };
 
   deleteBookingFromServer = (user_id, restaurant_id) => {

@@ -68,7 +68,9 @@ export default function BookingCard(props) {
         swal("Your booking has been cancelled.", {
           icon: "success",
           timer: 1500
-        }).then(() => props.secondCallback(props.user));
+        }).then(() => {
+          props.secondCallback(props.user);
+        });
       } else {
         swal("Your booking is still valid.", {
           timer: 1500
@@ -89,6 +91,7 @@ export default function BookingCard(props) {
     let booking_time = props.bookingTimes.find(
       bookingTime => bookingTime.restaurant_id === props.booking.id
     );
+    // debugger;
     let date = moment(booking_time.date).format("dddd Do MMM YYYY");
     // let time = booking_time.time =< '12:00' ? (
     //   return `booking_time.time` + `PM`) :

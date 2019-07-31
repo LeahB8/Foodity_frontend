@@ -31,7 +31,7 @@ export function createUser(username, password) {
 }
 
 export function fetchUserInfo(user) {
-  return fetch(baseUrl + `/users/${user.id}`);
+  return fetch(baseUrl + `/users/${user.id}`).then(resp => resp.json());
 }
 
 export function getUserFavourites(user) {
@@ -58,7 +58,7 @@ export function getUserBookings(user) {
       "Content-Type": "application/json",
       Authorisation: localStorage.token
     }
-  });
+  }).then(resp => resp.json());
 }
 
 //----------------------- zomato api -------------------//
@@ -204,7 +204,10 @@ export function fetchRestaurantsByCityAndCuisine(city_id, cuisine_id) {
   ).then(resp => resp.json());
 }
 
-export function fetchRestaurantsByCityAndEstablishment(city_id, establishment_id) {
+export function fetchRestaurantsByCityAndEstablishment(
+  city_id,
+  establishment_id
+) {
   return fetch(
     `https://developers.zomato.com/api/v2.1/search?entity_id=${city_id}&entity_type=city&establishment_type=${establishment_id}`,
     {
@@ -219,9 +222,6 @@ export function fetchRestaurantsByCityAndEstablishment(city_id, establishment_id
     }
   ).then(resp => resp.json());
 }
-
-
-
 
 //----------------------- exporting -------------------//
 
