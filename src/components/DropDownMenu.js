@@ -87,36 +87,29 @@ function DropDownMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem>
-          <ListItemText>
-            <Link onClick={handleClose} component={RouterLink} to="/profile">
-              Homepage
-            </Link>
-          </ListItemText>
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText>
-            <Link onClick={handleClose} component={RouterLink} to="/favourites">
-              My Favourites
-            </Link>
-          </ListItemText>
-        </StyledMenuItem>
+        <Link onClick={handleClose} component={RouterLink} to="/profile">
+          <StyledMenuItem>
+            <ListItemText>Homepage</ListItemText>
+          </StyledMenuItem>
+        </Link>
 
-        <StyledMenuItem>
-          <ListItemText>
-            <Link onClick={handleClose} component={RouterLink} to="/wishlists">
-              My Wishlists
-            </Link>
-          </ListItemText>
-        </StyledMenuItem>
+        <Link onClick={handleClose} component={RouterLink} to="/favourites">
+          <StyledMenuItem>
+            <ListItemText>My Favourites</ListItemText>
+          </StyledMenuItem>
+        </Link>
 
-        <StyledMenuItem>
-          <ListItemText>
-            <Link onClick={handleClose} component={RouterLink} to="/bookings">
-              My Bookings
-            </Link>
-          </ListItemText>
-        </StyledMenuItem>
+        <Link onClick={handleClose} component={RouterLink} to="/wishlists">
+          <StyledMenuItem>
+            <ListItemText>My Wishlists</ListItemText>
+          </StyledMenuItem>
+        </Link>
+
+        <Link onClick={handleClose} component={RouterLink} to="/bookings">
+          <StyledMenuItem>
+            <ListItemText>My Bookings</ListItemText>
+          </StyledMenuItem>
+        </Link>
       </StyledMenu>
     </React.Fragment>
   );

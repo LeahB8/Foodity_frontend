@@ -29,6 +29,10 @@ class ContentArea extends React.Component {
     selectedCityName: ""
   };
 
+  redirectToWelcomePage = () => {
+    this.props.history.push("/profile");
+  };
+
   populateListWithData = async data => {
     await this.setState({ restaurantData: data.restaurants });
   };
@@ -227,7 +231,6 @@ class ContentArea extends React.Component {
                 savedRestaurants={savedRestaurants}
                 addBooking={this.addBooking}
                 setUserBookings={setUserBookings}
-
               />
             )}
           />
@@ -249,7 +252,6 @@ class ContentArea extends React.Component {
                 savedRestaurants={savedRestaurants}
                 addBooking={this.addBooking}
                 setUserBookings={setUserBookings}
-
               />
             )}
           />
@@ -258,6 +260,7 @@ class ContentArea extends React.Component {
             path="/search/:id"
             component={props => (
               <CitySearchOptions
+                redirectToWelcomePage={this.redirectToWelcomePage}
                 {...props}
                 key={user.id}
                 user={user}
@@ -286,6 +289,7 @@ class ContentArea extends React.Component {
             path="/restaurants/:id"
             component={props => (
               <RestaurantsPage
+                redirectToWelcomePage={this.redirectToWelcomePage}
                 {...props}
                 loggedIn={loggedIn}
                 key={user.id}
@@ -315,7 +319,6 @@ class ContentArea extends React.Component {
                 setUserBookings={setUserBookings}
                 setUserFavourites={setUserFavourites}
                 setUserWishlists={setUserWishlists}
-
               />
             )}
           />
@@ -324,6 +327,7 @@ class ContentArea extends React.Component {
             path="/options/:id"
             component={props => (
               <SearchOptionsPage
+                redirectToWelcomePage={this.redirectToWelcomePage}
                 {...props}
                 loggedIn={loggedIn}
                 key={user.id}

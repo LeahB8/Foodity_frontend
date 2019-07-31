@@ -89,7 +89,9 @@ class App extends Component {
     })
       .then(resp => resp.json())
       .then(data =>
-        this.setState({ userFavourites: [...this.state.userFavourites, data] })
+        this.setState({
+          userFavourites: [...this.state.userFavourites, data]
+        })
       );
   };
 
@@ -196,16 +198,19 @@ class App extends Component {
       bookingTimes
     } = this.state;
 
+    const { history } = this.props;
+
     return (
       <div className="App">
         <NavBar
-          props={this.props}
+          history={history}
           signout={this.signout}
           user={user}
           loggedIn={loggedIn}
           signinAndSetToken={user => this.signinAndSetToken(user, true)}
         />
         <ContentArea
+          history={history}
           user={user}
           username={username}
           users_name={users_name}

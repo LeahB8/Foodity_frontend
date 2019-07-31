@@ -1,3 +1,4 @@
+import "react-datepicker/dist/react-datepicker.css";
 import React from "react";
 import DatePicker from "react-datepicker";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -7,8 +8,9 @@ import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import swal from "sweetalert";
-
-import "react-datepicker/dist/react-datepicker.css";
+import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { enGB } from "date-fns/esm/locale";
+registerLocale("enGB", enGB);
 
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
@@ -30,9 +32,9 @@ export default class DateTime extends React.Component {
     });
   }
 
-  handleClick = () => {
-    this.setState({ show: !this.state.show });
-  };
+  // handleClick = () => {
+  //   this.setState({ show: !this.state.show });
+  // };
 
   bookingFormat = dateTime => {
     let date = dateTime.slice(0, 15);
@@ -80,18 +82,18 @@ export default class DateTime extends React.Component {
     }
   };
 
-  display = {
-    display: "none"
-  };
+  // display = {
+  //   display: "none"
+  // };
 
   render() {
     return (
       <>
-        <Tooltip title="Book">
+        {/* <Tooltip title="Book">
           <IconButton aria-label="Settings" onClick={this.handleClick}>
             <MoreVertIcon />
           </IconButton>
-        </Tooltip>
+        </Tooltip> */}
 
         {/* <Dialog
           open={this.state.show}
@@ -105,7 +107,8 @@ export default class DateTime extends React.Component {
         </IconButton>
         <DatePicker
           // style={this.display}
-          open={this.state.show}
+          // open={this.state.show}
+          locale="enGB"
           selected={this.state.startDate}
           onChange={this.handleChange}
           minDate={new Date()}
@@ -114,7 +117,8 @@ export default class DateTime extends React.Component {
           timeIntervals={30}
           dateFormat="MMMM d, yyyy h:mm aa"
           timeCaption="Time"
-          // withPortal
+          button="Submit"
+          withPortal
           // <Button onClick={this.handleSubmitBooking}>Book</Button>
         />
 
@@ -123,3 +127,30 @@ export default class DateTime extends React.Component {
     );
   }
 }
+
+// handleChange (date) {
+//   this.setState({startDate: date})
+//   this.toggleCalendar()
+// }
+
+// toggleCalendar (e) {
+//   e && e.preventDefault()
+//   this.setState({isOpen: !this.state.isOpen})
+// }
+
+// <div>
+//     <button
+//         className="example-custom-input"
+//         onClick={this.toggleCalendar}>
+//         {format(this.state.startDate, "dd-MM-yyyy")}
+//     </button>
+//     {
+//         this.state.isOpen && (
+//             <DatePicker
+//                 selected={this.state.startDate}
+//                 onChange={this.handleChange}
+//                 withPortal
+//                 inline />
+//         )
+//     }
+// </div>

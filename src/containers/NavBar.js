@@ -40,24 +40,36 @@ function NavBar(props) {
     return props.loggedIn ? (
       <React.Fragment>
         <DropDownMenu />
-        <Button variant="contained" color="primary" className={classes.button}>
-          <Link onClick={props.signout} className="Homepage-link" to="/">
+        <Link onClick={props.signout} className="Homepage-link" to="/">
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
             Sign Out
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </React.Fragment>
     ) : (
       <React.Fragment>
-        <Button variant="contained" color="primary" className={classes.button}>
-          <Link className="Homepage-link" to="/signin">
+        <Link className="Homepage-link" to="/signin">
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
             Sign In
-          </Link>
-        </Button>
-        <Button variant="contained" color="primary" className={classes.button}>
-          <Link className="Homepage-link" to="/signup">
+          </Button>
+        </Link>
+        <Link className="Homepage-link" to="/signup">
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
             Sign Up
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </React.Fragment>
     );
   };

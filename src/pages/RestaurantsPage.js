@@ -19,7 +19,8 @@ export default class RestaurantsPage extends React.Component {
       selectedCityName,
       setUserBookings,
       setUserFavourites,
-      setUserWishlists
+      setUserWishlists,
+      redirectToWelcomePage
     } = this.props;
 
     return (
@@ -31,7 +32,10 @@ export default class RestaurantsPage extends React.Component {
               : "Searched Restaurants"}
           </strong>
         </h1>
-        <h2>for {selectedCityName}</h2>
+        <h2>
+          for{" "}
+          {selectedCityName === "" ? redirectToWelcomePage() : selectedCityName}
+        </h2>
 
         <ProgressBar percentage={this.state.percentage} />
 

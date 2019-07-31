@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import SearchComponent from "../components/SearchComponent";
 import ProgressBar from "../components/ProgressBar";
+import IconButton from "@material-ui/core/IconButton";
+import Icon from "@material-ui/core/Icon";
 
 const useStyles = makeStyles({
   card: {
@@ -40,6 +42,17 @@ export default function WelcomePage(props) {
             <br />
             passionate about food
           </h3>
+          <div>
+            <IconButton className="icons">
+              <Icon>search</Icon>
+            </IconButton>
+            <IconButton className="icons">
+              <Icon>location_on</Icon>
+            </IconButton>
+            <IconButton className="icons">
+              <Icon>restaurant</Icon>
+            </IconButton>
+          </div>
           <br />
           <div className="welcome-paragraph">
             <p>
@@ -50,8 +63,11 @@ export default function WelcomePage(props) {
           </div>
         </div>
       </div>
-
-      <ProgressBar percentage="0" />
+      <br />
+      <div>
+        <h2>Select a city to discover restaurants</h2>
+      </div>
+      {/* <ProgressBar percentage="0" /> */}
 
       <div className="search-restaurants">
         <div>

@@ -2,6 +2,8 @@ import React from "react";
 import "../App.css";
 import SearchComponent from "../components/SearchComponent";
 import ProgressBar from "../components/ProgressBar";
+import IconButton from "@material-ui/core/IconButton";
+import Icon from "@material-ui/core/Icon";
 
 export default class UserProfile extends React.Component {
   state = {
@@ -34,7 +36,19 @@ export default class UserProfile extends React.Component {
             <h1>
               <strong>Welcome back, {user.username}</strong>
             </h1>
+
             {/* <div className="welcome-paragraph-div"> */}
+            <div>
+              <IconButton className="icons">
+                <Icon>search</Icon>
+              </IconButton>
+              <IconButton className="icons">
+                <Icon>location_on</Icon>
+              </IconButton>
+              <IconButton className="icons">
+                <Icon>restaurant</Icon>
+              </IconButton>
+            </div>
             <p className="welcome-paragraph">
               Search through the list of cities to find restaurants you want to
               <br />
@@ -47,8 +61,12 @@ export default class UserProfile extends React.Component {
             {/* </div> */}
           </div>
         </div>
+        <br />
 
-        <ProgressBar percentage={this.state.percentage} />
+        <div>
+          <h2>Select a city to discover restaurants</h2>
+        </div>
+        {/* <ProgressBar percentage={this.state.percentage} /> */}
 
         <div className="search-restaurants">
           <div>

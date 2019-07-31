@@ -17,17 +17,19 @@ export default class SearchOptionsPage extends React.Component {
       searchOptionData,
       selectedCityId,
       populateListWithData,
-      selectedCityName
+      selectedCityName,
+      redirectToWelcomePage
     } = this.props;
 
     return (
       <div className="content-area">
         <h1>
-          <strong>
-            {loggedIn ? `${user.username}'s Search Options` : "Search Options"}
-          </strong>
+          <strong>Select an individual search option</strong>
         </h1>
-        <h2>for {selectedCityName}</h2>
+        <h2>
+          for{" "}
+          {selectedCityName === "" ? redirectToWelcomePage() : selectedCityName}
+        </h2>
 
         <ProgressBar percentage={this.state.percentage} />
 
