@@ -63,10 +63,15 @@ export default function SingleCard(props) {
       if (willDelete) {
         props.deleteCallback(props.user.id, my_saved_restaurant.id);
         swal("The restaurant has been removed.", {
-          icon: "success"
-        }).then(() => props.secondCallback(props.user));
+          icon: "success",
+          timer: 1500
+        }).then(() => {
+          props.secondCallback(props.user);
+        });
       } else {
-        swal("The restaurant has not been removed.");
+        swal("The restaurant has not been removed.", {
+          timer: 1500
+        });
       }
     });
   };
@@ -95,7 +100,6 @@ export default function SingleCard(props) {
             addBooking={props.addBooking}
             loggedIn={props.loggedIn}
             setUserBookings={props.setUserBookings}
-
           />
         }
         title={props.single.name}
@@ -124,10 +128,7 @@ export default function SingleCard(props) {
         >
           <Icon>delete</Icon>
         </IconButton>
-        <Dashboard
-          single={props.single}
-          user={props.user}
-        />
+        <Dashboard single={props.single} user={props.user} />
       </CardActions>
     </Card>
   );

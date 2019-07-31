@@ -54,14 +54,16 @@ export default class DateTime extends React.Component {
       }).then(value => {
         switch (value) {
           case "yes":
-            this.props.addBooking(booking).then(
-              swal({
-                title: "Booking has been made.",
-                icon: "success",
-                timer: 1500
-              })
-            )
-            .then(() => this.props.setUserBookings(this.props.user))
+            this.props
+              .addBooking(booking)
+              .then(
+                swal({
+                  title: "Booking has been made.",
+                  icon: "success",
+                  timer: 1500
+                })
+              )
+              .then(() => this.props.setUserBookings(this.props.user));
             this.setState({ show: false });
             break;
 
@@ -113,9 +115,9 @@ export default class DateTime extends React.Component {
           dateFormat="MMMM d, yyyy h:mm aa"
           timeCaption="Time"
           // withPortal
+          // <Button onClick={this.handleSubmitBooking}>Book</Button>
         />
 
-        {/* <Button onClick={this.handleSubmitBooking}>Book</Button> */}
         {/* </Dialog> */}
       </>
     );
