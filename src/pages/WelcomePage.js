@@ -58,6 +58,7 @@ export default function WelcomePage(props) {
             <p>
               Explore the world through food
               <br />
+              <br />
               Discover all of the hidden gems at home and abroad
             </p>
           </div>

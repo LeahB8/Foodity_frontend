@@ -50,13 +50,14 @@ export default class UserProfile extends React.Component {
               </IconButton>
             </div>
             <p className="welcome-paragraph">
-              Search through the list of cities to find restaurants you want to
               <br />
-              add to your wishlist or select those you want to favourite.
+              Search through the list of cities to find restaurants that inspire
+              you
               <br />
-              Explore your own city's hidden gems or plan for upcoming holidays.
               <br />
-              You can also book any restaurant that inspires you.
+              Explore your own city's hidden gems or plan for upcoming holidays
+              <br />
+              <br />
             </p>
             {/* </div> */}
           </div>
