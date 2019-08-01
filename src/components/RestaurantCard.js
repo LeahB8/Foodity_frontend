@@ -60,6 +60,8 @@ export default function RestaurantCard(props) {
     if (props.loggedIn) {
       props
         .addFave(restaurant.R.res_id)
+        .then(() => props.fetchRestaurantsFromServer())
+
         // findIndividualRestaurantInfo(restaurant.R.res_id)
         .then(
           swal({
@@ -78,6 +80,8 @@ export default function RestaurantCard(props) {
     if (props.loggedIn) {
       props
         .addWishlist(restaurant.R.res_id)
+        .then(() => props.fetchRestaurantsFromServer())
+
         // findIndividualRestaurantInfo(restaurant.R.res_id)
         .then(
           swal({
@@ -117,6 +121,7 @@ export default function RestaurantCard(props) {
             addBooking={props.addBooking}
             loggedIn={props.loggedIn}
             setUserBookings={props.setUserBookings}
+            fetchRestaurantsFromServer={props.fetchRestaurantsFromServer}
           />
         }
         title={props.single.name}

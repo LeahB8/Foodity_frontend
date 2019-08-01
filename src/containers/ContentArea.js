@@ -319,6 +319,8 @@ class ContentArea extends React.Component {
                 setUserBookings={setUserBookings}
                 setUserFavourites={setUserFavourites}
                 setUserWishlists={setUserWishlists}
+                fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
+
               />
             )}
           />

@@ -65,7 +65,9 @@ export default class DateTime extends React.Component {
                   timer: 1500
                 })
               )
+              .then(() => this.props.fetchRestaurantsFromServer())
               .then(() => this.props.setUserBookings(this.props.user));
+
             this.setState({ show: false });
             break;
 

@@ -34,7 +34,8 @@ class RestaurantList extends Component {
       addBooking,
       setUserBookings,
       setUserFavourites,
-      setUserWishlists
+      setUserWishlists,
+      fetchRestaurantsFromServer
     } = this.props;
 
     return (
@@ -56,6 +57,7 @@ class RestaurantList extends Component {
             setUserBookings={setUserBookings}
             setUserFavourites={setUserFavourites}
             setUserWishlists={setUserWishlists}
+            fetchRestaurantsFromServer={fetchRestaurantsFromServer}
           />
         ))}
       </div>

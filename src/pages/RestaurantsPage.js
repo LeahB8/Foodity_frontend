@@ -20,7 +20,8 @@ export default class RestaurantsPage extends React.Component {
       setUserBookings,
       setUserFavourites,
       setUserWishlists,
-      redirectToWelcomePage
+      redirectToWelcomePage,
+      fetchRestaurantsFromServer
     } = this.props;
 
     return (
@@ -50,6 +51,7 @@ export default class RestaurantsPage extends React.Component {
           setUserBookings={setUserBookings}
           setUserFavourites={setUserFavourites}
           setUserWishlists={setUserWishlists}
+          fetchRestaurantsFromServer={fetchRestaurantsFromServer}
         />
       </div>
     );
