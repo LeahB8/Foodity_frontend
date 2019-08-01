@@ -41,6 +41,7 @@ class RestaurantList extends Component {
       <div className="restaurant-list">
         {restaurantData.map(single => (
           <RestaurantCard
+            key={single.id}
             user={user}
             single={single.restaurant}
             addRestaurantToFavourites={addRestaurantToFavourites}

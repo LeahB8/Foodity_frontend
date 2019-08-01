@@ -117,7 +117,6 @@ export default function RestaurantCard(props) {
             addBooking={props.addBooking}
             loggedIn={props.loggedIn}
             setUserBookings={props.setUserBookings}
-
           />
         }
         title={props.single.name}
@@ -159,7 +158,11 @@ export default function RestaurantCard(props) {
           </IconButton>
         </Tooltip>
 
-        <Dashboard single={props.single} user={props.user} />
+        <Dashboard
+          single={props.single}
+          user={props.user}
+          key={props.single.id}
+        />
       </CardActions>
     </Card>
   );

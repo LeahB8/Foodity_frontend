@@ -30,6 +30,7 @@ export default class UserBookings extends React.Component {
           <div className="restaurant-list">
             {userBookings.map(booking => (
               <BookingCardWrapper
+                key={booking.id}
                 booking={booking}
                 bookingTimes={bookingTimes}
                 userBookings={userBookings}

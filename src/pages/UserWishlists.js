@@ -15,7 +15,6 @@ export default class UserWishlists extends React.Component {
       addBooking,
       loggedIn,
       setUserBookings
-
     } = this.props;
     return (
       <div className="content-area">
@@ -28,6 +27,7 @@ export default class UserWishlists extends React.Component {
           <div className="restaurant-list">
             {userWishlists.map(wishlist => (
               <WishlistCardWrapper
+                key={wishlist.id}
                 setUserWishlists={setUserWishlists}
                 deleteWishlistItemFromServer={deleteWishlistItemFromServer}
                 user={user}
@@ -37,7 +37,6 @@ export default class UserWishlists extends React.Component {
                 addBooking={addBooking}
                 loggedIn={loggedIn}
                 setUserBookings={setUserBookings}
-
               />
             ))}
           </div>

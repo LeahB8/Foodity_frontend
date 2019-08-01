@@ -63,6 +63,7 @@ export default function BookingCard(props) {
       buttons: true,
       dangerMode: true
     }).then(willDelete => {
+      // debugger;
       if (willDelete) {
         props.deleteCallback(props.user.id, my_saved_restaurant.id);
         swal("Your booking has been cancelled.", {

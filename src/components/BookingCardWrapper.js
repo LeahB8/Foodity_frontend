@@ -44,6 +44,7 @@ export default class BookingCardWrapper extends React.Component {
     return (
       <div className="restaurant-list">
         <BookingCard
+          key={booking.id}
           secondCallback={setUserBookings}
           deleteCallback={deleteBookingFromServer}
           user={user}

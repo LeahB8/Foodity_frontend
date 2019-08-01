@@ -31,12 +31,14 @@ export default class SingleCardWrapper extends React.Component {
       userFavourites,
       addBooking,
       loggedIn,
-      setUserBookings
+      setUserBookings,
+      favourite
     } = this.props;
 
     return (
       <div className="restaurant-list">
         <SingleCard
+          key={favourite.id}
           secondCallback={setUserFavourites}
           deleteCallback={deleteFavouriteFromServer}
           user={user}

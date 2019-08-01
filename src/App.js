@@ -144,7 +144,7 @@ class App extends Component {
   //---------------- Bookings -------------------//
 
   addRestaurantToBookings = booking => {
-    fetch("http://localhost:3001/bookings", {
+    return fetch("http://localhost:3001/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking)
@@ -160,14 +160,14 @@ class App extends Component {
   };
 
   setUserBookings = async user => {
+    // location.reload();
     let dateTimes = null;
     let booked_restaurants = null;
 
     dateTimes = await getUserBookings(user);
     booked_restaurants = await validate(user);
-    // debugger;
+
     this.setState({
-      ...this.state,
       bookingTimes: dateTimes,
       userBookings: booked_restaurants.user_bookings
     });

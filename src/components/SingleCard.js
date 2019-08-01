@@ -128,7 +128,11 @@ export default function SingleCard(props) {
         >
           <Icon>delete</Icon>
         </IconButton>
-        <Dashboard single={props.single} user={props.user} />
+        <Dashboard
+          single={props.single}
+          user={props.user}
+          key={props.single.id}
+        />
       </CardActions>
     </Card>
   );
