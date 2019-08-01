@@ -78,11 +78,11 @@ function NavBar(props) {
     <div>
       <AppBar className="nav-header">
         <Toolbar className="toolbar-header">
-          <div className="smaller-navbar">
-            <Link to="/profile">
-              <img src={myLogo} className="App-logo" alt="logo" />
-            </Link>
-          </div>
+          {/* <div className="smaller-navbar"> */}
+          <Link to="/profile">
+            <img src={myLogo} className="App-logo" alt="logo" />
+          </Link>
+          {/* </div> */}
 
           <div className="navbar-link">{sessionHeader()}</div>
         </Toolbar>
