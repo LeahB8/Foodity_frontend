@@ -68,7 +68,8 @@ export default function RestaurantCard(props) {
             timer: 1500
           })
         )
-        .then(props.setUserFavourites(props.user));
+        .then(() => props.setUserFavourites(props.user))
+        .then(() => props.fetchRestaurantsFromServer());
     } else {
       swal("Please sign in");
     }
@@ -86,7 +87,8 @@ export default function RestaurantCard(props) {
             timer: 1500
           })
         )
-        .then(props.setUserWishlists(props.user));
+        .then(() => props.setUserWishlists(props.user))
+        .then(() => props.fetchRestaurantsFromServer());
     } else {
       swal("Please sign in");
     }
@@ -117,6 +119,7 @@ export default function RestaurantCard(props) {
             addBooking={props.addBooking}
             loggedIn={props.loggedIn}
             setUserBookings={props.setUserBookings}
+            fetchRestaurantsFromServer={props.fetchRestaurantsFromServer}
           />
         }
         title={props.single.name}

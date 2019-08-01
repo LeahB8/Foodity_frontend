@@ -52,6 +52,7 @@ export default class BookingCardWrapper extends React.Component {
           single={this.state}
           time={this.props.time}
           date={this.props.date}
+          fetchRestaurantsFromServer={fetchRestaurantsFromServer}
           savedRestaurants={savedRestaurants}
           userInfo={userWishlists}
           addBooking={addBooking}

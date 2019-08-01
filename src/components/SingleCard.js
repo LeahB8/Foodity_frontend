@@ -51,6 +51,7 @@ export default function SingleCard(props) {
   }
 
   const handleDelete = id => {
+    // props.fetchRestaurantsFromServer();
     let my_saved_restaurant = props.savedRestaurants.find(
       restaurant => restaurant.restaurant_api_id === id
     );
@@ -60,6 +61,7 @@ export default function SingleCard(props) {
       buttons: true,
       dangerMode: true
     }).then(willDelete => {
+      // debugger;
       if (willDelete) {
         props.deleteCallback(props.user.id, my_saved_restaurant.id);
         swal("The restaurant has been removed.", {
@@ -100,6 +102,7 @@ export default function SingleCard(props) {
             addBooking={props.addBooking}
             loggedIn={props.loggedIn}
             setUserBookings={props.setUserBookings}
+            fetchRestaurantsFromServer={props.fetchRestaurantsFromServer}
           />
         }
         title={props.single.name}

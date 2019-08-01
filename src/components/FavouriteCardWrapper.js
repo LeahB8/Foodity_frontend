@@ -32,7 +32,8 @@ export default class SingleCardWrapper extends React.Component {
       addBooking,
       loggedIn,
       setUserBookings,
-      favourite
+      favourite,
+      fetchRestaurantsFromServer
     } = this.props;
 
     return (
@@ -48,6 +49,7 @@ export default class SingleCardWrapper extends React.Component {
           addBooking={addBooking}
           loggedIn={loggedIn}
           setUserBookings={setUserBookings}
+          fetchRestaurantsFromServer={fetchRestaurantsFromServer}
         />
       </div>
     );

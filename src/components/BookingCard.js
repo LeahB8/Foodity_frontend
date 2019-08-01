@@ -54,6 +54,7 @@ export default function BookingCard(props) {
   }
 
   const handleDelete = id => {
+    // props.fetchRestaurantsFromServer();
     let my_saved_restaurant = props.savedRestaurants.find(
       restaurant => restaurant.restaurant_api_id === id
     );
@@ -63,7 +64,7 @@ export default function BookingCard(props) {
       buttons: true,
       dangerMode: true
     }).then(willDelete => {
-      // debugger;
+      debugger;
       if (willDelete) {
         props.deleteCallback(props.user.id, my_saved_restaurant.id);
         swal("Your booking has been cancelled.", {
@@ -92,7 +93,6 @@ export default function BookingCard(props) {
     let booking_time = props.bookingTimes.find(
       bookingTime => bookingTime.restaurant_id === props.booking.id
     );
-    // debugger;
     let date = moment(booking_time.date).format("dddd Do MMM YYYY");
     // let time = booking_time.time =< '12:00' ? (
     //   return `booking_time.time` + `PM`) :
@@ -103,6 +103,8 @@ export default function BookingCard(props) {
   function handleLikeFavourite(restaurant) {
     props
       .addFave(restaurant.R.res_id)
+      .then(() => props.fetchRestaurantsFromServer())
+
       // findIndividualRestaurantInfo(restaurant.R.res_id)
       .then(
         swal({
@@ -116,6 +118,8 @@ export default function BookingCard(props) {
   function handleLikeWishlist(restaurant) {
     props
       .addWishlist(restaurant.R.res_id)
+      .then(() => props.fetchRestaurantsFromServer())
+
       // findIndividualRestaurantInfo(restaurant.R.res_id)
       .then(
         swal({
