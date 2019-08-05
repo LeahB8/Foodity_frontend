@@ -138,6 +138,7 @@ export default function BookingCard(props) {
   function imgLoadError(event) {
     event.target.src = images[Math.floor(Math.random() * images.length)];
   }
+  debugger;
 
   return (
     <Card className={classes.card}>
