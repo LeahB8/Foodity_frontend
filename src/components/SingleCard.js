@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -11,10 +10,6 @@ import Icon from "@material-ui/core/Icon";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import DateTime from "./DateTime";
-import Tooltip from "@material-ui/core/Tooltip";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Collapse from "@material-ui/core/Collapse";
 import Dashboard from "./Dashboard";
 import swal from "sweetalert";
 
@@ -22,10 +17,6 @@ const useStyles = makeStyles(theme => ({
   card: {
     width: 300,
     marginBottom: 20
-  },
-  media: {
-    // height: 0,
-    // paddingTop: "56.25%" // 16:9
   },
   expand: {
     transform: "rotate(0deg)",
@@ -88,7 +79,6 @@ export default function SingleCard(props) {
   function imgLoadError(event) {
     event.target.src = images[Math.floor(Math.random() * images.length)];
 
-    // event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
   return (
     <Card className={classes.card}>

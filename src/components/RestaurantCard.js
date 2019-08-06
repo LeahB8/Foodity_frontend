@@ -62,7 +62,6 @@ export default function RestaurantCard(props) {
         .addFave(restaurant.R.res_id)
         .then(() => props.fetchRestaurantsFromServer())
 
-        // findIndividualRestaurantInfo(restaurant.R.res_id)
         .then(
           swal({
             title: "Restaurant added to favourites.",
@@ -82,7 +81,6 @@ export default function RestaurantCard(props) {
         .addWishlist(restaurant.R.res_id)
         .then(() => props.fetchRestaurantsFromServer())
 
-        // findIndividualRestaurantInfo(restaurant.R.res_id)
         .then(
           swal({
             title: "Restaurant added to wishlists.",
@@ -107,8 +105,6 @@ export default function RestaurantCard(props) {
 
   function imgLoadError(event) {
     event.target.src = images[Math.floor(Math.random() * images.length)];
-
-    // event.target.src = "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
   }
 
   return (

@@ -74,15 +74,28 @@ function NavBar(props) {
     );
   };
 
+  const homepageButton = () => {
+    return props.loggedIn ? (
+      <Link to="/profile">
+        <img src={myLogo} className="App-logo" alt="logo" />
+      </Link>
+    ) : (
+      <Link to="/">
+        <img src={myLogo} className="App-logo" alt="logo" />
+      </Link>
+    );
+  };
+
   return (
     <div>
       <AppBar className="nav-header">
         <Toolbar className="toolbar-header">
-          {/* <div className="smaller-navbar"> */}
-          <Link to="/profile">
+          <div>
+            {homepageButton()}
+            {/* <Link to="/profile">
             <img src={myLogo} className="App-logo" alt="logo" />
-          </Link>
-          {/* </div> */}
+          </Link> */}
+          </div>
 
           <div className="navbar-link">{sessionHeader()}</div>
         </Toolbar>

@@ -17,7 +17,6 @@ export default class BookingCardWrapper extends React.Component {
   };
 
   componentDidMount() {
-    // Promise.all(findIndividualRestaurantInfo(this.props.wishlist.restaurant_api_id)).then(data => this.setState(data)
     findIndividualRestaurantInfo(this.props.booking.restaurant_api_id).then(
       data => this.setState(data)
     );

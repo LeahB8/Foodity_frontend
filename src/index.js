@@ -7,9 +7,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
-  // <Router>
-  //     <App />
-  // </Router>,
   <Router>
     <ScrollToTop>
       <App />

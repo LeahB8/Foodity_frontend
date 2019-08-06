@@ -12,8 +12,6 @@ import { registerLocale, setDefaultLocale } from "react-datepicker";
 import { enGB } from "date-fns/esm/locale";
 registerLocale("enGB", enGB);
 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 export default class DateTime extends React.Component {
   constructor(props) {
@@ -32,9 +30,6 @@ export default class DateTime extends React.Component {
     });
   }
 
-  // handleClick = () => {
-  //   this.setState({ show: !this.state.show });
-  // };
 
   bookingFormat = dateTime => {
     let date = dateTime.slice(0, 15);
@@ -84,32 +79,14 @@ export default class DateTime extends React.Component {
     }
   };
 
-  // display = {
-  //   display: "none"
-  // };
-
   render() {
     return (
       <>
-        {/* <Tooltip title="Book">
-          <IconButton aria-label="Settings" onClick={this.handleClick}>
-            <MoreVertIcon />
-          </IconButton>
-        </Tooltip> */}
-
-        {/* <Dialog
-          open={this.state.show}
-          onClose={() => {
-            this.setState({ show: false });
-          }}
-        > */}
 
         <IconButton aria-label="Book" onClick={this.handleSubmitBooking}>
           <Icon>today</Icon>
         </IconButton>
         <DatePicker
-          // style={this.display}
-          // open={this.state.show}
           locale="enGB"
           selected={this.state.startDate}
           onChange={this.handleChange}
@@ -121,38 +98,9 @@ export default class DateTime extends React.Component {
           timeCaption="Time"
           button="Submit"
           withPortal
-          // <Button onClick={this.handleSubmitBooking}>Book</Button>
         />
 
-        {/* </Dialog> */}
       </>
     );
   }
 }
-
-// handleChange (date) {
-//   this.setState({startDate: date})
-//   this.toggleCalendar()
-// }
-
-// toggleCalendar (e) {
-//   e && e.preventDefault()
-//   this.setState({isOpen: !this.state.isOpen})
-// }
-
-// <div>
-//     <button
-//         className="example-custom-input"
-//         onClick={this.toggleCalendar}>
-//         {format(this.state.startDate, "dd-MM-yyyy")}
-//     </button>
-//     {
-//         this.state.isOpen && (
-//             <DatePicker
-//                 selected={this.state.startDate}
-//                 onChange={this.handleChange}
-//                 withPortal
-//                 inline />
-//         )
-//     }
-// </div>

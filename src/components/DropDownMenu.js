@@ -58,23 +58,11 @@ function DropDownMenu() {
 
   return (
     <React.Fragment>
-      {/* <Button
-        aria-controls="customized-menu"
-        aria-haspopup="true"
-        variant="contained"
-        color="primary"
-        onClick={handleClick}
-      >
-        Menu
-      </Button> */}
-
       <IconButton
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
         className="menu-dropdown"
-        // size="medium"
-        // color="primary"
         onClick={handleClick}
       >
         <Icon>menu</Icon>

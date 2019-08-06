@@ -7,8 +7,7 @@ import {
   fetchRestaurantsByCity,
   fetchCollectionsForCity
 } from "../services/api";
-import { Link as RouterLink } from "react-router-dom";
-import Link from "@material-ui/core/Link";
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -204,11 +203,6 @@ export default function SearchComponent(props) {
   const classes = useStyles();
 
   const handleClick = tile => {
-    // fetchRestaurantsByCity(id).then(data => {
-    //   props
-    //     .populateListWithData(data)
-    //     .then(() => props.history.push("/restaurants"));
-    // });
     props.assignSelectedCityId(tile.id);
     props.assignSelectedCityName(tile.name);
     props.history.push(`/search/${tile.id}`);

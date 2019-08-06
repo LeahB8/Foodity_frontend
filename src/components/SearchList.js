@@ -4,12 +4,9 @@ import SearchCard from "./SearchCard";
 
 export default class SearchList extends Component {
   render() {
-    // // debugger
     const {
       user,
       loggedIn,
-      saveRestaurantToServer,
-      savedRestaurants,
       searchOptionData,
       selectedCityId,
       populateListWithData
