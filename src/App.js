@@ -17,6 +17,8 @@ import {
   fetchUserInfo
 } from "./services/api";
 
+const baseUrl = "https://foodity-app.herokuapp.com";
+
 class App extends Component {
   state = {
     user: {},
@@ -82,7 +84,7 @@ class App extends Component {
   //---------------- Favourites -------------------//
 
   addRestaurantToFavourites = favourite => {
-    fetch("http://localhost:3001/favourites", {
+    fetch(baseUrl + "/favourites", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(favourite)
@@ -102,7 +104,7 @@ class App extends Component {
   };
 
   deleteFavouriteFromServer = (user_id, restaurant_id) => {
-    return fetch(`http://localhost:3001/users/favourites/delete`, {
+    return fetch(baseUrl + `/users/favourites/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
@@ -114,7 +116,7 @@ class App extends Component {
   //---------------- Wishlists -------------------//
 
   addRestaurantToWishlists = wishlist => {
-    fetch("http://localhost:3001/wishlists", {
+    fetch(baseUrl + "/wishlists", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(wishlist)
@@ -132,7 +134,7 @@ class App extends Component {
   };
 
   deleteWishlistItemFromServer = (user_id, restaurant_id) => {
-    return fetch(`http://localhost:3001/users/wishlists/delete`, {
+    return fetch(baseUrl + `/users/wishlists/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
@@ -144,7 +146,7 @@ class App extends Component {
   //---------------- Bookings -------------------//
 
   addRestaurantToBookings = booking => {
-    return fetch("http://localhost:3001/bookings", {
+    return fetch(baseUrl + "/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking)
@@ -174,7 +176,7 @@ class App extends Component {
   };
 
   deleteBookingFromServer = (user_id, restaurant_id) => {
-    return fetch(`http://localhost:3001/users/bookings/delete`, {
+    return fetch(baseUrl + `/users/bookings/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"

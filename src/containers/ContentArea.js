@@ -20,6 +20,8 @@ import CitySearchOptions from "../pages/CitySearchOptions";
 import RestaurantsPage from "../pages/RestaurantsPage";
 import SearchOptionsPage from "../pages/SearchOptionsPage";
 
+const baseUrl = "https://foodity-app.herokuapp.com";
+
 class ContentArea extends React.Component {
   state = {
     restaurantData: [],
@@ -70,7 +72,7 @@ class ContentArea extends React.Component {
   };
 
   fetchRestaurantsFromServer = () => {
-    fetch("http://localhost:3001/restaurants", {
+    fetch(baseUrl + "/restaurants", {
       method: "GET",
       headers: { "Content-Type": "application/json" }
     })
@@ -320,7 +322,6 @@ class ContentArea extends React.Component {
                 setUserFavourites={setUserFavourites}
                 setUserWishlists={setUserWishlists}
                 fetchRestaurantsFromServer={this.fetchRestaurantsFromServer}
-
               />
             )}
           />

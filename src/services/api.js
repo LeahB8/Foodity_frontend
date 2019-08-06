@@ -1,6 +1,6 @@
 //----------------------- my rails api -------------------//
 
-const baseUrl = "http://localhost:3001";
+const baseUrl = "https://foodity-app.herokuapp.com";
 const signinUrl = baseUrl + "/signin";
 
 export function signin(username, password) {
@@ -12,13 +12,13 @@ export function signin(username, password) {
 }
 
 export function validate() {
-  return fetch("http://localhost:3001/validate", {
+  return fetch(baseUrl + "/validate", {
     headers: { Authorisation: localStorage.token }
   }).then(resp => resp.json());
 }
 
 export function createUser(username, password) {
-  return fetch("http://localhost:3001/signup", {
+  return fetch(baseUrl + "/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -35,7 +35,7 @@ export function fetchUserInfo(user) {
 }
 
 export function getUserFavourites(user) {
-  return fetch(`http://localhost:3001/users/${user.id}/favourites`, {
+  return fetch(baseUrl + `/users/${user.id}/favourites`, {
     headers: {
       "Content-Type": "application/json",
       Authorisation: localStorage.token
@@ -44,7 +44,7 @@ export function getUserFavourites(user) {
 }
 
 export function getUserWishlists(user) {
-  return fetch(`http://localhost:3001/users/${user.id}/wishlists`, {
+  return fetch(baseUrl + `/users/${user.id}/wishlists`, {
     headers: {
       "Content-Type": "application/json",
       Authorisation: localStorage.token
@@ -53,7 +53,7 @@ export function getUserWishlists(user) {
 }
 
 export function getUserBookings(user) {
-  return fetch(`http://localhost:3001/users/${user.id}/bookings`, {
+  return fetch(baseUrl + `/users/${user.id}/bookings`, {
     headers: {
       "Content-Type": "application/json",
       Authorisation: localStorage.token
