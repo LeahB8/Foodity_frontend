@@ -90,6 +90,7 @@ export default function SingleCard(props) {
             addBooking={props.addBooking}
             loggedIn={props.loggedIn}
             setUserBookings={props.setUserBookings}
+            fetchRestaurantsFromServer={props.fetchRestaurantsFromServer}
           />
         }
         title={props.single.name}
