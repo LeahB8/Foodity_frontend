@@ -132,7 +132,7 @@ code {
 
 .signup-card {
   /* margin: 20px 40% 100px 40%; */
-  margin-left: 170px;
+  margin-left: 100px;
   margin-top: 20px;
   background-color: white;
   color: grey;
@@ -207,6 +207,11 @@ a:-webkit-any-link {
 .makeStyles-root-1 {
   width: 270px !important;
   /* margin: 10px; */
+}
+
+.MuiGridListTileBar-subtitle {
+  font-size: 1rem !important;
+  margin-top: 4px !important;
 }
 
 .city-select-form select {

@@ -7,6 +7,7 @@ import {
   fetchCategories
 } from "../services/api";
 import ProgressBar from "../components/ProgressBar";
+import SearchSelectorCard from "../components/SearchSelectorCard";
 
 export default class CitySearchOptions extends React.Component {
   state = {
@@ -49,14 +50,15 @@ export default class CitySearchOptions extends React.Component {
     const {
       selectedCityId,
       selectedCityName,
-      redirectToWelcomePage
+      redirectToWelcomePage,
+      populateListWithSearchOptionData
     } = this.props;
-    const {
-      handleCollectionsClick,
-      handleCusinesClick,
-      handleEstablishmentsClick,
-      handleCategoriesClick
-    } = this;
+    // const {
+    //   handleCollectionsClick,
+    //   handleCusinesClick,
+    //   handleEstablishmentsClick,
+    //   handleCategoriesClick
+    // } = this;
     return (
       <div className="content-area">
         <h1>
@@ -68,7 +70,12 @@ export default class CitySearchOptions extends React.Component {
         </h2>
         <ProgressBar percentage={this.state.percentage} />
 
-        <div className="search-cards">
+        <SearchSelectorCard
+          selectedCityId={selectedCityId}
+          populateListWithSearchOptionData={populateListWithSearchOptionData}
+        />
+
+        {/* <div className="search-cards">
           <div
             className="card"
             onClick={() => handleCollectionsClick(selectedCityId)}
@@ -128,8 +135,8 @@ export default class CitySearchOptions extends React.Component {
                 alt="categories"
               />
             </div>
-          </div>
         </div>
+        </div> */}
       </div>
     );
   }
