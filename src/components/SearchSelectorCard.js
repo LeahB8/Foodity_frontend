@@ -93,7 +93,7 @@ export default function SearchComponent(props) {
     },
     {
       name: "Categories",
-      desc: "Choose from breakfast, lunch, dinner, or maybe a delivery",
+      desc: "Choose a specific meal, or maybe a delivery",
       image_url:
         "https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
     }
@@ -120,7 +120,7 @@ export default function SearchComponent(props) {
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={200} spacing={20} className={classes.gridList}>
+      <GridList cellHeight={400} spacing={20} className={classes.gridList}>
         {searchOptions.map(tile => (
           <GridListTile key={tile.image_url} onClick={() => handleClick(tile)}>
             <img src={tile.image_url} alt={tile.name} />

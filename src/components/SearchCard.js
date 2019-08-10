@@ -69,6 +69,18 @@ export default class SearchCard extends Component {
       <div>
         <div className="search-card" onClick={() => this.handleClick(option)}>
           <p>{this.searchTerm(option)}</p>
+          {option.collection ? (
+            <>
+              <div className="collection-description">
+                <p>{option.collection.description}</p>
+              </div>
+              <img
+                className="option-image"
+                src={option.collection.image_url}
+                alt="collection"
+              />
+            </>
+          ) : null}
         </div>
       </div>
     );
