@@ -95,6 +95,8 @@ export function findIndividualRestaurantInfo(restaurant_api_id) {
   ).then(resp => resp.json());
 }
 
+// https://developers.zomato.com/api/v2.1/search?entity_id=61&entity_type=city&count=100
+
 export function fetchCollectionsForCity(city_id) {
   return fetch(
     `https://developers.zomato.com/api/v2.1/collections?city_id=${city_id}`,

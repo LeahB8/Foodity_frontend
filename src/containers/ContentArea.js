@@ -32,7 +32,9 @@ class ContentArea extends React.Component {
   };
 
   redirectToWelcomePage = () => {
-    this.props.history.push("/profile");
+    this.props.loggedIn
+      ? this.props.history.push("/profile")
+      : this.props.history.push("/");
   };
 
   populateListWithData = async data => {
