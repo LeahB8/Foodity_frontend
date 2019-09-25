@@ -157,10 +157,12 @@ code {
 }
 
 .MuiGridListTile-tile:active {
-  top: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
+
 .MuiGridListTile-tile:hover {
-  opacity: 0.5;
+  opacity: 0.8;
+  transition: 0.2s;
 }
 
 a:-webkit-any-link {
@@ -299,7 +301,8 @@ a:-webkit-any-link {
 }
 
 .option-image:hover {
-  opacity: 0.5;
+  opacity: 0.8;
+  transition: 0.2s;
 }
 
 .collection-description {

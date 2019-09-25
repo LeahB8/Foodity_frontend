@@ -78,8 +78,8 @@ export default function SingleCard(props) {
 
   function imgLoadError(event) {
     event.target.src = images[Math.floor(Math.random() * images.length)];
-
   }
+
   return (
     <Card className={classes.card}>
       <CardHeader
