@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import RestaurantList from "../components/RestaurantList";
 import ProgressBar from "../components/ProgressBar";
+import Loading from "react-loading-animation";
 
 export default class RestaurantsPage extends React.Component {
   state = {
@@ -23,6 +24,10 @@ export default class RestaurantsPage extends React.Component {
       redirectToWelcomePage,
       fetchRestaurantsFromServer
     } = this.props;
+
+    if (!restaurantData) {
+      return <Loading />;
+    }
 
     return (
       <div className="content-area">
