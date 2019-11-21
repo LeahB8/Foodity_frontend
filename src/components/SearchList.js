@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { fetchRestaurantsByCity } from "../services/api";
 import SearchCard from "./SearchCard";
 
 export default class SearchList extends Component {
@@ -59,7 +58,7 @@ export default class SearchList extends Component {
       <div className="restaurant-list">
         {searchOptionData.map((option, i) => (
           <SearchCard
-            key={i}
+            key={option.id}
             user={user}
             option={option}
             loggedIn={loggedIn}

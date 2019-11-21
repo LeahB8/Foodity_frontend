@@ -8,7 +8,6 @@ import {
   fetchCollectionsForCity
 } from "../services/api";
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -210,7 +209,7 @@ export default function SearchComponent(props) {
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={200} spacing={20} className={classes.gridList}>
+      <GridList cellHeight={300} spacing={20} className={classes.gridList}>
         {cities.map(tile => (
           <GridListTile key={tile.image_url} onClick={() => handleClick(tile)}>
             <img src={tile.image_url} alt={tile.name} />

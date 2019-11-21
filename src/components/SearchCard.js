@@ -25,40 +25,46 @@ export default class SearchCard extends Component {
       fetchRestaurantsByCityAndCuisine(
         this.props.selectedCityId,
         option.cuisine.cuisine_id
-      )
-        .then(data => {
-          this.props.populateListWithData(data);
-        })
-        .then(() => {
-          this.props.history.push(`/restaurants/${this.props.selectedCityId}`);
-        });
+      ).then(data => {
+        this.props.populateListWithData(data);
+        this.props.history.push(`/restaurants/${this.props.selectedCityId}`);
+      });
+      // .then(() => {
+      //   this.props.history.push(`/restaurants/${this.props.selectedCityId}`);
+      // });
     } else if (option.collection) {
       fetchRestaurantsByCityAndCollection(
         this.props.selectedCityId,
         option.collection.collection_id
-      )
-        .then(data => this.props.populateListWithData(data))
-        .then(() =>
-          this.props.history.push(`/restaurants/${this.props.selectedCityId}`)
-        );
+      ).then(data => {
+        this.props.populateListWithData(data);
+        this.props.history.push(`/restaurants/${this.props.selectedCityId}`);
+      });
+      // .then(() =>
+      //   this.props.history.push(`/restaurants/${this.props.selectedCityId}`)
+      // );
     } else if (option.establishment) {
       fetchRestaurantsByCityAndEstablishment(
         this.props.selectedCityId,
         option.establishment.id
-      )
-        .then(data => this.props.populateListWithData(data))
-        .then(() =>
-          this.props.history.push(`/restaurants/${this.props.selectedCityId}`)
-        );
+      ).then(data => {
+        this.props.populateListWithData(data);
+        this.props.history.push(`/restaurants/${this.props.selectedCityId}`);
+      });
+      // .then(() =>
+      //   this.props.history.push(`/restaurants/${this.props.selectedCityId}`)
+      // );
     } else if (option.categories) {
       fetchRestaurantsByCityAndCategory(
         this.props.selectedCityId,
         option.categories.id
-      )
-        .then(data => this.props.populateListWithData(data))
-        .then(() =>
-          this.props.history.push(`/restaurants/${this.props.selectedCityId}`)
-        );
+      ).then(data => {
+        this.props.populateListWithData(data);
+        this.props.history.push(`/restaurants/${this.props.selectedCityId}`);
+      });
+      // .then(() =>
+      //   this.props.history.push(`/restaurants/${this.props.selectedCityId}`)
+      // );
     }
   };
 
@@ -69,6 +75,18 @@ export default class SearchCard extends Component {
       <div>
         <div className="search-card" onClick={() => this.handleClick(option)}>
           <p>{this.searchTerm(option)}</p>
+          {option.collection ? (
+            <>
+              <div className="collection-description">
+                <p>{option.collection.description}</p>
+              </div>
+              <img
+                className="option-image"
+                src={option.collection.image_url}
+                alt="collection"
+              />
+            </>
+          ) : null}
         </div>
       </div>
     );

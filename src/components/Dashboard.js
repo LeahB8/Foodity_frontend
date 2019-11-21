@@ -18,9 +18,6 @@ class Dashboard extends Component {
   };
   render() {
     const { single } = this.props;
-
-    debugger;
-
     return (
       <main>
         <Dialog
@@ -66,13 +63,17 @@ class Dashboard extends Component {
               {single.timings}
             </Typography>
             <br />
-            {/* <Typography align="left" object="p">
-              <Link target="_blank" href={single.menu_url}>
-                Menu
-              </Link>
-            </Typography>
+            {single.menu_url ? (
+              <React.Fragment>
+                <Typography align="left" object="p">
+                  <a target="_blank" href={single.menu_url}>
+                    Menu
+                  </a>
+                </Typography>
 
-            <br /> */}
+                <br />
+              </React.Fragment>
+            ) : null}
             {single.photos ? (
               <React.Fragment>
                 <Typography variant="h6">

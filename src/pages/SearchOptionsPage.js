@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import SearchList from "../components/SearchList";
 import ProgressBar from "../components/ProgressBar";
+import Loading from "react-loading-animation";
 
 export default class SearchOptionsPage extends React.Component {
   state = {
@@ -20,6 +21,10 @@ export default class SearchOptionsPage extends React.Component {
       selectedCityName,
       redirectToWelcomePage
     } = this.props;
+
+    if (!searchOptionData) {
+      return <Loading />;
+    }
 
     return (
       <div className="content-area">
