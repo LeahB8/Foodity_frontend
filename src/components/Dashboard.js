@@ -18,7 +18,9 @@ class Dashboard extends Component {
   };
   render() {
     const { single } = this.props;
-    // // debugger;
+
+    debugger;
+
     return (
       <main>
         <Dialog
