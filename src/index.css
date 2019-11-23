@@ -224,6 +224,21 @@ a:-webkit-any-link {
   border-radius: 4px;
 }
 
+.restaurant-images:hover,
+.restaurant-image:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.restaurant-image-modal {
+  height: 550px;
+  width: 550px;
+  margin: 2.5px 5px 2.5px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
 .restaurant-image {
   width: 250px;
   height: 250px;

@@ -134,7 +134,16 @@ export default function BookingCard(props) {
   function imgLoadError(event) {
     event.target.src = images[Math.floor(Math.random() * images.length)];
   }
-  debugger;
+
+  const renderRestaurantInfoModal = () => {
+    return (
+      <Dashboard
+        single={props.single}
+        user={props.user}
+        key={props.single.id}
+      />
+    );
+  };
 
   return (
     <Card className={classes.card}>
@@ -147,13 +156,15 @@ export default function BookingCard(props) {
         subheader={displayDateAndTime()}
       />
       <CardMedia className={classes.media}>
-        <img
-          className="restaurant-image"
-          src={props.single.featured_image}
-          onError={imgLoadError}
-          alt="restaurant"
+        <Dashboard
+          show={this}
+          single={props.single}
+          user={props.user}
+          key={props.single.id}
+          imgLoadError={imgLoadError}
         />
       </CardMedia>
+
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
           {props.single.cuisines}
@@ -189,8 +200,6 @@ export default function BookingCard(props) {
             <Icon>star</Icon>
           </IconButton>
         </Tooltip>
-
-        <Dashboard single={props.single} />
       </CardActions>
     </Card>
   );

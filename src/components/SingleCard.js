@@ -76,9 +76,9 @@ export default function SingleCard(props) {
     "https://images.unsplash.com/photo-1483648969698-5e7dcaa3444f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"
   ];
 
-  function imgLoadError(event) {
+  const imgLoadError = event => {
     event.target.src = images[Math.floor(Math.random() * images.length)];
-  }
+  };
 
   return (
     <Card className={classes.card}>
@@ -96,13 +96,15 @@ export default function SingleCard(props) {
         title={props.single.name}
       />
       <CardMedia className={classes.media}>
-        <img
-          className="restaurant-image"
-          src={props.single.featured_image}
-          onError={imgLoadError}
-          alt="restaurant"
+        <Dashboard
+          show={this}
+          single={props.single}
+          user={props.user}
+          key={props.single.id}
+          imgLoadError={imgLoadError}
         />
       </CardMedia>
+
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
           {props.single.cuisines}
@@ -119,11 +121,6 @@ export default function SingleCard(props) {
         >
           <Icon>delete</Icon>
         </IconButton>
-        <Dashboard
-          single={props.single}
-          user={props.user}
-          key={props.single.id}
-        />
       </CardActions>
     </Card>
   );

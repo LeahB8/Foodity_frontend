@@ -3,10 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
-import {
-  fetchRestaurantsByCity,
-  fetchCollectionsForCity
-} from "../services/api";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     // height: 850,
     padding: 30,
     margin: 40,
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)",
     cursor: "pointer"
   },

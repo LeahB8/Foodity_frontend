@@ -1,7 +1,6 @@
 import React from "react";
 import "../App.css";
 import SearchComponent from "../components/SearchComponent";
-import ProgressBar from "../components/ProgressBar";
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
 

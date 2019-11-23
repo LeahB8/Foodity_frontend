@@ -1,27 +1,18 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import StarRatings from "react-star-ratings";
 import Dashboard from "./Dashboard";
 import Icon from "@material-ui/core/Icon";
 import Tooltip from "@material-ui/core/Tooltip";
 import DateTime from "./DateTime";
-import { Link } from "react-router-dom";
-import { fetchUserInfo, findIndividualRestaurantInfo } from "../services/api";
 import swal from "sweetalert";
 
 const useStyles = makeStyles(theme => ({
@@ -52,11 +43,11 @@ export default function RestaurantCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  function handleExpandClick() {
+  const handleExpandClick = () => {
     setExpanded(!expanded);
-  }
+  };
 
-  function handleLikeFavourite(restaurant) {
+  const handleLikeFavourite = restaurant => {
     if (props.loggedIn) {
       props
         .addFave(restaurant.R.res_id)
@@ -73,9 +64,9 @@ export default function RestaurantCard(props) {
     } else {
       swal("Please sign in");
     }
-  }
+  };
 
-  function handleLikeWishlist(restaurant) {
+  const handleLikeWishlist = restaurant => {
     if (props.loggedIn) {
       props
         .addWishlist(restaurant.R.res_id)
@@ -92,7 +83,7 @@ export default function RestaurantCard(props) {
     } else {
       swal("Please sign in");
     }
-  }
+  };
 
   const images = [
     "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
@@ -103,9 +94,9 @@ export default function RestaurantCard(props) {
     "https://images.unsplash.com/photo-1483648969698-5e7dcaa3444f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1334&q=80"
   ];
 
-  function imgLoadError(event) {
+  const imgLoadError = event => {
     event.target.src = images[Math.floor(Math.random() * images.length)];
-  }
+  };
 
   return (
     <Card className={classes.card}>
@@ -124,13 +115,15 @@ export default function RestaurantCard(props) {
       />
 
       <CardMedia className={classes.media}>
-        <img
-          className="restaurant-image"
-          src={props.single.featured_image}
-          onError={imgLoadError}
-          alt="restaurant"
+        <Dashboard
+          show={this}
+          single={props.single}
+          user={props.user}
+          key={props.single.id}
+          imgLoadError={imgLoadError}
         />
       </CardMedia>
+
       <CardContent>
         <Typography variant="subtitle1" color="textSecondary">
           <strong>{props.single.cuisines}</strong>
@@ -158,12 +151,6 @@ export default function RestaurantCard(props) {
             <Icon>star</Icon>
           </IconButton>
         </Tooltip>
-
-        <Dashboard
-          single={props.single}
-          user={props.user}
-          key={props.single.id}
-        />
       </CardActions>
     </Card>
   );
