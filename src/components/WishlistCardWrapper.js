@@ -37,18 +37,14 @@ export default class WishlistCardWrapper extends React.Component {
       fetchRestaurantsFromServer
     } = this.props;
 
-    // const { restaurantInfo } = this.state;
     return (
       <div className="restaurant-list">
         <SingleCard
           key={wishlist.id}
-          //   setUserWishlists={setUserWishlists}
           secondCallback={setUserWishlists}
-          //   deleteWishlistItemFromServer={deleteWishlistItemFromServer}
           deleteCallback={deleteWishlistItemFromServer}
           user={user}
           single={this.state}
-          // city={this.state.location.city}
           savedRestaurants={savedRestaurants}
           userInfo={userWishlists}
           addBooking={addBooking}

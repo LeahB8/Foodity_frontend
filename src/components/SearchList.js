@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SearchCard from "./SearchCard";
 
 export default class SearchList extends Component {
-  searchTerm = option => {
+  getSearchTermNames = option => {
     let optionArr = [
       { type: "cuisine", name: "cuisine_name" },
       { type: "collection", name: "title" },
@@ -15,34 +15,27 @@ export default class SearchList extends Component {
       }
     });
     return firstNames;
-    // if (option.cuisine) {
-    //   return option.cuisine.cuisine_name;
-    // } else if (option.collection) {
-    //   return option.collection.title;
-    // } else if (option.establishment) {
-    //   return option.establishment.name;
-    // } else if (option.categories) {
-    //   return option.categories.name;
-    // }
   };
 
   filterSearchTermData = () => {
-    let optionArray = ["cuisine", "collection", "establishment", "categories"];
+    const { searchOptionData } = this.props;
 
-    // this.props.searchOptionData.sort((a, b) => {
-    //   let nameA = a[]
-    // })
+    let searchTermNameArr = searchOptionData.map(option => {
+      return this.getSearchTermNames(option);
+    });
 
-    // items.sort((a, b) => {
-    //   let nameA = a.name.toUpperCase(); // ignore upper and lowercase
-    //   let nameB = b.name.toUpperCase(); // ignore upper and lowercase
-    //   if (nameA < nameB) {
-    //     return -1;
-    //   }
-    //   if (nameA > nameB) {
-    //     return 1;
-    //   }
-    // });
+    let formattedArr = searchTermNameArr.sort((a, b) => {
+      let nameA = a[0];
+      let nameB = b[0];
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+    return formattedArr;
   };
 
   render() {
@@ -53,6 +46,8 @@ export default class SearchList extends Component {
       selectedCityId,
       populateListWithData
     } = this.props;
+
+    let filteredSearchTermData = this.filterSearchTermData();
 
     return (
       <div className="restaurant-list">

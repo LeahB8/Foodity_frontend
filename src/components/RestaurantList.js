@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { fetchRestaurantsByCity } from "../services/api";
 import RestaurantCard from "./RestaurantCard";
 
 class RestaurantList extends Component {

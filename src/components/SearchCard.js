@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  fetchRestaurantsByCity,
   fetchRestaurantsByCityAndCollection,
   fetchRestaurantsByCityAndCategory,
   fetchRestaurantsByCityAndCuisine,
@@ -9,15 +8,18 @@ import {
 
 export default class SearchCard extends Component {
   searchTerm = option => {
-    if (option.cuisine) {
-      return option.cuisine.cuisine_name;
-    } else if (option.collection) {
-      return option.collection.title;
-    } else if (option.establishment) {
-      return option.establishment.name;
-    } else if (option.categories) {
-      return option.categories.name;
-    }
+    let optionArr = [
+      { type: "cuisine", name: "cuisine_name" },
+      { type: "collection", name: "title" },
+      { type: "establishment", name: "name" },
+      { type: "categories", name: "name" }
+    ];
+    let firstNames = optionArr.map(singleOption => {
+      if (option[singleOption.type]) {
+        return option[singleOption.type][singleOption.name];
+      }
+    });
+    return firstNames;
   };
 
   handleClick = option => {
@@ -69,7 +71,7 @@ export default class SearchCard extends Component {
   };
 
   render() {
-    const { option, selectedCityId } = this.props;
+    const { option } = this.props;
 
     return (
       <div>
