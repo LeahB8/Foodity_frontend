@@ -23,7 +23,7 @@
     "react-scripts": "3.0.1",
     "react-star-ratings": "^2.3.0",
     "sweetalert": "^2.1.2",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "scripts": {
     "start": "react-scripts start",
